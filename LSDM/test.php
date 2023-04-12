@@ -382,10 +382,14 @@ echo '<html lang="en">
 </body>
 </html>';
 
-$servername = "database-cyber.chsvbmziubkt.us-east-2.rds.amazonaws.com";
-$username = "admin";
-$password = "cyberdata";
-$dbname = "CyberDB";
+$servername = "mysql://root:mQT8bRQKwfwnCB9e7Hu9@containers-us-west-110.railway.app:5512/railway";
+$username = "root";
+$password = "mQT8bRQKwfwnCB9e7Hu9";
+$dbname = "railway";
+//$servername = "database-cyber.chsvbmziubkt.us-east-2.rds.amazonaws.com";
+//$username = "admin";
+//$password = "cyberdata";
+//$dbname = "CyberDB";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
