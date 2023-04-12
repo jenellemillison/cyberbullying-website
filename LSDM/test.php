@@ -382,10 +382,11 @@ echo '<html lang="en">
 </body>
 </html>';
 
-$servername = "mysql://root:mQT8bRQKwfwnCB9e7Hu9@containers-us-west-110.railway.app:5512/railway";
-$username = "root";
-$password = "mQT8bRQKwfwnCB9e7Hu9";
-$dbname = "railway";
+//TODO: ENCRYPT THIS
+$servername = $MYSQL_URL;
+$username = $MYSQLUSER;
+$password = $MYSQLPASSWORD;
+$dbname = $MYSQLDATABASE;
 //$servername = "database-cyber.chsvbmziubkt.us-east-2.rds.amazonaws.com";
 //$username = "admin";
 //$password = "cyberdata";
