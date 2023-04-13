@@ -37,7 +37,7 @@ echo '<html lang="en">
   <div class="hero-content display-table">
     <div class="table-cell">
       <div class="container">
-        <h1 class="hero-title mb-4">Stop Cyberbullying</h1>
+        <h1 class="hero-title mb-4">Stop Cyberbullying PHP is working</h1>
       </div>
     </div>
   </div>
