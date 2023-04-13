@@ -392,10 +392,6 @@ $port = $_ENV["MYSQLPORT"];
 $username = $_ENV["MYSQLUSER"];
 $password = $_ENV["MYSQLPASSWORD"];
 $dbname = $_ENV["MYSQLDATABASE"];
-//$servername = "database-cyber.chsvbmziubkt.us-east-2.rds.amazonaws.com";
-//$username = "admin";
-//$password = "cyberdata";
-//$dbname = "CyberDB";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
@@ -408,6 +404,20 @@ else{
 	echo "<h1>CONNECTED</h1>";
 }
 
+
+$sql = "SELECT id topic, subtopic, postedBy, textContent, postedAt FROM TwitterData";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
+	echo "id: " . $row["id"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
+  }
+}
+else {
+  echo "0 results";
+}
 //echo "<h1>Severname: .$servername</h1>";
 //echo "<h1>Username: .$username</h1>";
 //echo "<h1>pw: .$password</h1>";
