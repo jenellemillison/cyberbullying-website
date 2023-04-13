@@ -383,17 +383,17 @@ echo '<html lang="en">
 </html>';
 
 //DB connection
-$servername = $_ENV["HOST"];
-$username = $_ENV["USER"];
-$password = $_ENV["PW"];
-$dbname = $_ENV["DB"];
+$servername = $_ENV["MYSQLHOST"].":".$_ENV["MYSQLPORT"];
+$username = $_ENV["MYSQLUSER"];
+$password = $_ENV["MYSQLPASSWORD"];
+$dbname = $_ENV["MYSQLDATABASE"];
 //$servername = "database-cyber.chsvbmziubkt.us-east-2.rds.amazonaws.com";
 //$username = "admin";
 //$password = "cyberdata";
 //$dbname = "CyberDB";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysql_connect($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
