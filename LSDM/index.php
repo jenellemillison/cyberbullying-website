@@ -394,7 +394,7 @@ $dbname = $_ENV["MYSQLDATABASE"];
 //$dbname = "CyberDB";
 
 // Create connection
-$conn = new mysql_connect($servername, $username, $password, $dbname, $port);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
