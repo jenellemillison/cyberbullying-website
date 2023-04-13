@@ -382,10 +382,6 @@ echo '<html lang="en">
 </body>
 </html>';
 
-
-// PUT ABOVE BODY IF KEEP
-//<script src="db-connect.php"></script>
-
 //DB connection
 $servername = $_ENV["MYSQLHOST"];
 $port = $_ENV["MYSQLPORT"];
@@ -404,35 +400,19 @@ else{
 	echo "<h1>CONNECTED</h1>";
 }
 
-
 $sql = "SELECT id topic, subtopic, postedBy, textContent, postedAt FROM TwitterData";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
-	echo "id: " . $row["id"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
+    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
+	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
   }
 }
 else {
   echo "0 results";
 }
-//echo "<h1>Severname: .$servername</h1>";
-//echo "<h1>Username: .$username</h1>";
-//echo "<h1>pw: .$password</h1>";
-//echo "<h1>dbname: .$dbname</h1>";
-//
-//$sql = "SELECT id, firstname, lastname FROM MyGuests";
-//$result = $conn->query($sql);
-//
-//if ($result->num_rows > 0) {
-//  // output data of each row
-//  while($row = $result->fetch_assoc()) {
-//    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-//  }
-//} else {
-//  echo "0 results";
-//}
+
 $conn->close();
 ?>
