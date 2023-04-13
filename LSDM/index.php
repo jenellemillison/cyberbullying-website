@@ -37,7 +37,7 @@ echo '<html lang="en">
   <div class="hero-content display-table">
     <div class="table-cell">
       <div class="container">
-        <h1 class="hero-title mb-4">Stop Cyberbullying PHP is working</h1>
+        <h1 class="hero-title mb-4">Stop Cyberbullying</h1>
       </div>
     </div>
   </div>
@@ -383,14 +383,14 @@ echo '<html lang="en">
 </html>';
 
 //DB connection
-//$servername = $_ENV["HOST"];
-//$username = $_ENV["USER"];
-//$password = $_ENV["PW"];
-//$dbname = $_ENV["DB"];
-$servername = "database-cyber.chsvbmziubkt.us-east-2.rds.amazonaws.com";
-$username = "admin";
-$password = "cyberdata";
-$dbname = "CyberDB";
+$servername = $_ENV["HOST"];
+$username = $_ENV["USER"];
+$password = $_ENV["PW"];
+$dbname = $_ENV["DB"];
+//$servername = "database-cyber.chsvbmziubkt.us-east-2.rds.amazonaws.com";
+//$username = "admin";
+//$password = "cyberdata";
+//$dbname = "CyberDB";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
