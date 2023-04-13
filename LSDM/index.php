@@ -383,10 +383,10 @@ echo '<html lang="en">
 </html>';
 
 //DB connection
-$servername = $_ENV["MYSQL_URL"];
-$username = $_ENV["MYSQLUSER"];
-$password = $_ENV["MYSQLPASSWORD"];
-$dbname = $_ENV["MYSQLDATABASE"];
+$servername = $_ENV["HOST"];
+$username = $_ENV["USER"];
+$password = $_ENV["PW"];
+$dbname = $_ENV["DB"];
 //$servername = "database-cyber.chsvbmziubkt.us-east-2.rds.amazonaws.com";
 //$username = "admin";
 //$password = "cyberdata";
