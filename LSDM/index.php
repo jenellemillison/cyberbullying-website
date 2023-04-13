@@ -403,10 +403,10 @@ else{
 	echo "<h1>CONNECTED</h1>";
 }
 
-echo "<h1>Severname: .$servername</h1>";
-echo "<h1>Username: .$username</h1>";
-echo "<h1>pw: .$password</h1>";
-echo "<h1>dbname: .$dbname</h1>";
+//echo "<h1>Severname: .$servername</h1>";
+//echo "<h1>Username: .$username</h1>";
+//echo "<h1>pw: .$password</h1>";
+//echo "<h1>dbname: .$dbname</h1>";
 //
 //$sql = "SELECT id, firstname, lastname FROM MyGuests";
 //$result = $conn->query($sql);
