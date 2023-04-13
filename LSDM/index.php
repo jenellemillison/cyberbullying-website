@@ -378,9 +378,13 @@ echo '<html lang="en">
 </footer>
 <!-- End  Footer --> 
 <script src="assets/js/java.js"></script>
-<script src="db-connect.php"></script>
+
 </body>
 </html>';
+
+
+// PUT ABOVE BODY IF KEEP
+//<script src="db-connect.php"></script>
 
 //DB connection
 $servername = $_ENV["MYSQLHOST"];
