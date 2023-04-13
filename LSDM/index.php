@@ -383,7 +383,8 @@ echo '<html lang="en">
 </html>';
 
 //DB connection
-$servername = $_ENV["MYSQLHOST"].":".$_ENV["MYSQLPORT"];
+$servername = $_ENV["MYSQLHOST"];
+$port = $_ENV["MYSQLPORT"];
 $username = $_ENV["MYSQLUSER"];
 $password = $_ENV["MYSQLPASSWORD"];
 $dbname = $_ENV["MYSQLDATABASE"];
@@ -393,7 +394,7 @@ $dbname = $_ENV["MYSQLDATABASE"];
 //$dbname = "CyberDB";
 
 // Create connection
-$conn = new mysql_connect($servername, $username, $password, $dbname);
+$conn = new mysql_connect($servername, $username, $password, $dbname, $port);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
