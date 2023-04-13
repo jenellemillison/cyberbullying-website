@@ -400,7 +400,7 @@ else{
 	echo "<h1>CONNECTED</h1>";
 }
 
-$sql = "SELECT id topic, subtopic, postedBy, textContent, postedAt FROM TwitterData";
+$sql = "SELECT tweetId, topic, subtopic, postedBy, textContent, postedAt FROM TwitterData";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
