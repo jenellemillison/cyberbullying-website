@@ -11,10 +11,7 @@ echo '<html lang="en">
 <body>
 <header id="header" class="fixed-top">
   <div class="container d-flex align-items-center justify-content-between">
-    <div>
-      <nav class="navbar">
-        <h2 class ="button">Check This Out!</h2>
-        <div href="#" class="button">
+        <nav id="navbar" class="navbar">
           <ul>
             <li><a class="nav-link scrollto active" href="#hero">Home</a> </li>
             <li><a class="nav-link scrollto" href="#about">About</a> </li>
@@ -23,9 +20,8 @@ echo '<html lang="en">
             <li><a class="nav-link scrollto" href="#who">Meet the Developers</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           </ul>
-        </div>
-      </nav>
-    </div>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
   </div>
 </header>
 <!-- ===== Hero Section ===== -->
