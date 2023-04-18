@@ -1060,11 +1060,13 @@ COMMENT OUT THE BELOW FOUR INCASE NAVBAR ISN'T WORKING
 .testimonial-box .author-test {
   margin-top: 1rem;
 }
+/*
 .testimonial-box .author-test img {
   margin: 0 auto;
 }
+*/
 
-.author-test .smallimg img{
+.author-test img{
 	max-height: 200 px;
 	max-width: 200 px;
 }
