@@ -260,21 +260,54 @@ echo '<html lang="en">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="testimonial-box">
-                  <div class="author-test"> <img src="assets/img/testimonial-2.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Xavi Alonso</span> </div>
+                  <div class="author-test"> <img src="assets/images/jenelle.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Jenelle Millison</span> </div>
                   <div class="content-test">
-                    <p class="description lead"> Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit. </p>
+                    <p class="description lead"> Jenelle is an Undergraduate Computer Science student at UTSA. She is graduating in Spring 2023. </p>
                   </div>
                 </div>
               </div>
               <!-- End testimonial item -->
-              
               <div class="swiper-slide">
                 <div class="testimonial-box">
-                  <div class="author-test"> <img src="assets/img/testimonial-4.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Marta Socrate</span> </div>
+                  <div class="author-test"> <img src="assets/images/Javier.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Javier</span> </div>
                   <div class="content-test">
-                    <p class="description lead"> Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit. </p>
+                    <p class="description lead"> Javier is >>>>>. </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item --> 
+			  <div class="swiper-slide">
+                <div class="testimonial-box">
+                  <div class="author-test"> <img src="assets/images/Shay.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Shay Hill</span> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Bill is >>>>>. </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item --> 
+			  <div class="swiper-slide">
+                <div class="testimonial-box">
+                  <div class="author-test"> <img src="assets/images/Daisy.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Daisy Xu</span> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Daisy is >>>>>. </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item --> 
+			  <div class="swiper-slide">
+                <div class="testimonial-box">
+                  <div class="author-test"> <img src="assets/images/Analisa.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Analisa Rojas</span> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Analisa is >>>>>. </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item --> 
+              <div class="swiper-slide">
+                <div class="testimonial-box">
+                  <div class="author-test"> <img src="assets/images/Bill.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Bill Gonzalez</span> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Bill is >>>>>. </p>
                   </div>
                 </div>
               </div>
