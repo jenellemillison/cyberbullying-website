@@ -99,7 +99,6 @@ echo '<html lang="en">
         <div class="line-mf"></div><br><br>
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="button button-a button-big button-rouded dropbtn">Select Topic</button>
-			 <div class-"title-box text-center">
 		<div id="topic-drop-search" class="button topic-dropdown-content">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 <!--
@@ -109,7 +108,6 @@ echo '<html lang="en">
 			<button name="politics" class="button button-a button-rounded">Politics</button>
 			<button name="sports" class="button button-a button-rounded">Sports</button>
 			<button name="oscars" class="button button-a button-rounded">Oscars</button>
-		</div>
 		</div>
 		</div>
       </div>
@@ -307,39 +305,70 @@ echo '<html lang="en">
               <div class="more-info">
                 <p class="lead"> Whether you want to report a bug, ask a question, or share some other information with us, please reach out via email. </p>
               </div>
-              <div>
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                  <div class="row">
-                    <div class="col-md-12 mb-3">
-                      <div class="form-group">
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                      </div>
-                    </div>
-                    <div class="col-md-12 mb-3">
-                      <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                      </div>
-                    </div>
-                    <div class="col-md-12 mb-3">
-                      <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                      </div>
-                    </div>
-                    <div class="col-md-12 text-center my-3">
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message">Your message has been sent. Thank you!</div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                      <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                    </div>
-                  </div>
-                </form>
+			   <div>
+					';
+					if (!isset($_POST['submit']))
+					{
+	  				echo '
+                      <form method="post" role="form" >';
+                        echo '<div class="row">
+                          <div class="col-md-12 mb-3">';
+                            echo '<div class="form-group">';
+                              echo '<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Your First Name" required>';
+                            echo '</div>';
+                          echo '</div>';
+						  echo '<div class="col-md-12 mb-3">';
+                            echo '<div class="form-group">
+                              <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Your Last Name" required>';
+                            echo '</div>';
+                          echo '</div>';
+                          echo '<div class="col-md-12 mb-3">';
+                            echo '<div class="form-group">
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>';
+                            echo '</div>';
+                          echo '</div>';
+						echo '<div class="col-md-12 mb-3">';
+                            echo '<div class="form-group">
+                              <input type="phone" class="form-control" name="phone" id="phone" placeholder="Your Phone Number" required>';
+                            echo '</div>';
+                          echo '</div>';
+						echo '<div class="col-md-12 mb-3">';
+                            echo '<div class="form-group">
+                              <input type="comments" class="form-control" name="comments" id="comments" placeholder="Any Comments" required>';
+                            echo '</div>';
+                          echo '</div>';
+						echo '<div class="col-md-12 text-center">';
+                            echo '<button type="submit" name="submit" value="submit" class="button button-a button-big button-rouded">Submit</button>';
+                          echo '</div>';
+                        echo '</div>';
+                      echo '</form>';
+					}
+					if(isset($_POST['submit']))
+					{
+						$firstname = addslashes($_POST['firstname']); //add slashes will make sure there's no special characters
+						$lastname = addslashes($_POST['lastname']);
+						$email = addslashes($_POST['email']);
+						addslashes($phone = $_POST['phone']);
+						addslashes($comments = $_POST['comments']);
+						echo '<h4>Data received:</h4>';
+						echo "<p>First Name: $firstname</p>";
+						echo "<p>Last Name: $lastname</p>";
+						echo "<p>Email: $email</p>";
+						echo "<p>Phone: $phone</p>";
+						echo "<p>Comments: $comments</p>";
+						// DB connection parameters
+						$servername = $_ENV["MYSQLHOST"];
+						$port = $_ENV["MYSQLPORT"];
+						$username = $_ENV["MYSQLUSER"];
+						$password = $_ENV["MYSQLPASSWORD"];
+						$dbname = $_ENV["MYSQLDATABASE"];
+						// Create new mysql connection
+						$dblink=new mysqli($servername, $username, $password, $dbname, $port); //make the connection to the db
+						$sql="Insert into `entries` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
+						$dblink->query($sql) or die("<p>Something went wrong with: $sql<br>".$dblink->error); //execute the above query or call the error class with dblink
+						echo "<h4>Data entered into the database successfully</h4>";
+					}
+				echo'
               </div>
             </div>
             <div class="col-md-12 text-center">
