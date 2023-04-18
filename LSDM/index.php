@@ -6,7 +6,6 @@ echo '<html lang="en">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <!-- CSS FILES -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -245,83 +244,27 @@ echo '<html lang="en">
   <div class="row">
     <div class="col-sm-12">
       <div class="title-box text-center">
-        <h3 class="title-a"> TODO: Meet the Developers </h3>
-        <p class="subtitle-a"> Will consist of pictures and descriptions of us! </p>
+        <h3 class="title-a"> Meet the Developers </h3>
+        <p class="subtitle-a"> The team behind "Stop Cyberbullying" </p>
         <div class="line-mf"></div>
       </div>
     </div>
   </div>
-  <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="testimonial-box">
-                  <div class="author-test"> <img src="assets/images/jenelle.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Jenelle Millison</span> </div>
+  
+  
+   <div class="overlay-mf"></div>
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-sm-3 col-lg-3">
+         <div class="author-test"> <img src="assets/images/jenelle.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Jenelle Millison</span> </div>
                   <div class="content-test">
                     <p class="description lead"> Jenelle is an Undergraduate Computer Science student at UTSA. She is graduating in Spring 2023. </p>
                   </div>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-              <div class="swiper-slide">
-                <div class="testimonial-box">
-                  <div class="author-test"> <img src="assets/images/Javier.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Javier</span> </div>
-                  <div class="content-test">
-                    <p class="description lead"> Javier is >>>>>. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item --> 
-			  <div class="swiper-slide">
-                <div class="testimonial-box">
-                  <div class="author-test"> <img src="assets/images/Shay.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Shay Hill</span> </div>
-                  <div class="content-test">
-                    <p class="description lead"> Bill is >>>>>. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item --> 
-			  <div class="swiper-slide">
-                <div class="testimonial-box">
-                  <div class="author-test"> <img src="assets/images/Daisy.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Daisy Xu</span> </div>
-                  <div class="content-test">
-                    <p class="description lead"> Daisy is >>>>>. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item --> 
-			  <div class="swiper-slide">
-                <div class="testimonial-box">
-                  <div class="author-test"> <img src="assets/images/Analisa.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Analisa Rojas</span> </div>
-                  <div class="content-test">
-                    <p class="description lead"> Analisa is >>>>>. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item --> 
-              <div class="swiper-slide">
-                <div class="testimonial-box">
-                  <div class="author-test"> <img src="assets/images/Bill.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Bill Gonzalez</span> </div>
-                  <div class="content-test">
-                    <p class="description lead"> Bill is >>>>>. </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End testimonial item --> 
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-          <!-- <div id="testimonial-mf" class="owl-carousel owl-theme">
-        </div> --> 
-        </div>
       </div>
+	 </div>
     </div>
   </div>
-</div>
+</section>
 <!-- End Meet the Developers Section --> 
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
