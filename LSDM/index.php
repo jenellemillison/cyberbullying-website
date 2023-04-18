@@ -251,14 +251,45 @@ echo '<html lang="en">
     </div>
   </div>
   
-  
    <div class="overlay-mf"></div>
   <div class="container position-relative">
     <div class="row">
       <div class="col-sm-3 col-lg-3">
+         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="rounded-circle b-shadow-a"> <h3>Analisa Rojas</h3> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Analisa is a Computer Science student at UTSA. </p>
+                  </div>
+      </div>
+	   <div class="col-sm-3 col-lg-3">
+         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="rounded-circle b-shadow-a"> <h3>Bill Gonzalez</h3> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Bill is a Computer Science student at UTSA. </p>
+                  </div>
+      </div>
+	   <div class="col-sm-3 col-lg-3">
+         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="rounded-circle b-shadow-a"> <h3>Javier </h3> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Javier is a Computer Science student at UTSA. </p>
+                  </div>
+      </div>
+	  </div>
+	  <div class="row">
+	  <div class="col-sm-3 col-lg-3">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="rounded-circle b-shadow-a"> <h3>Jenelle Millison</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Jenelle is an Undergraduate Computer Science student at UTSA. She is graduating in Spring 2023. </p>
+                    <p class="description lead"> Jenelle is a Computer Science student at UTSA. </p>
+                  </div>
+      </div>
+	  <div class="col-sm-3 col-lg-3">
+         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="rounded-circle b-shadow-a"> <h3>Shay Hill</h3> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Shay is a Computer Science student at UTSA. </p>
+                  </div>
+      </div>
+	  <div class="col-sm-3 col-lg-3">
+         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="rounded-circle b-shadow-a"> <h3>Xue Li</h3> </div>
+                  <div class="content-test">
+                    <p class="description lead"> Xue is a Computer Science student at UTSA. </p>
                   </div>
       </div>
 	 </div>
