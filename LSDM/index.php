@@ -366,19 +366,9 @@ echo '<html lang="en">
 						$dblink=new mysqli($servername, $username, $password, $dbname, $port); //make the connection to the db
 						$sql="Insert into `contact_data` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
 						$dblink->query($sql) or die("<p>Something went wrong with: $sql<br>".$dblink->error); //execute the above query or call the error class with dblink
-						echo "<h4>Data entered into the database successfully</h4>";
+						echo "<h4>Thank you for your feedback!</h4>";
 					}
 				echo'
-              </div>
-            </div>
-            <div class="col-md-12 text-center">
-              <div class="socials">
-                <ul>
-                  <li><a href=""><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
-                  <li><a href=""><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
-                  <li><a href=""><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
-                  <li><a href=""><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
-                </ul>
               </div>
             </div>
           </div>
