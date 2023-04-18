@@ -395,6 +395,7 @@ echo '<html lang="en">
 </footer>
 <!-- End  Footer --> 
 <script src="assets/js/java.js"></script>
+<script src="assets/js/searchbar.js"></script>
 
 </body>
 </html>';
