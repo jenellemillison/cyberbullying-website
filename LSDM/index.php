@@ -98,16 +98,18 @@ echo '<html lang="en">
         <p class="subtitle-a"> Will consist of a Search Bar and Drop Down List of subjects for Tweets. </p>
         <div class="line-mf"></div><br><br>
 		 <div class="topic-dropdown">
-			 <button onclick="dropdown()" class="dropbtn">Select Topic</button>
-		<div id="topic-drop-search" class="topic-dropdown-content">
+			 <button onclick="dropdown()" class="button button-a button-big button-rouded dropbtn">Select Topic</button>
+			 <div class-"title-box text-center">
+		<div id="topic-drop-search" class="button topic-dropdown-content">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 <!--
 			<form action="db-connect.php">
 				<input type="submit" class="button">
 -->			
-			<button name="politics">Politics</button>
-			<button>Sports</button>
-			<button>Oscars</button>
+			<button name="politics" class="button button-a button-rounded">Politics</button>
+			<button name="sports" class="button button-a button-rounded">Sports</button>
+			<button name="oscars" class="button button-a button-rounded">Oscars</button>
+		</div>
 		</div>
 		</div>
       </div>
