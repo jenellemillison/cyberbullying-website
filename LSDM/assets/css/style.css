@@ -1060,8 +1060,6 @@ COMMENT OUT THE BELOW FOUR INCASE NAVBAR ISN'T WORKING
 }
 .testimonial-box .author-test img {
   margin: 0 auto;
-  max-height: 100px;
-  max-width: 100px;
 }
 .testimonial-box .author {
   color: #fff;
@@ -1398,4 +1396,9 @@ footer .credits {
 }
 footer .credits a {
   color: #fff;
+}
+
+.smallimg img{
+	max-height: 200px;
+	max-width: 200px;
 }
