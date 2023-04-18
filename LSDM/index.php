@@ -9,9 +9,9 @@ echo '<html lang="en">
 <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<header id="header" class="fixed-top header-scrolled">
+<header id="header" class="fixed-top">
   <div class="container d-flex align-items-center justify-content-between">
-        <nav id="navbar" class="navbar">
+        <nav class="navbar">
           <ul>
             <li><a class="nav-link scrollto active" href="#hero">Home</a> </li>
             <li><a class="nav-link scrollto" href="#about">About</a> </li>
