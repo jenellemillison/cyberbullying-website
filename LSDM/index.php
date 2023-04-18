@@ -5,7 +5,7 @@ echo '<html lang="en">
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <!-- CSS FILES -->
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style2.css">
 <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -374,7 +374,6 @@ echo '<html lang="en">
       </div>
     </div>
   </div>
- </div>
 </section>
 <!-- End Contact Section -->
 </main>
