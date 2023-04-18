@@ -10,7 +10,7 @@ echo '<html lang="en">
 </head>
 <body>
 <header id="header" class="fixed-top">
-  <div >
+  <div class="container d-flex align-items-center justify-content-between">
         <nav id="navbar" class="navbar">
           <ul>
             <li><a class="nav-link scrollto active" href="#hero">Home</a> </li>
