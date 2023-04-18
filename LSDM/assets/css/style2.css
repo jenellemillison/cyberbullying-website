@@ -42,12 +42,13 @@
 }
 .topic-dropdown button:hover {background-color: #ddd;}
 .show {display: block;}
+
+
 body {
-  background-color: #2A2522;
+  background-color: #dee2e6;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: black;
   font-family: sans-serif; 
 }
 h1,
