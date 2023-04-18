@@ -14,7 +14,7 @@ echo '<html lang="en">
     <div>
       <nav class="navbar">
         <h2 class ="button">Check This Out!</h2>
-        <div href="#" class="btn">
+        <div href="#" class="button">
           <ul>
             <li><a class="nav-link scrollto active" href="#hero">Home</a> </li>
             <li><a class="nav-link scrollto" href="#about">About</a> </li>
