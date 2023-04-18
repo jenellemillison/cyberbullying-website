@@ -374,6 +374,7 @@ echo '<html lang="en">
       </div>
     </div>
   </div>
+ </div>
 </section>
 <!-- End Contact Section -->
 </main>
