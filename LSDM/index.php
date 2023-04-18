@@ -100,13 +100,13 @@ echo '<html lang="en">
         <p class="subtitle-a"> Will consist of a Search Bar and Drop Down List of subjects for Tweets. </p>
         <div class="line-mf"></div><br><br>
 		 <div class="topic-dropdown">
-			 <button onclick="dropdown()" class="dropbtn">Select Topic</button>
+			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 	
-			<button name="politics" >Politics</button>
-			<button name="sports" >Sports</button>
-			<button name="oscars">Oscars</button>
+			<button class="button button-a button-rouded" name="politics">Politics</button>
+			<button class="button button-a button-rouded" name="sports">Sports</button>
+			<button class="button button-a button-rouded" name="oscars">Oscars</button>
 		</div>
 		</div>
 		</div>
@@ -303,7 +303,7 @@ echo '<html lang="en">
                 <h5 class="title-center"> Send Us a Message! </h5>
               </div>
               <div class="more-info">
-                <p class="lead"> Whether you want to report a bug, ask a question, or share some other information with us, please reach out via email. </p>
+                <p class="lead"> Whether you want to report a bug, ask a question, or share some other information with us, please reach out by filling in your information below. </p>
               </div>
 			   <div>
 					';
