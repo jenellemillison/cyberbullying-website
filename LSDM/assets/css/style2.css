@@ -154,16 +154,16 @@ section {
 }
 
 .button:hover {
-  background-color: #0062d3;
+  background-color: #000000;
   color: #fff;
   transition: all 500ms ease;
 }
 
 .button-a {
   text-decoration: none;
-  background-color: #425576;
+  background-color: #C30011;
   color: #fff;
-  border-color: #cde1f8;
+  border-color: #C30011;
 }
 
 .button-big {
@@ -1224,7 +1224,7 @@ COMMENT OUT THE BELOW FOUR INCASE NAVBAR ISN'T WORKING
   transition: 0.4s;
 }
 .php-email-form button[type=submit]:hover {
-  background: #3393ff;
+  background: #000000;
 }
 @-webkit-keyframes animate-loading {
   0% {
