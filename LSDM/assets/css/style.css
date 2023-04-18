@@ -1071,6 +1071,11 @@ COMMENT OUT THE BELOW FOUR INCASE NAVBAR ISN'T WORKING
 	max-width: 200 px;
 }
 
+.smallimg img{
+	max-height: 200 px;
+	max-width: 200 px;
+}
+
 .testimonial-box .author {
   color: #fff;
   text-transform: uppercase;
