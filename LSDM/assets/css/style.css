@@ -1066,15 +1066,11 @@ COMMENT OUT THE BELOW FOUR INCASE NAVBAR ISN'T WORKING
 }
 */
 
-.author-test img{
-	max-height: 200 px;
-	max-width: 200 px;
+.smallimg img{
+	max-height: 250px;
+	max-width: 250px;
 }
 
-.smallimg img{
-	max-height: 200 px;
-	max-width: 200 px;
-}
 
 .testimonial-box .author {
   color: #fff;
