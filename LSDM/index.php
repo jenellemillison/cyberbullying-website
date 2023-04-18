@@ -6,7 +6,6 @@ echo '<html lang="en">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <!-- CSS FILES -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
