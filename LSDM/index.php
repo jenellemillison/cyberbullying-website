@@ -256,7 +256,7 @@ echo '<html lang="en">
   <div class="container position-relative">
     <div class="row">
       <div class="col-sm-3 col-lg-3">
-         <div class="author-test"> <img src="assets/images/jenelle.jpg" alt="" class="rounded-circle b-shadow-a"> <span class="author">Jenelle Millison</span> </div>
+         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="rounded-circle b-shadow-a"> <h3>Jenelle Millison</h3> </div>
                   <div class="content-test">
                     <p class="description lead"> Jenelle is an Undergraduate Computer Science student at UTSA. She is graduating in Spring 2023. </p>
                   </div>
