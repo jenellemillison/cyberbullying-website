@@ -36,8 +36,10 @@
 }
 
 .topic-dropdown-content button {
-  color: black;
-  padding: 12px 16px;
+  background: #C30011;
+  border: 0;
+  color: #fff;
+  padding: 10px 24px;
   text-decoration: none;
   display: block;
 }
