@@ -254,39 +254,39 @@ echo '<html lang="en">
    <div class="overlay-mf"></div>
   <div class="container position-relative">
     <div class="row">
-      <div class="col-sm-2 col-lg-2">
+      <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg rounded-circle b-shadow-a"> <h3>Analisa Rojas</h3> </div>
                   <div class="content-test">
                     <p class="description lead"> Analisa is a Computer Science student at UTSA. </p>
                   </div>
       </div>
-	   <div class="col-sm-2 col-lg-2">
+	   <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg rounded-circle b-shadow-a"> <h3>Bill Gonzalez</h3> </div>
                   <div class="content-test">
                     <p class="description lead"> Bill is a Computer Science student at UTSA. </p>
                   </div>
       </div>
-	   <div class="col-sm-2 col-lg-2">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg rounded-circle b-shadow-a"> <h3>Javier </h3> </div>
-                  <div class="content-test">
+	   <div class="col-sm-4 col-lg-4">
+         <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg > <h3>Javier </h3> </div>
+                  <div >
                     <p class="description lead"> Javier is a Computer Science student at UTSA. </p>
                   </div>
       </div>
 	  </div>
 	  <div class="row">
-	  <div class="col-sm-2 col-lg-2">
+	  <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg rounded-circle b-shadow-a"> <h3>Jenelle Millison</h3> </div>
                   <div class="content-test">
                     <p class="description lead"> Jenelle is a Computer Science student at UTSA. </p>
                   </div>
       </div>
-	  <div class="col-sm-2 col-lg-2">
+	  <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg rounded-circle b-shadow-a"> <h3>Shay Hill</h3> </div>
                   <div class="content-test">
                     <p class="description lead"> Shay is a Computer Science student at UTSA. </p>
                   </div>
       </div>
-	  <div class="col-sm-2 col-lg-2">
+	  <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg rounded-circle b-shadow-a"> <h3>Xue Li</h3> </div>
                   <div class="content-test">
                     <p class="description lead"> Xue is a Computer Science student at UTSA. </p>
