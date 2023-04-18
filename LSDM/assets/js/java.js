@@ -1,40 +1,4 @@
 /*
-	Menu Toggle
-*/
-//const menuToggle = document.querySelector('.toggle');
-const showcase = document.querySelector('.showcase');
-
-//menuToggle.addEventListener('click', () => {
-//  menuToggle.classList.toggle('active');
-//  showcase.classList.toggle('active');
-//})
-
-/*
-	Scroll event listener
-*/
-const onScroll = (elem, listener) => {
-  elem.addEventListener('scroll', listener)
-}
-
-/*
-	Scrolls to an element with header offset
-*/
-const scrollTo = (elem) => {
-  let header = document.select('#header')
-  let offset = header.offsetHeight
-
-  if (!header.classList.contains('header-scrolled')) {
-    offset -= 16
-  }
-
-  let elementPos = document.select(elem).offsetTop
-  window.scrollTo({
-    top: elementPos - offset,
-    behavior: 'smooth'
-  })
-}
-
-/*
 	Dropdown with the search info
 */
 function dropdown(){
@@ -66,7 +30,6 @@ function searchMatch() {
     }
   }
 }
-
 
 
 /**
