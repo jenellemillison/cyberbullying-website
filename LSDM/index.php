@@ -110,6 +110,7 @@ echo '<html lang="en">
 			<button name="oscars" class="button button-a button-rounded">Oscars</button>
 		</div>
 		</div>
+		</div>
       </div>
     </div>
   </div>
