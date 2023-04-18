@@ -197,7 +197,7 @@ echo '<html lang="en">
 </section>
 <!-- end graphs section--> 
 <!-- start counter section-->
-<div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
+<div class="section-counter paralax-mf bg-image" >
   <div class="overlay-mf"></div>
   <div class="container position-relative">
     <div class="row">
@@ -297,7 +297,7 @@ echo '<html lang="en">
 </section>
 <!-- End Meet the Developers Section --> 
 <!-- ======= Contact Section ======= -->
-<section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
+<section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route">
   <div class="overlay-mf"></div>
   <div class="container">
     <div class="row">
