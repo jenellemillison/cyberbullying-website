@@ -200,10 +200,6 @@ section {
 */
 .navbar {
   padding: 0;
-  bs-navbar-color: rgba(0, 0, 0, 0.55);
-  navbar-hover-color: rgba(0, 0, 0, 0.7);
-  navbar-disabled-color: rgba(0, 0, 0, 0.3);
-  bs-navbar-active-color: rgba(0, 0, 0, 0.9);
 }
 .navbar ul {
   margin: 0;
@@ -211,13 +207,16 @@ section {
   display: flex;
   list-style: none;
   align-items: center;
+  background-color: #000000;
 }
 .navbar li {
   position: relative;
+  background-color: #000000;
 }
 .navbar>ul>li {
   white-space: nowrap;
   padding: 10px 0 10px 30px;
+  background-color: #000000;
 }
 .navbar a,
 .navbar a:focus {
