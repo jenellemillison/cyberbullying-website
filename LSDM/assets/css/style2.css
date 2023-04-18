@@ -799,7 +799,6 @@ COMMENT OUT THE BELOW FOUR INCASE NAVBAR ISN'T WORKING
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: black;
   transition: all 0.5s;
   z-index: 997;
   padding: 20px 0;

@@ -11,7 +11,7 @@ echo '<html lang="en">
 <link rel="stylesheet" href="assets/css/style2.css">
 </head>
 <body>
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top header-scrolled">
   <div class="container d-flex align-items-center justify-content-between">
         <nav id="navbar" class="navbar">
           <ul>
