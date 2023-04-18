@@ -28,18 +28,19 @@
   display: none;
   position: absolute;
   background-color: #f6f6f6;
-  min-width: 230px;
   overflow: auto;
-  border: 1px solid #ddd;
+  border: 1px solid #C30011;
   z-index: 1;
 }
 .topic-dropdown-content button {
-  color: black;
-  padding: 12px 16px;
+  color: white;
+  padding: 3px 16px;
   text-decoration: none;
-  display: block;
+  margin: 5px 5px 10px 10px;
+  display: inline-flex;
+	
 }
-.topic-dropdown button:hover {background-color: #ddd;}
+.topic-dropdown button:hover {background-color: #000000;}
 .show {display: block;}
 
 
