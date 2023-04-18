@@ -200,7 +200,10 @@ section {
 */
 .navbar {
   padding: 0;
-  background-color: #000000;
+  bs-navbar-color: rgba(0, 0, 0, 0.55);
+  navbar-hover-color: rgba(0, 0, 0, 0.7);
+  navbar-disabled-color: rgba(0, 0, 0, 0.3);
+  bs-navbar-active-color: rgba(0, 0, 0, 0.9);
 }
 .navbar ul {
   margin: 0;
