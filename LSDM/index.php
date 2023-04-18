@@ -364,7 +364,7 @@ echo '<html lang="en">
 						$dbname = $_ENV["MYSQLDATABASE"];
 						// Create new mysql connection
 						$dblink=new mysqli($servername, $username, $password, $dbname, $port); //make the connection to the db
-						$sql="Insert into `entries` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
+						$sql="Insert into `contact_data` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
 						$dblink->query($sql) or die("<p>Something went wrong with: $sql<br>".$dblink->error); //execute the above query or call the error class with dblink
 						echo "<h4>Data entered into the database successfully</h4>";
 					}
