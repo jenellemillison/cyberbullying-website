@@ -9,7 +9,7 @@ echo '<html lang="en">
 <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top header-scrolled">
   <div class="container d-flex align-items-center justify-content-between">
         <nav id="navbar" class="navbar">
           <ul>
