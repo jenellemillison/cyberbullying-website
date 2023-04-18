@@ -400,7 +400,7 @@ echo '<html lang="en">
   </div>
 </footer>
 <!-- End  Footer --> 
-
+<script src="assets/js/java.js"></script>
 <script src="assets/js/searchbar.js"></script>
 
 </body>
