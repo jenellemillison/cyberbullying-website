@@ -1,4 +1,15 @@
-/*
+
+
+/**
+* Template Name: DevFolio - v4.10.0
+* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+(function() {
+  "use strict";
+	
+	/*
 	Dropdown with the search info
 */
 function dropdown(){
@@ -31,15 +42,6 @@ function searchMatch() {
   }
 }
 
-
-/**
-* Template Name: DevFolio - v4.10.0
-* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
-  "use strict";
 
   /**
    * Easy selector helper function
