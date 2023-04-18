@@ -202,20 +202,26 @@ section {
 }
 
 /* Links inside the navbar */
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.navbar ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #000000;
 }
 
-/* Change background on mouse-over */
-.navbar a:hover {
-  background: #C30011;
-  color: white;
+.navbar li{
+	display: inline;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
+
+.navbar li a:hover {
+	background-color: #C30011;
+}
+
 
 /* Main content */
 .main {
