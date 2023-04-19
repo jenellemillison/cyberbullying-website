@@ -407,17 +407,17 @@ echo '<html lang="en">
 </html>';
 
 //DB connection
-$servername = $_ENV["MYSQLHOST"];
-$port = $_ENV["MYSQLPORT"];
-$username = $_ENV["MYSQLUSER"];
-$password = $_ENV["MYSQLPASSWORD"];
-$dbname = $_ENV["MYSQLDATABASE"];
+//$servername = $_ENV["MYSQLHOST"];
+//$port = $_ENV["MYSQLPORT"];
+//$username = $_ENV["MYSQLUSER"];
+//$password = $_ENV["MYSQLPASSWORD"];
+//$dbname = $_ENV["MYSQLDATABASE"];
 
-//$servername = $_ENV["HOST"];
-//$port = $_ENV["DBPORT"];
-//$username = $_ENV["USER"];
-//$password = $_ENV["PW"];
-//$dbname = $_ENV["DB"];
+$servername = $_ENV["HOST"];
+$port = $_ENV["DBPORT"];
+$username = $_ENV["USER"];
+$password = $_ENV["PW"];
+$dbname = $_ENV["DB"];
 
 
 // Create connection
