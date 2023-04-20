@@ -268,7 +268,7 @@ echo '<html lang="en">
 	   <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Javier </h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Javier is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Javier De Le Rosa is a Computer Science student at UTSA. </p>
                   </div>
       </div>
 	  </div>
@@ -407,17 +407,17 @@ echo '<html lang="en">
 </html>';
 
 //DB connection
-//$servername = $_ENV["MYSQLHOST"];
-//$port = $_ENV["MYSQLPORT"];
-//$username = $_ENV["MYSQLUSER"];
-//$password = $_ENV["MYSQLPASSWORD"];
-//$dbname = $_ENV["MYSQLDATABASE"];
+$servername = $_ENV["MYSQLHOST"];
+$port = $_ENV["MYSQLPORT"];
+$username = $_ENV["MYSQLUSER"];
+$password = $_ENV["MYSQLPASSWORD"];
+$dbname = $_ENV["MYSQLDATABASE"];
 
-$servername = $_ENV["HOST"];
-$port = $_ENV["DBPORT"];
-$username = $_ENV["USER"];
-$password = $_ENV["PW"];
-$dbname = $_ENV["DB"];
+//$servername = $_ENV["HOST"];
+//$port = $_ENV["DBPORT"];
+//$username = $_ENV["USER"];
+//$password = $_ENV["PW"];
+//$dbname = $_ENV["DB"];
 
 
 // Create connection
