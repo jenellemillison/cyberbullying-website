@@ -140,7 +140,7 @@ if(isset($_POST['search'])){
 		}
 	}
 }
-'
+echo'
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
   <div class="container">
