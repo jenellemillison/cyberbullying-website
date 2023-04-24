@@ -125,6 +125,25 @@ echo '<html lang="en">
       </div>
     </div>
     <!-- start graphs section> -->
+	<div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h5 class="title-a"> Sample Data </h5>';
+			echo "<h4>Data entered into the database successfully</h4>";
+			echo '<table border="5" bordercolor="#B8CCE2" width="100%">
+				<tr>
+					<th>Username</th>
+					<th>Text</th>
+					<th>Time Posted</th>
+					<th>Cyberbullying Category</th>
+				</tr>';
+			echo '<tbody id="dbqueryresults">';
+			echo '</tbody>';
+			echo '</table>';
+'<div class="line-mf"></div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-4">
         <div class="service-box">
@@ -313,68 +332,66 @@ echo '<html lang="en">
               </div>
 			   <div>
 					';
-					if (!isset($_POST['submit']))
-					{
-	  				echo '
+if ( !isset( $_POST[ 'submit' ] ) ) {
+  echo '
                       <form method="post" role="form" >';
-                        echo '<div class="row">
+  echo '<div class="row">
                           <div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">';
-                              echo '<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Your First Name" required>';
-                            echo '</div>';
-                          echo '</div>';
-						  echo '<div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">
+  echo '<div class="form-group">';
+  echo '<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Your First Name" required>';
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 mb-3">';
+  echo '<div class="form-group">
                               <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Your Last Name" required>';
-                            echo '</div>';
-                          echo '</div>';
-                          echo '<div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 mb-3">';
+  echo '<div class="form-group">
                               <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>';
-                            echo '</div>';
-                          echo '</div>';
-						echo '<div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 mb-3">';
+  echo '<div class="form-group">
                               <input type="phone" class="form-control" name="phone" id="phone" placeholder="Your Phone Number" required>';
-                            echo '</div>';
-                          echo '</div>';
-						echo '<div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 mb-3">';
+  echo '<div class="form-group">
                               <input type="comments" class="form-control" name="comments" id="comments" placeholder="Any Comments" required>';
-                            echo '</div>';
-                          echo '</div>';
-						echo '<div class="col-md-12 text-center">';
-                            echo '<button type="submit" name="submit" value="submit" class="button button-a button-big button-rouded">Submit</button>';
-                          echo '</div>';
-                        echo '</div>';
-                      echo '</form>';
-					}
-					if(isset($_POST['submit']))
-					{
-						$firstname = addslashes($_POST['firstname']); //add slashes will make sure there's no special characters
-						$lastname = addslashes($_POST['lastname']);
-						$email = addslashes($_POST['email']);
-						addslashes($phone = $_POST['phone']);
-						addslashes($comments = $_POST['comments']);
-						echo '<h4>Data received:</h4>';
-						echo "<p>First Name: $firstname</p>";
-						echo "<p>Last Name: $lastname</p>";
-						echo "<p>Email: $email</p>";
-						echo "<p>Phone: $phone</p>";
-						echo "<p>Comments: $comments</p>";
-						// DB connection parameters
-						$servername = $_ENV["MYSQLHOST"];
-						$port = $_ENV["MYSQLPORT"];
-						$username = $_ENV["MYSQLUSER"];
-						$password = $_ENV["MYSQLPASSWORD"];
-						$dbname = $_ENV["MYSQLDATABASE"];
-						// Create new mysql connection
-						$dblink=new mysqli($servername, $username, $password, $dbname, $port); //make the connection to the db
-						$sql="Insert into `contact_data` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
-						$dblink->query($sql) or die("<p>Something went wrong with: $sql<br>".$dblink->error); //execute the above query or call the error class with dblink
-						echo "<h4>Thank you for your feedback!</h4>";
-					}
-				echo'
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 text-center">';
+  echo '<button type="submit" name="submit" value="submit" class="button button-a button-big button-rouded">Submit</button>';
+  echo '</div>';
+  echo '</div>';
+  echo '</form>';
+}
+if ( isset( $_POST[ 'submit' ] ) ) {
+  $firstname = addslashes( $_POST[ 'firstname' ] ); //add slashes will make sure there's no special characters
+  $lastname = addslashes( $_POST[ 'lastname' ] );
+  $email = addslashes( $_POST[ 'email' ] );
+  addslashes( $phone = $_POST[ 'phone' ] );
+  addslashes( $comments = $_POST[ 'comments' ] );
+  echo '<h4>Data received:</h4>';
+  echo "<p>First Name: $firstname</p>";
+  echo "<p>Last Name: $lastname</p>";
+  echo "<p>Email: $email</p>";
+  echo "<p>Phone: $phone</p>";
+  echo "<p>Comments: $comments</p>";
+  // DB connection parameters
+  $servername = $_ENV[ "MYSQLHOST" ];
+  $port = $_ENV[ "MYSQLPORT" ];
+  $username = $_ENV[ "MYSQLUSER" ];
+  $password = $_ENV[ "MYSQLPASSWORD" ];
+  $dbname = $_ENV[ "MYSQLDATABASE" ];
+  // Create new mysql connection
+  $dblink = new mysqli( $servername, $username, $password, $dbname, $port ); //make the connection to the db
+  $sql = "Insert into `contact_data` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
+  $dblink->query( $sql )or die( "<p>Something went wrong with: $sql<br>" . $dblink->error ); //execute the above query or call the error class with dblink
+  echo "<h4>Thank you for your feedback!</h4>";
+}
+echo '
               </div>
             </div>
           </div>
@@ -402,16 +419,17 @@ echo '<html lang="en">
 <!-- End  Footer --> 
 <script src="assets/js/java.js"></script>
 <script src="assets/js/searchbar.js"></script>
+<script src="assets/js/jquery-3.5.1.js"></scripts>
 
 </body>
 </html>';
 
 //DB connection
-$servername = $_ENV["MYSQLHOST"];
-$port = $_ENV["MYSQLPORT"];
-$username = $_ENV["MYSQLUSER"];
-$password = $_ENV["MYSQLPASSWORD"];
-$dbname = $_ENV["MYSQLDATABASE"];
+$servername = $_ENV[ "MYSQLHOST" ];
+$port = $_ENV[ "MYSQLPORT" ];
+$username = $_ENV[ "MYSQLUSER" ];
+$password = $_ENV[ "MYSQLPASSWORD" ];
+$dbname = $_ENV[ "MYSQLDATABASE" ];
 
 //$servername = $_ENV["HOST"];
 //$port = $_ENV["DBPORT"];
@@ -421,29 +439,39 @@ $dbname = $_ENV["MYSQLDATABASE"];
 
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+$conn = new mysqli( $servername, $username, $password, $dbname, $port );
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-  echo"<p>FAILED: not connect to Tweets DB</p>";
-}
-else{
-	echo "<p>CONNECTED: to Tweets DB</p>";
+if ( $conn->connect_error ) {
+  die( "Connection failed: " . $conn->connect_error );
+  echo "<p>FAILED: not connect to Tweets DB</p>";
+} else {
+  echo "<p>CONNECTED: to Tweets DB</p>";
 }
 
 $sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets";
-$result = $conn->query($sql);
+$result = $conn->query( $sql );
 
-if ($result->num_rows > 0) {
+if ( $result->num_rows > 0 ) {
   // output data of each row
-//  while($row = $result->fetch_assoc()) {
-//    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
-//	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
-//  }
-}
-else {
+  //  while($row = $result->fetch_assoc()) {
+  //    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
+  //	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
+  //  }
+} else {
   echo "0 results";
 }
 
 $conn->close();
 ?>
+<script>
+	function refresh_div(){
+		$.ajax({
+			type: 'post',
+			url: 'https://stopcyberbullying.com/queryDB.php',
+			success: function(data){
+				$('#dbqueryresults').html(data);
+			}
+		});
+	};
+	setInterval(function(){refresh_div();}, 50000)
+</script>
