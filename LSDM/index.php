@@ -115,7 +115,7 @@ echo '<html lang="en">
 <form method="post">
 <label>Search</label>
 <input type="text" name="search">
-<input type="submit" name="submit">	
+<input type="submit" name="submit">S	
 </form>
 
 <!-- ======= Analytics Section ======= -->
@@ -450,6 +450,28 @@ if ($result->num_rows > 0) {
 else {
   echo "0 results";
 }
+$output = ' ';
+if(isset($_POST['search'])){
+	$searchq = $_POST['search'];
+	
+	$query = mysql_query("SELECT * FROM Tweets WHERE sub_topic");
+	
+	$count = mysql_num_rows($query);
+	
+	if($count == 0){
+		$output = "Error";
+	}
+	
+	else{
+		while($row = mysql_fetch_array($query)){
+			$fname =$row ['sub_topic'];
+			
+			$output .= '<div> '.$fname.' </div>';
+		}
+	}
+}
+
+
 
 $conn->close();
 ?>
