@@ -112,6 +112,12 @@ echo '<html lang="en">
     </div>
   </div>
 </div>
+<form method="post">
+<label>Search</label>
+<input type="text" name="search">
+<input type="submit" name="submit">	
+</form>
+
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
   <div class="container">
