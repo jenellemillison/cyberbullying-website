@@ -425,13 +425,13 @@ $conn = new mysqli($servername, $username, $password, $dbname, $port);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
-  echo"<h1>FAILED</h1>";
+  echo"<p>FAILED: not connect to Tweets DB</p>";
 }
 else{
-	echo "<h1>CONNECTED</h1>";
+	echo "<p>CONNECTED: to Tweets DB</p>";
 }
 
-$sql = "SELECT auto_id, topic, subtopic, username, text, time_posted FROM Tweets";
+$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
