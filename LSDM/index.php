@@ -120,6 +120,15 @@ echo '<html lang="en">
 </form>
 
 ';
+if (!isset($_POST['search']))
+					{
+	  				echo '
+                      <form method="post"';
+                        echo '<label>Search</label>';
+                        echo '<input type="text" name="search">';
+                        echo '<input type="submit" value="Search">';
+						echo '</form>';
+					}
 $output = ' ';
 
 if(isset($_POST['search'])){
