@@ -115,7 +115,7 @@ echo '<html lang="en">
 <form method="post">
 <label>Search</label>
 <input type="text" name="search">
-<input type="search" name="search">S	
+<input type="button" value="Search">	
 </form>
 
 ';
