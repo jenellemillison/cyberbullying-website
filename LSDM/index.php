@@ -115,9 +115,32 @@ echo '<html lang="en">
 <form method="post">
 <label>Search</label>
 <input type="text" name="search">
-<input type="submit" name="submit">S	
+<input type="search" name="search">S	
 </form>
 
+';
+$output = ' ';
+
+if(isset($_POST['search'])){
+	$searchq = $_POST['search'];
+	
+	$query = ("SELECT * FROM Tweets WHERE sub_topic");
+	
+	$count = mysql_num_rows($query);
+	
+	if($count == 0){
+		$output = "Error";
+	}
+	
+	else{
+		while($row = mysql_fetch_array($query)){
+			$fname =$row ['sub_topic'];
+			
+			$output .= '<div> '.$fname.' </div>';
+		}
+	}
+}
+'
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
   <div class="container">
@@ -449,26 +472,6 @@ if ($result->num_rows > 0) {
 }
 else {
   echo "0 results";
-}
-$output = ' ';
-if(isset($_POST['search'])){
-	$searchq = $_POST['search'];
-	
-	$query = ("SELECT * FROM Tweets WHERE sub_topic");
-	
-	$count = mysql_num_rows($query);
-	
-	if($count == 0){
-		$output = "Error";
-	}
-	
-	else{
-		while($row = mysql_fetch_array($query)){
-			$fname =$row ['sub_topic'];
-			
-			$output .= '<div> '.$fname.' </div>';
-		}
-	}
 }
 
 
