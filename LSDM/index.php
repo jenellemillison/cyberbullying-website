@@ -454,7 +454,7 @@ $output = ' ';
 if(isset($_POST['search'])){
 	$searchq = $_POST['search'];
 	
-	$query = mysql_query("SELECT * FROM Tweets WHERE sub_topic");
+	$query = ("SELECT * FROM Tweets WHERE sub_topic");
 	
 	$count = mysql_num_rows($query);
 	
