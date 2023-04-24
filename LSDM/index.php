@@ -33,7 +33,7 @@ echo '<html lang="en">
   <div class="hero-content display-table">
     <div class="table-cell">
       <div class="container">
-        <h1 class="hero-title mb-4">Stop Cyberbullying</h1>
+        <h1 class="hero-title mb-4">Stop The Cyberbullying</h1>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@ echo '<html lang="en">
             <div class="col-md-6">
               <div class="row">
                 <div class="title-box-2">
-                  <h5 class="title-center"> About "Stop Cyberbullying" </h5>
+                  <h5 class="title-center"> About "Stop The Cyberbullying" </h5>
                 </div>
                 <div class="about-img"> <img src="assets/images/cyberbully_keyboard.png" class="img-fluid rounded b-shadow-a" alt=""> </div>
               </div>
