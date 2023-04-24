@@ -131,25 +131,30 @@ if (!isset($_POST['search']))
 					}
 $output = ' ';
 
+$servername = $_ENV["MYSQLHOST"];
+$port = $_ENV["MYSQLPORT"];
+$username = $_ENV["MYSQLUSER"];
+$password = $_ENV["MYSQLPASSWORD"];
+$dbname = $_ENV["MYSQLDATABASE"];
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
+
+
 if(isset($_POST['search'])){
-	$searchq = $_POST['search'];
-	
-	$query = ("SELECT * FROM Tweets WHERE sub_topic");
-	
-	$count = mysql_num_rows($query);
-	
-	if($count == 0){
-		$output = "Error";
-	}
-	
-	else{
-		while($row = mysql_fetch_array($query)){
-			$fname =$row ['sub_topic'];
-			
-			$output .= '<div> '.$fname.' </div>';
-		}
-	}
+	$str = $_POST["search"];
+	$sth = $conn->prepare("SELECT * FROM `Tweets` WHERE sub_topic = '$str'");
+
+	$sth->setFetchMode(mysqli:: FETCH_OBJ);
+	$sth -> execute();
 }
+if($row = $sth->fetch())
+	{
+	$fname =$row ['sub_topic'];
+	$output .= '<div> '.$fname.' </div>';
+	
+}
+print("$output");
 echo'
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
