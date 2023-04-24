@@ -112,10 +112,11 @@ echo '<html lang="en">
     </div>
   </div>
 </div>
+
 <form method="post">
 <label>Search</label>
 <input type="text" name="search">
-<input type="button" value="Search">	
+<input type="submit" value="Search">	
 </form>
 
 ';
@@ -474,7 +475,7 @@ else {
   echo "0 results";
 }
 
-
+print("$output");
 
 $conn->close();
 ?>
