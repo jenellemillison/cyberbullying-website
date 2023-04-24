@@ -431,15 +431,15 @@ else{
 	echo "<h1>CONNECTED</h1>";
 }
 
-$sql = "SELECT tweetId, topic, subtopic, postedBy, textContent, postedAt FROM TwitterData";
+$sql = "SELECT tweetId, topic, subtopic, postedBy, textContent, postedAt FROM Twitter";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
-	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
-  }
+//  while($row = $result->fetch_assoc()) {
+//    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
+//	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
+//  }
 }
 else {
   echo "0 results";
