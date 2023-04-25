@@ -420,6 +420,8 @@ echo '
 <script src="assets/js/searchbar.js"></script>
 <script src="assets/js/jquery-3.5.1.js"></scripts>
 
+</body>;
+</html>;
 ';
 //DB connection
 $servername = $_ENV[ "MYSQLHOST" ];
@@ -450,9 +452,10 @@ if ( $result->num_rows > 0 ) {
     }
 } else {
   echo "0 results";
-}
+}?>
 
-echo "<script>
+<html>
+<script>
 	function refresh_div(){
 		$.ajax({
 			type: 'post',
@@ -464,8 +467,8 @@ echo "<script>
 	};
 	setInterval(function(){refresh_div();}, 50000)
 </script>";
-echo '</body>';
-echo '</html>';
+</html>
 
+<?php
 $conn->close();
 ?>
