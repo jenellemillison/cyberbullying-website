@@ -466,5 +466,5 @@ $conn->close();
 			}
 		});
 	};
-	setInterval(function(){refresh_div();}, 50000)
+//	setInterval(function(){refresh_div();}, 50000)
 </script>
