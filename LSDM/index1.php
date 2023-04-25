@@ -447,12 +447,13 @@ if ( $result->num_rows > 0 ) {
   // output data of each row
 	$count = 0;
     while($row = $result->fetch_assoc() and $count < 10) {
-      echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . $row["time_posted"]. ", " . $row["username"]. " posted " . $row["text"]. "</p><br>";
+      echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
 	  $count = $count + 1;
     }
 } else {
   echo "0 results";
-}?>
+}
+?>
 
 <html>
 <script>
@@ -466,7 +467,7 @@ if ( $result->num_rows > 0 ) {
 		});
 	};
 	setInterval(function(){refresh_div();}, 50000)
-</script>";
+</script>
 </html>
 
 <?php
