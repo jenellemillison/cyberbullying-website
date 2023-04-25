@@ -112,12 +112,50 @@ echo '<html lang="en">
     </div>
   </div>
 </div>
+
 <form method="post">
 <label>Search</label>
 <input type="text" name="search">
-<input type="submit" name="submit">S	
+<input type="submit" value="Search">	
 </form>
 
+';
+if (!isset($_POST['search']))
+					{
+	  				echo '
+                      <form method="post"';
+                        echo '<label>Search</label>';
+                        echo '<input type="text" name="search">';
+                        echo '<input type="submit" value="Search">';
+						echo '</form>';
+					}
+$output = ' ';
+
+$servername = $_ENV["MYSQLHOST"];
+$port = $_ENV["MYSQLPORT"];
+$username = $_ENV["MYSQLUSER"];
+$password = $_ENV["MYSQLPASSWORD"];
+$dbname = $_ENV["MYSQLDATABASE"];
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
+
+
+if(isset($_POST['search'])){
+	$str = $_POST["search"];
+	$sth = $conn->prepare("SELECT * FROM `Tweets` WHERE sub_topic = '$str'");
+
+	$sth->setFetchMode(mysqli:: FETCH_OBJ);
+	$sth -> execute();
+}
+if($row = $sth->fetch())
+	{
+	$fname =$row ['sub_topic'];
+	$output .= '<div> '.$fname.' </div>';
+	
+}
+print("$output");
+echo'
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
   <div class="container">
@@ -450,28 +488,8 @@ if ($result->num_rows > 0) {
 else {
   echo "0 results";
 }
-$output = ' ';
-if(isset($_POST['search'])){
-	$searchq = $_POST['search'];
-	
-	$query = ("SELECT * FROM Tweets WHERE sub_topic");
-	
-	$count = mysql_num_rows($query);
-	
-	if($count == 0){
-		$output = "Error";
-	}
-	
-	else{
-		while($row = mysql_fetch_array($query)){
-			$fname =$row ['sub_topic'];
-			
-			$output .= '<div> '.$fname.' </div>';
-		}
-	}
-}
 
-
+print("$output");
 
 $conn->close();
 ?>
