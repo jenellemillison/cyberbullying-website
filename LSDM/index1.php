@@ -140,7 +140,7 @@ echo '<html lang="en">
 			echo '<tbody id="dbqueryresults">';
 			echo '</tbody>';
 			echo '</table>';
-'<div class="line-mf"></div>
+echo '<div class="line-mf"></div>
         </div>
       </div>
     </div>
