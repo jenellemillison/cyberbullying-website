@@ -129,7 +129,6 @@ echo '<html lang="en">
       <div class="col-sm-12">
         <div class="title-box text-center">
           <h5 class="title-a"> Sample Data </h5>';
-			echo "<h4>Data entered into the database successfully</h4>";
 			echo '<table border="5" bordercolor="#B8CCE2" width="100%">
 				<tr>
 					<th>Username</th>
@@ -137,7 +136,7 @@ echo '<html lang="en">
 					<th>Time Posted</th>
 					<th>Cyberbullying Category</th>
 				</tr>';
-			echo '<tbody id="dbqueryresults">';
+			echo '<tbody id="dbtop10results">';
 			echo '</tbody>';
 			echo '</table>';
 echo '<div class="line-mf"></div>
@@ -431,13 +430,6 @@ $username = $_ENV[ "MYSQLUSER" ];
 $password = $_ENV[ "MYSQLPASSWORD" ];
 $dbname = $_ENV[ "MYSQLDATABASE" ];
 
-//$servername = $_ENV["HOST"];
-//$port = $_ENV["DBPORT"];
-//$username = $_ENV["USER"];
-//$password = $_ENV["PW"];
-//$dbname = $_ENV["DB"];
-
-
 // Create connection
 $conn = new mysqli( $servername, $username, $password, $dbname, $port );
 // Check connection
@@ -453,10 +445,11 @@ $result = $conn->query( $sql );
 
 if ( $result->num_rows > 0 ) {
   // output data of each row
-  //  while($row = $result->fetch_assoc()) {
-  //    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
-  //	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
-  //  }
+	$count = 0;
+    while($row = $result->fetch_assoc() and $count < 10) {
+      echo "id: " . $row["audto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . $row["time_posted"]. ", " . $row["username"]. " posted " . $row["text"]. "<br>";
+		$count = $count + 1;
+    }
 } else {
   echo "0 results";
 }
@@ -469,7 +462,7 @@ $conn->close();
 			type: 'post',
 			url: 'https://stopcyberbullying.com/queryDB.php',
 			success: function(data){
-				$('#dbqueryresults').html(data);
+				$('#dbtop10results').html(data);
 			}
 		});
 	};
