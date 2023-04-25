@@ -119,43 +119,6 @@ echo '<html lang="en">
 <input type="submit" value="Search">	
 </form>
 
-';
-if (!isset($_POST['search']))
-					{
-	  				echo '
-                      <form method="post"';
-                        echo '<label>Search</label>';
-                        echo '<input type="text" name="search">';
-                        echo '<input type="submit" value="Search">';
-						echo '</form>';
-					}
-$output = ' ';
-
-$servername = $_ENV["MYSQLHOST"];
-$port = $_ENV["MYSQLPORT"];
-$username = $_ENV["MYSQLUSER"];
-$password = $_ENV["MYSQLPASSWORD"];
-$dbname = $_ENV["MYSQLDATABASE"];
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
-
-
-if(isset($_POST['search'])){
-	$str = $_POST["search"];
-	$sth = $conn->prepare("SELECT * FROM `Tweets` WHERE sub_topic = '$str'");
-
-	$sth->setFetchMode(mysqli:: FETCH_OBJ);
-	$sth -> execute();
-}
-if($row = $sth->fetch())
-	{
-	$fname =$row ['sub_topic'];
-	$output .= '<div> '.$fname.' </div>';
-	
-}
-print("$output");
-echo'
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
   <div class="container">

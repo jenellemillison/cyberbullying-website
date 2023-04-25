@@ -19,3 +19,4 @@ while ( $data = $results->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array 
   echo '</tr>';
 }
 ?>
+
