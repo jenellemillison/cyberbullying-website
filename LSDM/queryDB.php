@@ -19,3 +19,4 @@ while ( $socialdata = $dbqueryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab al
   echo '</tr>';
 }
 ?>
+
