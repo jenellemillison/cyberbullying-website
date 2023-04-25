@@ -447,8 +447,8 @@ if ( $result->num_rows > 0 ) {
   // output data of each row
 	$count = 0;
     while($row = $result->fetch_assoc() and $count < 10) {
-      echo "id: " . $row["audto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . $row["time_posted"]. ", " . $row["username"]. " posted " . $row["text"]. "<br>";
-		$count = $count + 1;
+      echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . $row["time_posted"]. ", " . $row["username"]. " posted " . $row["text"]. "</p><br>";
+	  $count = $count + 1;
     }
 } else {
   echo "0 results";
