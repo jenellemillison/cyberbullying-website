@@ -454,7 +454,7 @@ if ( $result->num_rows > 0 ) {
   echo "0 results";
 }
 
-echo '<script>
+echo "<script>
 	function refresh_div(){
 		$.ajax({
 			type: 'post',
@@ -465,7 +465,7 @@ echo '<script>
 		});
 	};
 //	setInterval(function(){refresh_div();}, 50000)
-</script>';
+</script>";
 	
 $conn->close();
 ?>
