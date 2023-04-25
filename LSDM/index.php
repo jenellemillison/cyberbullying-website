@@ -132,7 +132,23 @@ echo '<html lang="en">
       </div>
     </div>
     <!-- start graphs section> -->
-    <div class="row">
+	<div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h5 class="title-a"> Sample Data </h5>';
+			echo "<h4>Data entered into the database successfully</h4>";
+			echo '<table border="5" bordercolor="#B8CCE2" width="100%">
+				<tr>
+					<th>Username</th>
+					<th>Text</th>
+					<th>Time Posted</th>
+					<th>Cyberbullying Category</th>
+				</tr>';
+			echo '<tbody id="dbqueryresults">';
+			echo '</tbody>';
+			echo '</table>';
+
+   echo'<div class="row">
       <div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>
@@ -452,7 +468,18 @@ else {
   echo "0 results";
 }
 
-print("$output");
+echo'<script>
+      function refresh_div(){
+		$.ajax({
+			type: "post",
+			url: "https://stopcyberbullying.com/queryDB.php",
+			success: function(data){
+				$("#dbqueryresults").html(data);
+			}
+		});
+	};
+	setInterval(function(){refresh_div();}, 50000)
+</script>';
 
 $conn->close();
 ?>
