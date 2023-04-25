@@ -425,18 +425,7 @@ echo '<html lang="en">
 <!-- End  Footer --> 
 <script src="assets/js/java.js"></script>
 <script src="assets/js/searchbar.js"></script>
-<script>
-      function refresh_div(){
-		$.ajax({
-			type: "post",
-			url: "https://stopcyberbullying.com/queryDB.php",
-			success: function(data){
-				$("#dbqueryresults").html(data);
-			}
-		});
-	};
-	setInterval(function(){refresh_div();}, 50000)
-</script>
+
 </body>
 </html>';
 
@@ -478,7 +467,19 @@ if ($result->num_rows > 0) {
 else {
   echo "0 results";
 }
-
+echo'<html> <script>
+      function refresh_div(){
+		$.ajax({
+			type: "post",
+			url: "https://stopcyberbullying.com/queryDB.php",
+			success: function(data){
+				$("#dbqueryresults").html(data);
+			}
+		});
+	};
+	setInterval(function(){refresh_div();}, 50000)
+</script>
+</html>';
 
 $conn->close();
 ?>
