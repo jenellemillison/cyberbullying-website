@@ -454,18 +454,18 @@ if ( $result->num_rows > 0 ) {
   echo "0 results";
 }
 
-echo "<script>
-	function refresh_div(){
-		$.ajax({
-			type: 'post',
-			url: 'https://stopcyberbullying.com/queryDB.php',
-			success: function(data){
-				$('#dbtop10results').html(data);
-			}
-		});
-	};
-//	setInterval(function(){refresh_div();}, 50000)
-</script>";
+//echo "<script>
+//	function refresh_div(){
+//		$.ajax({
+//			type: 'post',
+//			url: 'https://stopcyberbullying.com/queryDB.php',
+//			success: function(data){
+//				$('#dbtop10results').html(data);
+//			}
+//		});
+//	};
+////	setInterval(function(){refresh_div();}, 50000)
+//</script>";
 	
 $conn->close();
 ?>
