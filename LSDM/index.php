@@ -464,7 +464,7 @@ if ($result->num_rows > 0) {
 	  $count = $count + 1;
     }
   }
-}
+
 else {
   echo "0 results";
 }
