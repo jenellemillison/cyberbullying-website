@@ -132,6 +132,49 @@ echo '<html lang="en">
       </div>
     </div>
     <!-- start graphs section> -->
+	$conn = new mysqli($servername, $username, $password, $dbname, $port);
+// Check connection ';
+$servername = $_ENV["MYSQLHOST"];
+$port = $_ENV["MYSQLPORT"];
+$username = $_ENV["MYSQLUSER"];
+$password = $_ENV["MYSQLPASSWORD"];
+$dbname = $_ENV["MYSQLDATABASE"];
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+  echo"<p>FAILED: not connect to Tweets DB</p>";
+}
+else{
+	echo "<p>CONNECTED: to Tweets DB</p>";
+}
+
+$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+   //output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
+	  $count = $count + 1;
+    }
+  }
+
+else {
+  echo "0 results";
+}
+echo'<html> <script>
+      function refresh_div(){
+		$.ajax({
+			type: "post",
+			url: "https://stopcyberbullying.com/queryDB.php",
+			success: function(data){
+				$("#dbqueryresults").html(data);
+			}
+		});
+	};
+	setInterval(function(){refresh_div();}, 50000)
+</script>
+</html>';
+echo '
 	<div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">
@@ -147,6 +190,7 @@ echo '<html lang="en">
 			echo '<tbody id="dbqueryresults">';
 			echo '</tbody>';
 			echo '</table>';
+
 
    echo'<div class="row">
       <div class="col-md-4">
@@ -444,43 +488,7 @@ $dbname = $_ENV["MYSQLDATABASE"];
 
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-  echo"<p>FAILED: not connect to Tweets DB</p>";
-}
-else{
-	echo "<p>CONNECTED: to Tweets DB</p>";
-}
 
-$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-   //output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
-	  $count = $count + 1;
-    }
-  }
-
-else {
-  echo "0 results";
-}
-echo'<html> <script>
-      function refresh_div(){
-		$.ajax({
-			type: "post",
-			url: "https://stopcyberbullying.com/queryDB.php",
-			success: function(data){
-				$("#dbqueryresults").html(data);
-			}
-		});
-	};
-	setInterval(function(){refresh_div();}, 50000)
-</script>
-</html>';
 
 $conn->close();
 ?>
