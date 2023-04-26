@@ -460,8 +460,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
    //output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
-	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
+    echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
+	  $count = $count + 1;
+    }
   }
 }
 else {
