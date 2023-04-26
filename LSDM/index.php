@@ -132,13 +132,14 @@ echo '<html lang="en">
       </div>
     </div>
     <!-- start graphs section> -->
-	$conn = new mysqli($servername, $username, $password, $dbname, $port);
+	
 // Check connection ';
 $servername = $_ENV["MYSQLHOST"];
 $port = $_ENV["MYSQLPORT"];
 $username = $_ENV["MYSQLUSER"];
 $password = $_ENV["MYSQLPASSWORD"];
 $dbname = $_ENV["MYSQLDATABASE"];
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
   echo"<p>FAILED: not connect to Tweets DB</p>";
