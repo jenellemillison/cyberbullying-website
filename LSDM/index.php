@@ -132,8 +132,9 @@ echo '<html lang="en">
       </div>
     </div>
     <!-- start graphs section> -->
-	
+
 // Check connection ';
+$conn = new mysqli( $servername, $username, $password, $dbname, $port );
 $servername = $_ENV["MYSQLHOST"];
 $port = $_ENV["MYSQLPORT"];
 $username = $_ENV["MYSQLUSER"];
