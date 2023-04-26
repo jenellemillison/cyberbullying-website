@@ -139,7 +139,7 @@ $port = $_ENV["MYSQLPORT"];
 $username = $_ENV["MYSQLUSER"];
 $password = $_ENV["MYSQLPASSWORD"];
 $dbname = $_ENV["MYSQLDATABASE"];
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
   echo"<p>FAILED: not connect to Tweets DB</p>";
@@ -162,7 +162,8 @@ if ($result->num_rows > 0) {
 else {
   echo "0 results";
 }
-echo'<html> <script>
+echo '
+<script>
       function refresh_div(){
 		$.ajax({
 			type: "post",
@@ -174,23 +175,21 @@ echo'<html> <script>
 	};
 	setInterval(function(){refresh_div();}, 50000)
 </script>
-</html>';
-echo '
 	<div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">
-          <h5 class="title-a"> Sample Data </h5>';
-			echo "<h4>Data entered into the database successfully</h4>";
-			echo '<table border="5" bordercolor="#B8CCE2" width="100%">
+          <h5 class="title-a"> Sample Data </h5>
+			<h4>Data entered into the database successfully</h4>
+			 <table border="5" bordercolor="#B8CCE2" width="100%">
 				<tr>
 					<th>Username</th>
 					<th>Text</th>
 					<th>Time Posted</th>
 					<th>Cyberbullying Category</th>
-				</tr>';
-			echo '<tbody id="dbqueryresults">';
-			echo '</tbody>';
-			echo '</table>';
+				</tr>
+			<tbody id="dbqueryresults">
+			</tbody>
+			</table>';
 
 
    echo'<div class="row">
