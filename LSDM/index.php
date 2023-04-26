@@ -458,11 +458,11 @@ $sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweet
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  // output data of each row
-//  while($row = $result->fetch_assoc()) {
-//    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
-//	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
-//  }
+   //output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
+	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
+  }
 }
 else {
   echo "0 results";
