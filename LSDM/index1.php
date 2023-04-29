@@ -479,13 +479,13 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 	function refresh_div(){
 		$.ajax({
 			type: 'post',
-			url: 'https://stopcyberbullying.online/testquery.html',
-			success: function(data){
-				$('#dbtop10results').html(data);
+			url: 'https://stopcyberbullying.online/queryDB.php',
+			success: function(socialdata){
+				$('#dbtop10results').html(socialdata);
 			}
 		});
 	};
-	setInterval(function(){refresh_div();}, 1000)
+	setInterval(function(){refresh_div();}, 10000)
 </script>
 </html>
 
