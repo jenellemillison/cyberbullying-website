@@ -7,12 +7,12 @@ $password = $_ENV["MYSQLPASSWORD"];
 $dbname = $_ENV["MYSQLDATABASE"];
 echo "TOPIC IS";
 echo $_POST['topic'];
-if(empty($_POST['topic'])) {
-	$topic = '';
-}
-else {
+if(isset($_POST['topic'])) {
 	$topic = $_POST['topic'];
 	echo 'topic set to' .$topic;
+}
+else {
+	$topic = '';
 }
 
 // Create new mysql connection
