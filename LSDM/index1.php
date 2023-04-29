@@ -477,7 +477,7 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 	function refresh_div(){
 		$.ajax({
 			type: 'post',
-			url: 'https://stopcyberbullying.online/queryDB.php',
+			url: 'https://stopcyberbullying.online/testquery.php',
 			success: function(data){
 				$('#dbtop10results').html(data);
 			}
