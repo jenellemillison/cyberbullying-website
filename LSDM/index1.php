@@ -482,6 +482,14 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 
 <html>
 <script>
+	window.onload = function(){
+		var reloading = sessionStorage.getItem("reloading");
+		if(reloading){
+			sessionStorage.removeItem("reloading");
+			refresh_div();
+		}
+	}
+	
 	function refresh_div(){
 		$.ajax({
 			type: 'post',
