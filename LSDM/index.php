@@ -132,7 +132,68 @@ echo '<html lang="en">
       </div>
     </div>
     <!-- start graphs section> -->
-    <div class="row">
+
+// Check connection ';
+
+$servername = $_ENV["MYSQLHOST"];
+$port = $_ENV["MYSQLPORT"];
+$username = $_ENV["MYSQLUSER"];
+$password = $_ENV["MYSQLPASSWORD"];
+$dbname = $_ENV["MYSQLDATABASE"];
+$conn = new mysqli( $servername, $username, $password, $dbname, $port );
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+  echo"<p>FAILED: not connect to Tweets DB</p>";
+}
+else{
+	echo "<p>CONNECTED: to Tweets DB</p>";
+}
+
+$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+   //output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
+	  $count = $count + 1;
+    }
+  }
+
+else {
+  echo "0 results";
+}
+echo '
+<script>
+      function refresh_div(){
+		$.ajax({
+			type: "post",
+			url: "https://stopcyberbullying.com/queryDB.php",
+			success: function(data){
+				$("#dbqueryresults").html(data);
+			}
+		});
+	};
+	setInterval(function(){refresh_div();}, 50000)
+</script>
+	<div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h5 class="title-a"> Sample Data </h5>
+			<h4>Data entered into the database successfully</h4>
+			 <table border="5" bordercolor="#B8CCE2" width="100%">
+				<tr>
+					<th>Username</th>
+					<th>Text</th>
+					<th>Time Posted</th>
+					<th>Cyberbullying Category</th>
+				</tr>
+			<tbody id="dbqueryresults">
+			</tbody>
+			</table>';
+
+
+   echo'<div class="row">
       <div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>
@@ -428,31 +489,7 @@ $dbname = $_ENV["MYSQLDATABASE"];
 
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-  echo"<p>FAILED: not connect to Tweets DB</p>";
-}
-else{
-	echo "<p>CONNECTED: to Tweets DB</p>";
-}
 
-$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-//  while($row = $result->fetch_assoc()) {
-//    echo "id: " . $row["tweetId"]. " - Topic: " . $row["topic"]. " -> " . $row["subtopic"]. "<br>";
-//	echo "id: " . $row["tweetId"]. " - Content: At " . $row["postedAt"]. ", " . $row["postedBy"]. " posted " . $row["textContent"]. "<br>";
-//  }
-}
-else {
-  echo "0 results";
-}
-
-print("$output");
 
 $conn->close();
 ?>
