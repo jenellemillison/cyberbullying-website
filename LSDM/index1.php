@@ -105,12 +105,12 @@ echo '<html lang="en">
 			<form action="" method="post">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 			
-			<button class="button button-a button-rouded" name="politics">Politics</button>
-			<button class="button button-a button-rouded" name="sexual-orientation">Sexual Orientation</button>
-			<button class="button button-a button-rouded" name="race-ethnicity">Race/Ethnicity</button>
-			<button class="button button-a button-rouded" name="movies">Movies</button>
-			<button class="button button-a button-rouded" name="celebrities">Celebrities</button>
-			<button class="button button-a button-rouded" name="sports">Sports</button>
+			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
+			<button class="button button-a button-rouded" name="topic" value="Sexual-Orientation">Sexual Orientation</button>
+			<button class="button button-a button-rouded" name="topic" value="Race-Ethnicity">Race/Ethnicity</button>
+			<button class="button button-a button-rouded" name="topic" value="Movies">Movies</button>
+			<button class="button button-a button-rouded" name="topic" value="Celebrities">Celebrities</button>
+			<button class="button button-a button-rouded" name="topic" value="Sports">Sports</button>
 			</form>';
 			
 		echo '</div>
