@@ -9,9 +9,7 @@ $dbname = $_ENV["MYSQLDATABASE"];
 $dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
 $top10sql = "Select * from Tweets ORDER BY auto_id DESC LIMIT 10";
 $top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
-echo '<p>fetched results</p>';
 while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
-  echo '<p>in while loop</p>';
   echo '<tr>';
   echo '<td>' . $socialdata['username'] . '</td>';
   echo '<td>' . $socialdata['text'] . '</td>';
