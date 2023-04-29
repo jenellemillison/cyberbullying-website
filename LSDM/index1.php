@@ -488,9 +488,8 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			}
 		});
 	};
-//	setInterval(function(){refresh_div();}, 10000)
+	setInterval(function(){refresh_div();}, 10000)
 	
-	$(document).ready(function(){
 	  $("movies").click(function(){
 		$.ajax({
 			type: 'post',
@@ -498,8 +497,7 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			success: function(result){
 		  $("#dbtop10results").html(result);
 		}});
-	  });
-	});
+	  };
 	
 </script>
 </html>
