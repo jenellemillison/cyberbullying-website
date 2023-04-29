@@ -5,10 +5,13 @@ $port = $_ENV["MYSQLPORT"];
 $username = $_ENV["MYSQLUSER"];
 $password = $_ENV["MYSQLPASSWORD"];
 $dbname = $_ENV["MYSQLDATABASE"];
-if(isset($_POST['topic']))
+if(isset($_POST['topic'])) {
 	$topic = $_POST['topic'];
+	echo 'topic set to' .$topic;
+}
 else
 	$topic = '';
+
 // Create new mysql connection
 $dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
 //echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
