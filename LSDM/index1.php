@@ -491,16 +491,8 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			}
 		});
 	};
-	setInterval(function(){refresh_div();}, 10000)
-	
-	  $("movies").click(function(){
-		$.ajax({
-			type: 'post',
-			url: "https://stopcyberbullying.online/movieQueryDB.php",
-			success: function(result){
-		  $("#dbtop10results").html(result);
-		}});
-	  });
+//	setInterval(function(){refresh_div();}, 10000)
+
 //	
 </script>
 </html>
