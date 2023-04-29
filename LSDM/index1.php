@@ -457,7 +457,7 @@ if ( $conn->connect_error ) {
   echo "<p>CONNECTED: to Tweets DB</p>";
 }
 
-$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets";
+$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets LIMIT 10";
 $result = $conn->query( $sql );
 
 if ( $result->num_rows > 0 ) {
