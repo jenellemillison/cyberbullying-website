@@ -489,3 +489,7 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 </script>
 </html>
 
+<?php
+	 $conn->close();
+	 $dblink->close();
+?>
