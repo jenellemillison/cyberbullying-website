@@ -146,7 +146,7 @@ echo '<html lang="en">
 			  echo "<p>CONNECTED: to Tweets DB</p>";
 			}
 			
-			echo '<table border="5" bordercolor="#B8CCE2" width="100%">
+			echo '<table border="5" bordercolor="#000000" width="100%">
 				<tr>
 					<th>Username</th>
 					<th>Text</th>
@@ -478,8 +478,8 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 		$.ajax({
 			type: 'post',
 			url: 'https://stopcyberbullying.online/queryDB.php',
-			success: function(socialdata){
-				$('#dbtop10results').html(socialdata);
+			success: function(data){
+				$('#dbtop10results').html(data);
 			}
 		});
 	};
