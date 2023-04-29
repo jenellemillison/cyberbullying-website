@@ -129,6 +129,23 @@ echo '<html lang="en">
       <div class="col-sm-12">
         <div class="title-box text-center">
           <h5 class="title-a"> Sample Data </h5>';
+			//DB connection
+			$servername = $_ENV[ "MYSQLHOST" ];
+			$port = $_ENV[ "MYSQLPORT" ];
+			$username = $_ENV[ "MYSQLUSER" ];
+			$password = $_ENV[ "MYSQLPASSWORD" ];
+			$dbname = $_ENV[ "MYSQLDATABASE" ];
+
+			// Create connection
+			$conn = new mysqli( $servername, $username, $password, $dbname, $port );
+			// Check connection
+			if ( $conn->connect_error ) {
+			  die( "Connection failed: " . $conn->connect_error );
+			  echo "<p>FAILED: not connect to Tweets DB</p>";
+			} else {
+			  echo "<p>CONNECTED: to Tweets DB</p>";
+			}
+			
 			echo '<table border="5" bordercolor="#B8CCE2" width="100%">
 				<tr>
 					<th>Username</th>
@@ -139,7 +156,7 @@ echo '<html lang="en">
 			echo '<tbody id="dbtop10results">';
 			echo '</tbody>';
 			echo '</table>';
-echo '<div class="line-mf"></div>
+			echo '<div class="line-mf"></div>
         </div>
       </div>
     </div>
