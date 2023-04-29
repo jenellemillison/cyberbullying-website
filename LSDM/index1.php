@@ -102,15 +102,18 @@ echo '<html lang="en">
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
+			<form action="" method="post">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
-	
+			
 			<button class="button button-a button-rouded" name="politics">Politics</button>
 			<button class="button button-a button-rouded" name="sexual-orientation">Sexual Orientation</button>
 			<button class="button button-a button-rouded" name="race-ethnicity">Race/Ethnicity</button>
 			<button class="button button-a button-rouded" name="movies">Movies</button>
 			<button class="button button-a button-rouded" name="celebrities">Celebrities</button>
 			<button class="button button-a button-rouded" name="sports">Sports</button>
-		</div>
+			</form>';
+			
+		echo '</div>
 		</div>
 		</div>
       </div>
@@ -498,7 +501,7 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 		  $("#dbtop10results").html(result);
 		}});
 	  });
-	
+//	
 </script>
 </html>
 
