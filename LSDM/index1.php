@@ -293,39 +293,39 @@ echo '<html lang="en">
       <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Analisa Rojas</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Analisa is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Analisa is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
 	   <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Bill Gonzalez</h3> </div>
+         <div class="author-test"> <img src="assets/images/bill.png" alt="" class="smallimg"> <h3>Bill Gonzalez</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Bill is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Bill is pursuing a Master\'s of Science in Computer Science at UTSA with a Data Science Concentration. </p>
                   </div>
       </div>
 	   <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Javier </h3> </div>
+         <div class="author-test"> <img src="assets/images/javier.png" alt="" class="smallimg"> <h3>Javier De La Rosa</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Javier De Le Rosa is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Javier is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
 	  </div>
 	  <div class="row">
 	  <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Jenelle Millison</h3> </div>
+         <div class="author-test"> <img src="assets/images/jenelle.png" alt="" class="smallimg"> <h3>Jenelle Millison</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Jenelle is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Jenelle is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
 	  <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Shay Hill</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Shay is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Shay is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
 	  <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Xue Li</h3> </div>
+         <div class="author-test"> <img src="assets/images/daisy.png" alt="" class="smallimg"> <h3>Xue Li</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Xue is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Xue is pursuing a Doctor of Philosophy in Computer Science at UTSA. </p>
                   </div>
       </div>
 	 </div>
