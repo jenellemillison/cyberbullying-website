@@ -493,15 +493,15 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			}
 		});
 	};
-//	setInterval(function(){refresh_div();}, 10000)
+	setInterval(function(){refresh_div();}, 10000)
 
-	window.onload = function(){
-		var reloading = sessionStorage.getItem("reloading");
-		if(reloading){
-			sessionStorage.removeItem("reloading");
-			refresh_div();
-		}
-	}
+//	window.onload = function(){
+//		var reloading = sessionStorage.getItem("reloading");
+//		if(reloading){
+//			sessionStorage.removeItem("reloading");
+//			refresh_div();
+//		}
+//	}
 //	
 </script>
 </html>
