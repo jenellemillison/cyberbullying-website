@@ -478,8 +478,8 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 		$.ajax({
 			type: 'post',
 			url: 'https://stopcyberbullying.online/queryDB.php',
-			success: function(socialdata){
-				$('#dbtop10results').html(socialdata);
+			success: function(data){
+				$('#dbtop10results').html(data);
 			}
 		});
 	};
