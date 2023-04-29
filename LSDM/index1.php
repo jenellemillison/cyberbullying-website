@@ -7,6 +7,10 @@ echo '<html lang="en">
 <!-- CSS FILES -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<!-- JS FILES -->>
+<script src="assets/js/java.js"></script>
+<script src="assets/js/searchbar.js"></script>
+<script src="assets/js/jquery-3.5.1.js"></scripts>
 </head>
 <body>
 <header id="header" class="fixed-top">
@@ -433,9 +437,7 @@ echo '
   </div>
 </footer>
 <!-- End  Footer --> 
-<script src="assets/js/java.js"></script>
-<script src="assets/js/searchbar.js"></script>
-<script src="assets/js/jquery-3.5.1.js"></scripts>
+
 
 </body>;
 </html>;
@@ -483,7 +485,7 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			}
 		});
 	};
-	setInterval(function(){refresh_div();}, 500)
+	setInterval(function(){refresh_div();}, 1000)
 </script>
 </html>
 
