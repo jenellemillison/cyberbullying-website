@@ -8,8 +8,6 @@ echo '<html lang="en">
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <!-- JS FILES -->>
-<script src="assets/js/java.js"></script>
-<script src="assets/js/searchbar.js"></script>
 <script src="assets/js/jquery-3.5.1.js"></scripts>
 </head>
 <body>
@@ -424,6 +422,8 @@ echo '
 </main>
 <!-- End #main --> 
 <!-- ======= Footer ======= -->
+<script src="assets/js/java.js"></script>
+<script src="assets/js/searchbar.js"></script>
 <footer>
   <div class="container">
     <div class="row">
