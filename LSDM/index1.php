@@ -106,7 +106,7 @@ echo '<html lang="en">
 	
 			<button class="button button-a button-rouded" name="politics">Politics</button>
 			<button class="button button-a button-rouded" name="sexual-orientation">Sexual Orientation</button>
-			<button class="button button-a button-rouded" name="race-ethnicity">Race//Ethnicity</button>
+			<button class="button button-a button-rouded" name="race-ethnicity">Race/Ethnicity</button>
 			<button class="button button-a button-rouded" name="movies">Movies</button>
 			<button class="button button-a button-rouded" name="celebrities">Celebrities</button>
 			<button class="button button-a button-rouded" name="sports">Sports</button>
@@ -488,7 +488,19 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			}
 		});
 	};
-	setInterval(function(){refresh_div();}, 10000)
+//	setInterval(function(){refresh_div();}, 10000)
+	
+	$(document).ready(function(){
+	  $("movies").click(function(){
+		$.ajax({
+			type: 'post',
+			url: "https://stopcyberbullying.online/movieQueryDB.php",
+			success: function(result){
+		  $("#dbtop10results").html(result);
+		}});
+	  });
+	});
+	
 </script>
 </html>
 
