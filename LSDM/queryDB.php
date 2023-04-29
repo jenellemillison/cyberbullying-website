@@ -5,6 +5,8 @@ $port = $_ENV["MYSQLPORT"];
 $username = $_ENV["MYSQLUSER"];
 $password = $_ENV["MYSQLPASSWORD"];
 $dbname = $_ENV["MYSQLDATABASE"];
+echo "TOPIC IS";
+echo $_POST['topic'];
 if(empty($_POST['topic'])) {
 	$topic = '';
 }
