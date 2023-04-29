@@ -447,29 +447,29 @@ $username = $_ENV[ "MYSQLUSER" ];
 $password = $_ENV[ "MYSQLPASSWORD" ];
 $dbname = $_ENV[ "MYSQLDATABASE" ];
 
-// Create connection
-$conn = new mysqli( $servername, $username, $password, $dbname, $port );
-// Check connection
-if ( $conn->connect_error ) {
-  die( "Connection failed: " . $conn->connect_error );
-  echo "<p>FAILED: not connect to Tweets DB</p>";
-} else {
-  echo "<p>CONNECTED: to Tweets DB</p>";
-}
-
-$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets LIMIT 10";
-$result = $conn->query( $sql );
-
-if ( $result->num_rows > 0 ) {
-  // output data of each row
-	$count = 0;
-    while($row = $result->fetch_assoc() and $count < 10) {
-      echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
-	  $count = $count + 1;
-    }
-} else {
-  echo "0 results";
-}
+//// Create connection
+//$conn = new mysqli( $servername, $username, $password, $dbname, $port );
+//// Check connection
+//if ( $conn->connect_error ) {
+//  die( "Connection failed: " . $conn->connect_error );
+//  echo "<p>FAILED: not connect to Tweets DB</p>";
+//} else {
+//  echo "<p>CONNECTED: to Tweets DB</p>";
+//}
+//
+//$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets LIMIT 10";
+//$result = $conn->query( $sql );
+//
+//if ( $result->num_rows > 0 ) {
+//  // output data of each row
+//	$count = 0;
+//    while($row = $result->fetch_assoc() and $count < 10) {
+//      echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
+//	  $count = $count + 1;
+//    }
+//} else {
+//  echo "0 results";
+//}
 ?>
 
 <html>
