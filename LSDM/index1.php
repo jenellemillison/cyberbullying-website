@@ -7,7 +7,7 @@ echo '<html lang="en">
 <!-- CSS FILES -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
-<!-- JS FILES -->>
+<!-- JS FILES -->
 <script src="assets/js/jquery-3.5.1.js"></script>
 </head>
 <body>
@@ -105,8 +105,11 @@ echo '<html lang="en">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 	
 			<button class="button button-a button-rouded" name="politics">Politics</button>
+			<button class="button button-a button-rouded" name="sexual-orientation">Sexual Orientation</button>
+			<button class="button button-a button-rouded" name="race-ethnicity">Race//Ethnicity</button>
+			<button class="button button-a button-rouded" name="movies">Movies</button>
+			<button class="button button-a button-rouded" name="celebrities">Celebrities</button>
 			<button class="button button-a button-rouded" name="sports">Sports</button>
-			<button class="button button-a button-rouded" name="oscars">Oscars</button>
 		</div>
 		</div>
 		</div>
