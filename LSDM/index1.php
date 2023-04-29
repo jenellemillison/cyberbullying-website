@@ -497,7 +497,7 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			success: function(result){
 		  $("#dbtop10results").html(result);
 		}});
-	  };
+	  });
 	
 </script>
 </html>
