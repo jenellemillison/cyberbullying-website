@@ -228,14 +228,7 @@ echo '<html lang="en">
         echo'  </div>
         </div>
       </div> '; }
-            echo '<h2 class="s-title">Web Design</h2>
-            <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-              provident vitae! Magni
-              tempora perferendis eum non provident. </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
+     echo '<div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-card-checklist"></i></span> </div>
           <div class="service-content">
