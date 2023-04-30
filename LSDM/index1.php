@@ -1,4 +1,4 @@
-<!doctype html>
+
 <?php
 session_start();
 echo '<html lang="en">
