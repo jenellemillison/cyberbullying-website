@@ -102,7 +102,7 @@ echo '<html lang="en">
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
-			<form action="" method="post">
+			<form action="#topic" method="post">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 			
 			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
@@ -137,11 +137,11 @@ echo '<html lang="en">
 		  if(isset($_POST['topic'])) {
 			  $topic = $_POST['topic'];
 		  }
-		  else if ($_SESSION['pageNum'] == 1){
+		  else if (!(isset($_POST['topic'])) and $_SESSION['pageNum'] == 1){
 		      $topic = '';
 		  }
           else{
-			  $topic = $topic;
+			  $topic = '';
 		  }
 		  
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
