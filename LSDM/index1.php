@@ -188,7 +188,6 @@ echo '<html lang="en">
     echo'</div>';
 	 $rowCount = 0;
 		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
-			echo '<div class="container">'; 
 			 if($rowCount == 0 or $rowCount == 4){
 				 echo'<div class="row">';
 			 }
