@@ -77,9 +77,9 @@ echo '<html lang="en">
             </div>
             <div class="col-md-6">
               <div class="about-me pt-4 pt-md-0">
-                <p class="lead"> Given the above facts about cyberbullying, the aim of this project is to inform the public about cyberbullying trends and provide insights on cyberbullying topics (abusive comments, inciting violence/physical harm, or comments on physical appearances, etc). </p>
-                <p class="lead"> This information could supplement the data and other insights found on sites such as stopbullying.gov and youth.gov. Not only does this information educate public social media users, it can also be leveraged to inform the administrators and developers for social media companies which topics on their platform, specifically Twitter, should be monitored more closely for these reportable offenses. </p>
-                <p class="lead"> This site takes Tweets and using Sentiment Analysis and Natural Language Processing classifies them as cyberbullying or not. First, visit the "Select Tweet Topic" section to pick a topic the Tweets center around. Then, look at the "Cyberbullying Analytics" section to see the cyberbullying analysis for the selected topic. Finally, if you have any questions or concerns, visit the "Meet the Developers" and "Contact" sections. </p>
+                <p class="lead"> Given the above facts about cyberbullying, the aim of this project is to inform the public about cyberbullying trends and provide insights on cyberbullying topics (gender, age, race, etc). </p>
+                <p class="lead"> This information could supplement the data and other insights found on sites such as stopbullying.gov and youth.gov. Not only does this information educate public social media users, it can also be leveraged to inform the administrators and developers for social media companies which topics on their platform, specifically Twitter and Instagram, should be monitored more closely for these reportable offenses. </p>
+                <p class="lead"> This site utilizes Tweets and Instagram posts. Using Sentiment Analysis and Natural Language Processing, we classify them as cyberbullying or not. First, visit the "Topic Selection" section to pick a topic the social media posts center around. Then, look at the "Cyberbullying Analytics" section to see the cyberbullying analysis for the selected topic. Finally, if you have any questions or concerns, visit the "Meet the Developers" and "Contact" sections. </p>
                 <p class="lead"> [1] All statistics are sourced from <a href=https://enough.org/stats_cyberbullying>Enough Is Enough</a> </p>
               </div>
             </div>
@@ -96,8 +96,8 @@ echo '<html lang="en">
   <div class="row">
     <div class="col-sm-12">
       <div class="title-box text-center">
-        <h3 class="title-a"> TODO: Implement Topic Selection </h3>
-        <p class="subtitle-a"> Will consist of a Search Bar and Drop Down List of subjects for Tweets. </p>
+        <h3 class="title-a">Topic Selection</h3>
+        <p class="subtitle-a"> Click "Select Topic" to select a subject for anaylsis of cyberbullying in social media posts. </p>
         <div class="line-mf"></div><br><br>
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
@@ -126,8 +126,29 @@ echo '<html lang="en">
     <div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">
-          <h3 class="title-a"> TODO: Implement Analytics </h3>
-          <p class="subtitle-a"> Will consist of both Graphs and Counting Metrics. </p>
+          <h3 class="title-a"> Analytics </h3>';
+		  session_start();
+		  $perPage = 6;
+		  if(isset($_POST['topic'])) {
+				$topic = $_POST['topic'];
+			}
+			else {
+				$topic = '';
+			}
+		  if(isset($_POST['next-posts'])) {
+			  $_SESSION['pageNum'] += 1;
+		  }
+		  else{
+			  $_SESSION['pageNum'] = 1;
+		  }
+		  $bottom_limit = (($_SESSION['pageNum'] - 1) * $perPage);
+		  $top_limit = ($perPage * $_SESSION['pageNum']);
+          echo '<p class="subtitle-a">Some ' .$topic. ' Tweets</p>';
+		  
+		  echo '<form action="" method="post"> 
+			  <button class="button button-a" name="next-posts" value="next">See Different Posts</button>
+			  </form>';
+          echo '<p class="subtitle-a"> Will consist of both Graphs and Counting Metrics. </p>
           <div class="line-mf"></div>
         </div>
       </div>
@@ -136,13 +157,7 @@ echo '<html lang="en">
 	<div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">';
-			if(isset($_POST['topic'])) {
-				$topic = $_POST['topic'];
-			}
-			else {
-				$topic = '';
-			}
-          echo '<h6 class="title-a"> Some ' .$topic. ' Tweets </h6>';
+			
 			//DB connection
 			$servername = $_ENV[ "MYSQLHOST" ];
 			$port = $_ENV[ "MYSQLPORT" ];
@@ -155,7 +170,7 @@ echo '<html lang="en">
 			// Check connection
 			if ( $conn->connect_error ) {
 			  die( "Connection failed: " . $conn->connect_error );
-			  echo "<p>FAILED: not connect to Tweets DB</p>";
+			  echo "<p>FAILED: not connect to DB</p>";
 			} else {
 			  echo "";
 			}
@@ -171,7 +186,7 @@ echo '<html lang="en">
 			// Create new mysql connection
 			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
 			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
-			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;";
+			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $bottom_limit . " , " . $top_limit . ";";
 			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
 			while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
 			  echo '<tr>';
@@ -181,7 +196,6 @@ echo '<html lang="en">
 			  echo '<td>' . $socialdata['cyberbullying_category'] . '</td>';
 			  echo '</tr>';
 			}
-//			echo '</tbody>';
 			echo '</table>';
 			echo '<div class="line-mf"></div>
         </div>
