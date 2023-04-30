@@ -194,8 +194,13 @@ echo '<html lang="en">
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
 			     echo '<h2 class="s-title">'. $socialdata["cyberbullying_category"] . '</h2>';
-				 echo' <div class="service-ico">';
-				 echo '<span class="ico-circle"><i class="bi bi-twitter"></i></span> </div>';
+				  echo' <div class="service-ico">';
+				   if($socialdata["short_code"] == '') {
+				 	 echo '<span class="ico-circle"><i class="bi bi-twitter"></i></span> </div>';
+				   }
+			       else{
+					 echo '<span class="ico-circle"><i class="bi bi-instagram"></i></span> </div>';  
+				   }
 				  echo'<div class="service-content">';
 				 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
 				echo' <h2 class="s-title">' . $socialdata["time_posted"] . '</h2>';
