@@ -186,8 +186,9 @@ echo '<html lang="en">
        echo' </div>';
       echo '</div>';
     echo'</div>';
-	 echo '<div class="container">';
+	 
 		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
+			echo '<div class="container">'; 
 			 echo'<div class="row">';
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
@@ -198,10 +199,10 @@ echo '<html lang="en">
 				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
 				echo'  </div> ';
 			   echo' </div> ';
-			  echo'</div>'; 
+			  echo'</div>';
+			echo'</div>'; 
 		}
 		echo '</div>
-        </div>
       </div>
     </div>
   </div>
