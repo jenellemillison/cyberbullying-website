@@ -106,8 +106,8 @@ echo '<html lang="en">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 			
 			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
-			<button class="button button-a button-rouded" name="topic" value="Sexual-Orientation">Sexual Orientation</button>
-			<button class="button button-a button-rouded" name="topic" value="Race-Ethnicity">Race/Ethnicity</button>
+			<button class="button button-a button-rouded" name="topic" value="Sexual Orientation">Sexual Orientation</button>
+			<button class="button button-a button-rouded" name="topic" value="Race/Ethnicity">Race/Ethnicity</button>
 			<button class="button button-a button-rouded" name="topic" value="Movies">Movies</button>
 			<button class="button button-a button-rouded" name="topic" value="Celebrities">Celebrities</button>
 			<button class="button button-a button-rouded" name="topic" value="Sports">Sports</button>
@@ -151,7 +151,7 @@ echo '<html lang="en">
 			  die( "Connection failed: " . $conn->connect_error );
 			  echo "<p>FAILED: not connect to Tweets DB</p>";
 			} else {
-			  echo "<p>CONNECTED: to Tweets DB</p>";
+			  echo "";
 			}
 			
 			echo '<table border="5" bordercolor="#000000" width="100%">
@@ -164,7 +164,7 @@ echo '<html lang="en">
 //			echo '<tbody id="dbtop10results">';
 			if(isset($_POST['topic'])) {
 				$topic = $_POST['topic'];
-				echo 'topic set to' .$topic;
+				echo 'You selected the topic: ' .$topic;
 			}
 			else {
 				$topic = '';
