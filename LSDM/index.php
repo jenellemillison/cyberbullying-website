@@ -221,7 +221,7 @@ echo '<html lang="en">
   </div>
   <!-- ======= Calculate Counts ======= -->
   ';
-  $numGenderBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category == \"gender\";";
+  $numGenderBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
   $numGenderyBully = $dblink->query( $numGenderBullyQuery )or die( "<p>Something went wrong with: $numGenderBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   echo '<h1>' . $numGenderBullyQuery .'</h1>';
   
