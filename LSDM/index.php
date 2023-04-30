@@ -176,6 +176,7 @@ echo '
 	};
 	setInterval(function(){refresh_div();}, 50000)
 </script>
+
 	<div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">
