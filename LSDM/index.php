@@ -231,16 +231,16 @@ echo '<html lang="en">
   while ( $numReligionData = $numReligionBully->fetch_array( MYSQLI_ASSOC )) {
   	$numReligion = $numReligionData['COUNT(cyberbullying_category)'];
   }
-//  $numEthnicityBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"ethnicity\";";
-//  $numEthnicityBully = $dblink->query( $numEthnicityBullyQuery )or die( "<p>Something went wrong with: $numEthnicityBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-//  while ( $numEthnicityData = $numEthnicityBully->fetch_array( MYSQLI_ASSOC )) {
-//  	$numEthnicity = $numEthnicityData['COUNT(cyberbullying_category)'];
-//  }
-//  $numAgeBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"age\";";
-//  $numAgeBully = $dblink->query( $numAgeBullyQuery )or die( "<p>Something went wrong with: $numAgeBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-//  while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
-//  	$numAge = $numAgeData['COUNT(cyberbullying_category)'];
-//  }
+  $numEthnicityBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"ethnicity\";";
+  $numEthnicityBully = $dblink->query( $numEthnicityBullyQuery )or die( "<p>Something went wrong with: $numEthnicityBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+  while ( $numEthnicityData = $numEthnicityBully->fetch_array( MYSQLI_ASSOC )) {
+  	$numEthnicity = $numEthnicityData['COUNT(cyberbullying_category)'];
+  }
+  $numAgeBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"age\";";
+  $numAgeBully = $dblink->query( $numAgeBullyQuery )or die( "<p>Something went wrong with: $numAgeBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+  while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
+  	$numAge = $numAgeData['COUNT(cyberbullying_category)'];
+  }
 //  $numBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
 //  $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
 //  while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
