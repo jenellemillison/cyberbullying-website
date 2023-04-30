@@ -128,18 +128,19 @@ echo '<html lang="en">
         <div class="title-box text-center">
           <h3 class="title-a"> Analytics </h3>';
 		  $perPage = 6;
-		  if(isset($_POST['topic'])) {
-				$topic = $_POST['topic'];
-			}
-			else {
-				$topic = '';
-			}
 		  if(isset($_POST['next-posts'])) {
 			  $_SESSION['pageNum'] += 1;
 		  }
 		  else{
 			  $_SESSION['pageNum'] = 1;
 		  }
+		  if(isset($_POST['topic'])) {
+			  $topic = $_POST['topic'];
+		  }
+		  else if ($_SESSION['pageNum'] == 1){
+		      $topic = '';
+		  }
+		  
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
           echo '<p class="subtitle-a">Some ' .$topic. ' Tweets</p>';
