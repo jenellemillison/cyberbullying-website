@@ -158,9 +158,7 @@ echo '<html lang="en">
       </div>
     </div>
     <!-- start graphs section> -->
-	<div class="row">
-      <div class="col-sm-12">
-        <div class="title-box text-center">';
+';
 			
 			//DB connection
 			$servername = $_ENV[ "MYSQLHOST" ];
@@ -216,9 +214,7 @@ echo '<html lang="en">
 		}
 		echo '</div>
 		</div>
-      </div>
-    </div>
-  </div>
+
 </section>
 <!-- End Counter Section --> 
 <!-- ======= Meet the Developers ======= -->
