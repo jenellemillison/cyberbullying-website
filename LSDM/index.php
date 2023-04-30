@@ -244,14 +244,14 @@ echo '<html lang="en">
   $numBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
   $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numBully = $numBullyData['COUNT(cyberbullying_category)'];
+  	$bully = $numBullyData['COUNT(cyberbullying_category)'];
   }
   $numNotBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
   $numNotBully = $dblink->query( $numNotBullyQuery )or die( "<p>Something went wrong with: $numNotBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numNotBully = $numNotBullyData['COUNT(cyberbullying_category)'];
+  	$notBully = $numNotBullyData['COUNT(cyberbullying_category)'];
   }
-  echo '<h1>'. $numNotBully . $numBully . '</h1>';
+  echo '<h1>'. $notBully . $bully . '</h1>';
 //      '<!-- ======= Counter Section ======= -->
 //    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
 //      <div class="overlay-mf"></div>
