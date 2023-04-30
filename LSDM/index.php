@@ -193,6 +193,7 @@ echo '<html lang="en">
 			 }
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
+			     echo '<h2 class="s-title">'. $socialdata["cyberbullying_category"] . '</h2>';
 				 echo' <div class="service-ico">';
 				 echo '<span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
 				  echo'<div class="service-content">';
