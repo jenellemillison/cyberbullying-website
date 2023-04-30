@@ -176,14 +176,6 @@ echo '<html lang="en">
 			} else {
 			  echo "";
 			}
-			
-			echo '<table border="5" bordercolor="#000000" width="100%">
-				<tr>
-					<th>Username</th>
-					<th>Text</th>
-					<th>Time Posted</th>
-					<th>Cyberbullying Category</th>
-				</tr>';
 
 			// Create new mysql connection
 			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
@@ -203,9 +195,9 @@ echo '<html lang="en">
        echo' </div>';
       echo '</div>';
     echo'</div>';
-   echo'<div class="row">';
+   
 		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) {
-			 
+			 echo'<div class="row">';
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
 				 echo' <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
@@ -214,10 +206,10 @@ echo '<html lang="en">
 				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
 				echo'  </div> ';
 			   echo' </div> ';
-			  ; }
-    echo'</div> 
+			  echo'</div>'; 
+		}
 
-        </div>
+        echo '</div>
       </div>
     </div>
   </div>
