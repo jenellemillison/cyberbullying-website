@@ -223,7 +223,7 @@ echo '<html lang="en">
   ';
   $numGenderBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
   $numGenderyBully = $dblink->query( $numGenderBullyQuery )or die( "<p>Something went wrong with: $numGenderBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numGenderData = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
+  while ( $numGenderData = $numGenderyBully->fetch_array( MYSQLI_ASSOC )) {
   	echo '<h1>' . $numGenderData .'</h1>';
   }
   
