@@ -180,26 +180,27 @@ echo '<html lang="en">
 			  echo '<td>' . $socialdata['time_posted'] . '</td>';
 			  echo '<td>' . $socialdata['cyberbullying_category'] . '</td>';
 			  echo '</tr>';
-			}
+			//}
 //			echo '</tbody>';
 			echo '</table>';
-			echo '<div class="line-mf"></div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="service-box">
-          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>
-          <div class="service-content">
-            <h2 class="s-title">. $socialdata["username"] .</h2>
-            <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
+			echo '<div class="line-mf"></div>';
+       echo' </div>';
+      echo '</div>';
+    echo'</div>';
+    echo'<div class="row">';
+      echo'<div class="col-md-4">';
+        echo'<div class="service-box">';
+         echo' <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
+          echo'<div class="service-content">';
+		 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
+          echo'  <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
               provident vitae! Magni
-              tempora perferendis eum non provident. </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
+              tempora perferendis eum non provident. </p> ';
+        echo'  </div> ';
+       echo' </div> ';
+      echo'</div> ';
+			}
+      echo'<div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-card-checklist"></i></span> </div>
           <div class="service-content">
