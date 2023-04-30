@@ -128,7 +128,7 @@ echo '<html lang="en">
         <div class="title-box text-center">
           <h3 class="title-a"> Analytics </h3>';
 		  $perPage = 6;
-		  if(isset($_POST['next-posts'])) {
+		  if(isset($_GET['next-posts'])) {
 			  $_SESSION['pageNum'] += 1;
 		  }
 		  else{
@@ -147,7 +147,7 @@ echo '<html lang="en">
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
           echo '<p class="subtitle-a">Some ' .$topic. ' Tweets</p>';
-		  echo '<form action="#analytics" method="post"> 
+		  echo '<form action="#analytics" method="get"> 
 			  <button class="button button-a" name="next-posts" value="next">See Different Posts</button>
 			  </form>';
           echo '<p class="subtitle-a"> Will consist of both Graphs and Counting Metrics. </p>
