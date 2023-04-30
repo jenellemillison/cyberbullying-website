@@ -147,7 +147,7 @@ echo '<html lang="en">
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
           echo '<p class="subtitle-a">Some ' .$topic. ' Tweets</p>';
-		  echo '<form action="#" method="post"> 
+		  echo '<form action="#analytics" method="post"> 
 			  <button class="button button-a" name="next-posts" value="next">See Different Posts</button>
 			  </form>';
           echo '<p class="subtitle-a"> Will consist of both Graphs and Counting Metrics. </p>
