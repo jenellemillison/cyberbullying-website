@@ -101,7 +101,7 @@ echo '<html lang="en">
         <p class="subtitle-a"> Click "Select Topic" to select a subject for anaylsis of cyberbullying in social media posts. </p>
         <div class="line-mf"></div><br><br>
 		 <div class="topic-dropdown">
-			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
+			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rounded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
 			<form action="#topic" method="get">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
@@ -121,6 +121,7 @@ echo '<html lang="en">
     </div>
   </div>
 </div>
+</section>
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
   <div class="container">
@@ -218,6 +219,7 @@ echo '<html lang="en">
       </div>
     </div>
   </div>
+</section>
 <!-- End Counter Section --> 
 <!-- ======= Meet the Developers ======= -->
 <section id="who" class="services-mf pt-5 route">
