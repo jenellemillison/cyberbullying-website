@@ -263,44 +263,44 @@ echo '<html lang="en">
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box counter-box pt-4 pt-md-0">
               <div class="counter-ico">
-                <span class="ico-circle"><i class="bi bi-check"></i></span>
+                <span class="ico-circle"><i class="bi bi-diagram-2"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="'. $notBully. '" data-purecounter-duration="1" class="counter purecounter"></p>
-                <span class="counter-text">NOT CYBERBULLYING</span>
+                <p>'. $numEthnicity. '</p>
+                <span class="counter-text">ETHNICITY CYBERBULLYING</span>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
-                <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
+                <span class="ico-circle"><i class="bi bi-calendar-check"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="' . $bully . '" data-purecounter-duration="1" class="counter purecounter"></p>
-                <span class="counter-text">CYBERBULLYING</span>
+                <p>'. $numAge .'</p>
+                <span class="counter-text">AGE CYBERBULLYING</span>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
-                <span class="ico-circle"><i class="bi bi-people"></i></span>
+                <span class="ico-circle"><i class="bi bi-gender-trans"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="'. $numGender . '" data-purecounter-duration="1" class="counter purecounter"></p>
-                <span class="counter-text">TOTAL CLIENTS</span>
+                <p>'. $numGender . '</p>
+                <span class="counter-text">GENDER CYBERBULLYING</span>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
-                <span class="ico-circle"><i class="bi bi-award"></i></span>
+                <span class="ico-circle"><i class="bi bi-bell"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="'. $numAge . '" data-purecounter-duration="1" class="counter purecounter"></p>
-                <span class="counter-text">AWARD WON</span>
+                <p '. $numReligion . '></p>
+                <span class="counter-text">RELIGION CYBERBULLYING</span>
               </div>
             </div>
 		  </div>
@@ -459,7 +459,6 @@ echo '
 <!-- ======= Footer ======= -->
 <script src="assets/js/java.js"></script>
 <script src="assets/js/searchbar.js"></script>
-<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 <footer>
   <div class="container">
     <div class="row">
