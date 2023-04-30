@@ -190,25 +190,25 @@ echo '<html lang="en">
 			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
 			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $perPage . " OFFSET " . $bottom_limit . ";";
 			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
-			while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
-			  echo '<tr>';
-			  echo '<td>' . $socialdata['username'] . '</td>';
-			  echo '<td>' . $socialdata['text'] . '</td>';
-			  echo '<td>' . $socialdata['time_posted'] . '</td>';
-			  echo '<td>' . $socialdata['cyberbullying_category'] . '</td>';
-			  echo '</tr>';
-			}
-			echo '</table>';
-			echo '<div class="line-mf"></div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="service-box">
-          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>
-          <div class="service-content">';
-		  while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { 
+//			while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
+//			  echo '<tr>';
+//			  echo '<td>' . $socialdata['username'] . '</td>';
+//			  echo '<td>' . $socialdata['text'] . '</td>';
+//			  echo '<td>' . $socialdata['time_posted'] . '</td>';
+//			  echo '<td>' . $socialdata['cyberbullying_category'] . '</td>';
+//			  echo '</tr>';
+//			}
+//			echo '</table>';
+			echo '<div class="line-mf"></div>';
+       echo' </div>';
+      echo '</div>';
+    echo'</div>';
+    echo'<div class="row">';
+      echo'<div class="col-md-4">';
+        echo'<div class="service-box">';
+         echo' <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
+          echo'<div class="service-content">';
+		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { 
 		 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
           echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
         echo'  </div> ';
@@ -228,18 +228,7 @@ echo '<html lang="en">
         echo'  </div>
         </div>
       </div> '; }
-     echo '<div class="col-md-4">
-        <div class="service-box">
-          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-card-checklist"></i></span> </div>
-          <div class="service-content">
-            <h2 class="s-title">Web Development</h2>
-            <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-              provident vitae! Magni
-              tempora perferendis eum non provident. </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
+     echo' <div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-bar-chart"></i></span> </div>
           <div class="service-content">
@@ -285,48 +274,6 @@ echo '<html lang="en">
       </div>
     </div>
   </div>
-</section>
-<!-- end graphs section--> 
-<!-- start counter section-->
-<div class="section-counter paralax-mf bg-image" >
-  <div class="overlay-mf"></div>
-  <div class="container position-relative">
-    <div class="row">
-      <div class="col-sm-3 col-lg-3">
-        <div class="counter-box counter-box pt-4 pt-md-0">
-          <div class="counter-ico"> <span class="ico-circle"><i class="bi bi-check"></i></span> </div>
-          <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="450" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">WORKS COMPLETED</span> </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-lg-3">
-        <div class="counter-box pt-4 pt-md-0">
-          <div class="counter-ico"> <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span> </div>
-          <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">YEARS OF EXPERIENCE</span> </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-lg-3">
-        <div class="counter-box pt-4 pt-md-0">
-          <div class="counter-ico"> <span class="ico-circle"><i class="bi bi-people"></i></span> </div>
-          <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="550" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">TOTAL CLIENTS</span> </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-lg-3">
-        <div class="counter-box pt-4 pt-md-0">
-          <div class="counter-ico"> <span class="ico-circle"><i class="bi bi-award"></i></span> </div>
-          <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="48" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">AWARD WON</span> </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- End Counter Section --> 
 <!-- ======= Meet the Developers ======= -->
 <section id="who" class="services-mf pt-5 route">
