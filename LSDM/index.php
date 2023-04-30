@@ -198,21 +198,21 @@ echo '<html lang="en">
         echo'  </div> ';
        echo' </div> ';
       echo'</div> ';
-			}
+			
       echo'<div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-card-checklist"></i></span> </div>
           <div class="service-content">';
-		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) {
+		//while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) {
           echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
           echo'  <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
               provident vitae! Magni
               tempora perferendis eum non provident. </p>';
-			  }
+			  
         echo'  </div>
         </div>
-      </div>
-      <div class="col-md-4">
+      </div> '; }
+     echo' <div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-bar-chart"></i></span> </div>
           <div class="service-content">
