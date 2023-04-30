@@ -307,6 +307,7 @@ echo '<html lang="en">
         </div>
       </div>
 	</div>
+  </div>
 <!-- End Counter Section --> 
 <!-- ======= Meet the Developers ======= -->
 <section id="who" class="services-mf pt-5 route">
