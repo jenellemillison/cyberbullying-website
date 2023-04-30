@@ -255,7 +255,7 @@ echo '<html lang="en">
   	$notBully = $numNotBullyData['COUNT(cyberbullying_category)'];
   }
 
-      '<!-- ======= Counter Section ======= -->
+      echo '<!-- ======= Counter Section ======= -->
     <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container position-relative">
