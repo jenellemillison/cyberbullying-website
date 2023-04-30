@@ -180,14 +180,15 @@ echo '<html lang="en">
 			// Create new mysql connection
 			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
 			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
-			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $perPage/2 . " OFFSET " . $bottom_limit . ";";
+			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $perPage . " OFFSET " . $bottom_limit . ";";
 			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
 			echo '<div class="line-mf"></div>';
        echo' </div>';
       echo '</div>';
     echo'</div>';
+		
 		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
-			 echo'<div class="row">';
+			 
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
 				 echo' <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
@@ -196,26 +197,7 @@ echo '<html lang="en">
 				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
 				echo'  </div> ';
 			   echo' </div> ';
-			  echo'</div>'; 
-		}
-			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $perPage/2 . " OFFSET " . $bottom_limit + $perPage/2 . ";";
-			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
-			echo '<div class="line-mf"></div>';
-       echo' </div>';
-      echo '</div>';
-    echo'</div>';
-   		$rowCount = 1;
-		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
-			 echo'<div class="row">';
-			  echo'<div class="col-md-4">';
-				echo'<div class="service-box">';
-				 echo' <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
-				  echo'<div class="service-content">';
-				 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
-				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
-				echo'  </div> ';
-			   echo' </div> ';
-			  echo'</div>'; 
+			   
 		}
 
         echo '</div>
