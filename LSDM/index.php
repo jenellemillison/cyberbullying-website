@@ -194,7 +194,7 @@ echo '<html lang="en">
 				echo'<div class="service-box">';
 			     echo '<h2 class="s-title">'. $socialdata["cyberbullying_category"] . '</h2>';
 				 echo' <div class="service-ico">';
-				 echo '<span class="ico-circle"><img src="/assets/images/twitter-circle.png"></img></span> </div>';
+				 echo '<span class="ico-circle"><i class="bi bi-twitter"></i></span> </div>';
 				  echo'<div class="service-content">';
 				 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
 				echo' <h2 class="s-title">' . $socialdata["time_posted"] . '</h2>';
