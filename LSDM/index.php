@@ -231,78 +231,78 @@ echo '<html lang="en">
   while ( $numReligionData = $numReligionBully->fetch_array( MYSQLI_ASSOC )) {
   	$numReligion = $numReligionData['COUNT(cyberbullying_category)'];
   }
-  $numEthnicityBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"ethnicity\";";
-  $numEthnicityBully = $dblink->query( $numEthnicityBullyQuery )or die( "<p>Something went wrong with: $numEthnicityBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numEthnicityData = $numEthnicityBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numEthnicity = $numEthnicityData['COUNT(cyberbullying_category)'];
-  }
-  $numAgeBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"age\";";
-  $numAgeBully = $dblink->query( $numAgeBullyQuery )or die( "<p>Something went wrong with: $numAgeBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numAge = $numAgeData['COUNT(cyberbullying_category)'];
-  }
-  $numBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
-  $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numBully = $numBullyData['COUNT(cyberbullying_category)'];
-  }
-  $numNotBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
-  $numNotBully = $dblink->query( $numNotBullyQuery )or die( "<p>Something went wrong with: $numNotBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numNotBully = $numNotBullyData['COUNT(cyberbullying_category)'];
-  }
+//  $numEthnicityBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"ethnicity\";";
+//  $numEthnicityBully = $dblink->query( $numEthnicityBullyQuery )or die( "<p>Something went wrong with: $numEthnicityBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+//  while ( $numEthnicityData = $numEthnicityBully->fetch_array( MYSQLI_ASSOC )) {
+//  	$numEthnicity = $numEthnicityData['COUNT(cyberbullying_category)'];
+//  }
+//  $numAgeBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"age\";";
+//  $numAgeBully = $dblink->query( $numAgeBullyQuery )or die( "<p>Something went wrong with: $numAgeBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+//  while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
+//  	$numAge = $numAgeData['COUNT(cyberbullying_category)'];
+//  }
+//  $numBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
+//  $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+//  while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
+//  	$numBully = $numBullyData['COUNT(cyberbullying_category)'];
+//  }
+//  $numNotBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
+//  $numNotBully = $dblink->query( $numNotBullyQuery )or die( "<p>Something went wrong with: $numNotBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+//  while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
+//  	$numNotBully = $numNotBullyData['COUNT(cyberbullying_category)'];
+//  }
       '<!-- ======= Counter Section ======= -->
-    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container position-relative">
-        <div class="row">
-          <div class="col-sm-5 col-lg-5">
-            <div class="counter-box counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="bi bi-check"></i></span>
-              </div>
-              <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="'. $numNotBully. '" data-purecounter-duration="1" class="counter purecounter"></p>
-                <span class="counter-text">NOT CYBERBULLYING</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-5 col-lg-5">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
-              </div>
-              <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="' . $numBully . '" data-purecounter-duration="1" class="counter purecounter"></p>
-                <span class="counter-text">CYBERBULLYING</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="bi bi-people"></i></span>
-              </div>
-              <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="'. $numGender . '" data-purecounter-duration="1" class="counter purecounter"></p>
-                <span class="counter-text">TOTAL CLIENTS</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-5 col-lg-5">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="bi bi-award"></i></span>
-              </div>
-              <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="'. $numAge . '" data-purecounter-duration="1" class="counter purecounter"></p>
-                <span class="counter-text">AWARD WON</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Counter Section -->
+//    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
+//      <div class="overlay-mf"></div>
+//      <div class="container position-relative">
+//        <div class="row">
+//          <div class="col-sm-5 col-lg-5">
+//            <div class="counter-box counter-box pt-4 pt-md-0">
+//              <div class="counter-ico">
+//                <span class="ico-circle"><i class="bi bi-check"></i></span>
+//              </div>
+//              <div class="counter-num">
+//                <p data-purecounter-start="0" data-purecounter-end="'. $numNotBully. '" data-purecounter-duration="1" class="counter purecounter"></p>
+//                <span class="counter-text">NOT CYBERBULLYING</span>
+//              </div>
+//            </div>
+//          </div>
+//          <div class="col-sm-5 col-lg-5">
+//            <div class="counter-box pt-4 pt-md-0">
+//              <div class="counter-ico">
+//                <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
+//              </div>
+//              <div class="counter-num">
+//                <p data-purecounter-start="0" data-purecounter-end="' . $numBully . '" data-purecounter-duration="1" class="counter purecounter"></p>
+//                <span class="counter-text">CYBERBULLYING</span>
+//              </div>
+//            </div>
+//          </div>
+//          <div class="col-sm-3 col-lg-3">
+//            <div class="counter-box pt-4 pt-md-0">
+//              <div class="counter-ico">
+//                <span class="ico-circle"><i class="bi bi-people"></i></span>
+//              </div>
+//              <div class="counter-num">
+//                <p data-purecounter-start="0" data-purecounter-end="'. $numGender . '" data-purecounter-duration="1" class="counter purecounter"></p>
+//                <span class="counter-text">TOTAL CLIENTS</span>
+//              </div>
+//            </div>
+//          </div>
+//          <div class="col-sm-5 col-lg-5">
+//            <div class="counter-box pt-4 pt-md-0">
+//              <div class="counter-ico">
+//                <span class="ico-circle"><i class="bi bi-award"></i></span>
+//              </div>
+//              <div class="counter-num">
+//                <p data-purecounter-start="0" data-purecounter-end="'. $numAge . '" data-purecounter-duration="1" class="counter purecounter"></p>
+//                <span class="counter-text">AWARD WON</span>
+//              </div>
+//            </div>
+//          </div>
+//        </div>
+//      </div>
+//    </div><!-- End Counter Section -->
   
 </section>
 <!-- End Counter Section --> 
