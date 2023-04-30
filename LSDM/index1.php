@@ -102,7 +102,7 @@ echo '<html lang="en">
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
-			<form action="#topic" method="post">
+			<form action="#topic" method="get">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 			
 			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
@@ -128,16 +128,16 @@ echo '<html lang="en">
         <div class="title-box text-center">
           <h3 class="title-a"> Analytics </h3>';
 		  $perPage = 6;
-		  if(isset($_GET['next-posts'])) {
+		  if(isset($_POST['next-posts'])) {
 			  $_SESSION['pageNum'] += 1;
 		  }
 		  else{
 			  $_SESSION['pageNum'] = 1;
 		  }
-		  if(isset($_POST['topic'])) {
-			  $topic = $_POST['topic'];
+		  if(isset($_GET['topic'])) {
+			  $topic = $_GET['topic'];
 		  }
-		  else if (!(isset($_POST['topic'])) and $_SESSION['pageNum'] == 1){
+		  else if (!(isset($_GET['topic'])) and $_SESSION['pageNum'] == 1){
 		      $topic = '';
 		  }
           else{
@@ -147,7 +147,7 @@ echo '<html lang="en">
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
           echo '<p class="subtitle-a">Some ' .$topic. ' Tweets</p>';
-		  echo '<form action="#analytics" method="get"> 
+		  echo '<form action="#analytics" method="post"> 
 			  <button class="button button-a" name="next-posts" value="next">See Different Posts</button>
 			  </form>';
           echo '<p class="subtitle-a"> Will consist of both Graphs and Counting Metrics. </p>
