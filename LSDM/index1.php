@@ -102,7 +102,7 @@ echo '<html lang="en">
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
-			<form action="queryDB.php" method="post">
+			<form action="topicResults.php" method="post">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 			
 			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
