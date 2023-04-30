@@ -1,5 +1,5 @@
-<!doctype html>
 <?php
+session_start();
 echo '<html lang="en">
 <head>
 <meta charset="utf-8">
@@ -127,7 +127,6 @@ echo '<html lang="en">
       <div class="col-sm-12">
         <div class="title-box text-center">
           <h3 class="title-a"> Analytics </h3>';
-		  session_start();
 		  $perPage = 6;
 		  if(isset($_POST['topic'])) {
 				$topic = $_POST['topic'];
@@ -478,8 +477,8 @@ echo '
 <!-- End  Footer --> 
 
 
-</body>;
-</html>;
+</body>
+</html>
 ';
 //DB connection
 $servername = $_ENV[ "MYSQLHOST" ];
