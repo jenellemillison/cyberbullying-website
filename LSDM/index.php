@@ -257,7 +257,7 @@ echo '<html lang="en">
       <div class="overlay-mf"></div>
       <div class="container position-relative">
         <div class="row">
-          <div class="col-sm-5 col-lg-5">
+          <div class="col-sm-3 col-lg-3">
             <div class="counter-box counter-box pt-4 pt-md-0">
               <div class="counter-ico">
                 <span class="ico-circle"><i class="bi bi-check"></i></span>
@@ -268,7 +268,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-sm-5 col-lg-5">
+          <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
                 <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
@@ -290,7 +290,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-sm-5 col-lg-5">
+          <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
                 <span class="ico-circle"><i class="bi bi-award"></i></span>
