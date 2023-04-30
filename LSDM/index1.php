@@ -188,7 +188,7 @@ echo '<html lang="en">
     echo'</div>';
 	 $rowCount = 0;
 		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
-			 if($rowCount == 0 or $rowCount == 4){
+			 if($rowCount == 0 or $rowCount == 3){
 				 echo'<div class="row">';
 			 }
 			  echo'<div class="col-md-4">';
@@ -199,7 +199,7 @@ echo '<html lang="en">
 				 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
 				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
 				echo'  </div> ';
-			   if($rowCount == 0 or $rowCount == 4){
+			   if($rowCount == 0 or $rowCount == 3){
 				 echo'</div>';
 			 	}
 			  echo'</div>'; 
