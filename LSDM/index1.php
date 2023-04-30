@@ -102,7 +102,7 @@ echo '<html lang="en">
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
-			<form action="topicResults.php" method="post">
+			<form action="" method="post">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 			
 			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
@@ -161,8 +161,29 @@ echo '<html lang="en">
 					<th>Time Posted</th>
 					<th>Cyberbullying Category</th>
 				</tr>';
-			echo '<tbody id="dbtop10results">';
-			echo '</tbody>';
+//			echo '<tbody id="dbtop10results">';
+			if(isset($_POST['topic'])) {
+				$topic = $_POST['topic'];
+				echo 'topic set to' .$topic;
+			}
+			else {
+				$topic = '';
+			}
+
+			// Create new mysql connection
+			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
+			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
+			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;";
+			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
+			while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
+			  echo '<tr>';
+			  echo '<td>' . $socialdata['username'] . '</td>';
+			  echo '<td>' . $socialdata['text'] . '</td>';
+			  echo '<td>' . $socialdata['time_posted'] . '</td>';
+			  echo '<td>' . $socialdata['cyberbullying_category'] . '</td>';
+			  echo '</tr>';
+			}
+//			echo '</tbody>';
 			echo '</table>';
 			echo '<div class="line-mf"></div>
         </div>
@@ -493,16 +514,9 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			}
 		});
 	};
-	setInterval(function(){refresh_div();}, 500)
+	setInterval(function(){refresh_div();}, 1000);
 
-//	window.onload = function(){
-//		var reloading = sessionStorage.getItem("reloading");
-//		if(reloading){
-//			sessionStorage.removeItem("reloading");
-//			refresh_div();
-//		}
-//	}
-//	
+
 </script>
 </html>
 
