@@ -102,12 +102,12 @@ echo '<html lang="en">
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
-			<form action="" method="post">
+			<form action="topicResults.php" method="post">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 			
 			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
-			<button class="button button-a button-rouded" name="topic" value="Sexual Orientation">Sexual Orientation</button>
-			<button class="button button-a button-rouded" name="topic" value="Race/Ethnicity">Race/Ethnicity</button>
+			<button class="button button-a button-rouded" name="topic" value="Sexual-Orientation">Sexual Orientation</button>
+			<button class="button button-a button-rouded" name="topic" value="Race-Ethnicity">Race/Ethnicity</button>
 			<button class="button button-a button-rouded" name="topic" value="Movies">Movies</button>
 			<button class="button button-a button-rouded" name="topic" value="Celebrities">Celebrities</button>
 			<button class="button button-a button-rouded" name="topic" value="Sports">Sports</button>
@@ -135,14 +135,8 @@ echo '<html lang="en">
     <!-- start graphs section> -->
 	<div class="row">
       <div class="col-sm-12">
-        <div class="title-box text-center">';
-			if(isset($_POST['topic'])) {
-				$topic = $_POST['topic'];
-			}
-			else {
-				$topic = '';
-			}
-          echo '<h6 class="title-a"> Some ' .$topic. ' Tweets </h6>';
+        <div class="title-box text-center">
+          <h5 class="title-a"> Sample Data </h5>';
 			//DB connection
 			$servername = $_ENV[ "MYSQLHOST" ];
 			$port = $_ENV[ "MYSQLPORT" ];
@@ -157,7 +151,7 @@ echo '<html lang="en">
 			  die( "Connection failed: " . $conn->connect_error );
 			  echo "<p>FAILED: not connect to Tweets DB</p>";
 			} else {
-			  echo "";
+			  echo "<p>CONNECTED: to Tweets DB</p>";
 			}
 			
 			echo '<table border="5" bordercolor="#000000" width="100%">
@@ -167,21 +161,8 @@ echo '<html lang="en">
 					<th>Time Posted</th>
 					<th>Cyberbullying Category</th>
 				</tr>';
-
-			// Create new mysql connection
-			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
-			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
-			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;";
-			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
-			while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
-			  echo '<tr>';
-			  echo '<td>' . $socialdata['username'] . '</td>';
-			  echo '<td>' . $socialdata['text'] . '</td>';
-			  echo '<td>' . $socialdata['time_posted'] . '</td>';
-			  echo '<td>' . $socialdata['cyberbullying_category'] . '</td>';
-			  echo '</tr>';
-			}
-//			echo '</tbody>';
+			echo '<tbody id="dbtop10results">';
+			echo '</tbody>';
 			echo '</table>';
 			echo '<div class="line-mf"></div>
         </div>
@@ -499,7 +480,6 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 //}
 ?>
 
-<!--
 <html>
 <script>
 
@@ -513,10 +493,16 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 			}
 		});
 	};
-	setInterval(function(){refresh_div();}, 1000);
+	setInterval(function(){refresh_div();}, 500)
 
-
+//	window.onload = function(){
+//		var reloading = sessionStorage.getItem("reloading");
+//		if(reloading){
+//			sessionStorage.removeItem("reloading");
+//			refresh_div();
+//		}
+//	}
+//	
 </script>
 </html>
--->
 
