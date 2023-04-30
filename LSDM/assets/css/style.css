@@ -634,7 +634,7 @@ COMMENT OUT THE BELOW FOUR INCASE NAVBAR ISN'T WORKING
   line-height: 1.55;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0 0 0 0px #C30011;
+  box-shadow: 0 0 0 10px #C30011;
   display: block;
 }
 /*------/ Owl Carousel /------*/
