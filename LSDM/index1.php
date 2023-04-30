@@ -140,10 +140,11 @@ echo '<html lang="en">
 		  else{
 			  $_SESSION['pageNum'] = 1;
 		  }
-		  $bottom_limit = (($_SESSION['pageNum'] - 1) * $perPage);
+		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
           echo '<p class="subtitle-a">Some ' .$topic. ' Tweets</p>';
-		  
+		  echo $top_limit;
+		  echo $bottom_limit;
 		  echo '<form action="" method="post"> 
 			  <button class="button button-a" name="next-posts" value="next">See Different Posts</button>
 			  </form>';
