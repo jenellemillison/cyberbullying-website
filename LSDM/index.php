@@ -182,7 +182,6 @@ echo '<html lang="en">
 			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
 			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $perPage . " OFFSET " . $bottom_limit . ";";
 			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
-			echo '<div class="line-mf"></div>';
        echo' </div>';
       echo '</div>';
     echo'</div>';
@@ -195,9 +194,10 @@ echo '<html lang="en">
 				echo'<div class="service-box">';
 			     echo '<h2 class="s-title">'. $socialdata["cyberbullying_category"] . '</h2>';
 				 echo' <div class="service-ico">';
-				 echo '<span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
+				 echo '<span class="ico-circle"><img src="/assets/images/twitter-circle.png"></img></span> </div>';
 				  echo'<div class="service-content">';
 				 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
+				echo' <h2 class="s-title">' . $socialdata["time_posted"] . '</h2>';
 				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
 				echo'  </div> ';
 			   if($rowCount == 2 or $rowCount == 5){
