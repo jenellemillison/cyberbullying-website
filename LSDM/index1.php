@@ -199,9 +199,10 @@ echo '<html lang="en">
 				 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
 				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
 				echo'  </div> ';
-			   if($rowCount == 0 or $rowCount == 3){
+			   if($rowCount == 2 or $rowCount == 5){
 				 echo'</div>';
 			 	}
+			  echo'</div>';
 			  echo'</div>'; 
 			$rowCount+=1;
 		}
