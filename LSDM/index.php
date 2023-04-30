@@ -459,6 +459,7 @@ echo '
 <!-- ======= Footer ======= -->
 <script src="assets/js/java.js"></script>
 <script src="assets/js/searchbar.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 <footer>
   <div class="container">
     <div class="row">
