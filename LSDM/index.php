@@ -303,8 +303,8 @@ echo '<html lang="en">
                 <span class="counter-text">AWARD WON</span>
               </div>
             </div>
-          </div>
-        </div>
+		  </div>
+		  
       </div>
 	</div>
   </div>
