@@ -501,6 +501,7 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 //}
 ?>
 
+<!--
 <html>
 <script>
 
@@ -519,4 +520,5 @@ $dbname = $_ENV[ "MYSQLDATABASE" ];
 
 </script>
 </html>
+-->
 
