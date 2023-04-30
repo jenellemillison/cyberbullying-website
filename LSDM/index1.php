@@ -135,8 +135,8 @@ echo '<html lang="en">
     <!-- start graphs section> -->
 	<div class="row">
       <div class="col-sm-12">
-        <div class="title-box text-center">
-          <h5 class="title-a"> Sample Data </h5>';
+        <div class="title-box text-center">';
+          echo '<h6 class="title-a"> Some ' .$topic. ' Tweets </h6>';
 			//DB connection
 			$servername = $_ENV[ "MYSQLHOST" ];
 			$port = $_ENV[ "MYSQLPORT" ];
@@ -161,10 +161,9 @@ echo '<html lang="en">
 					<th>Time Posted</th>
 					<th>Cyberbullying Category</th>
 				</tr>';
-//			echo '<tbody id="dbtop10results">';
+
 			if(isset($_POST['topic'])) {
 				$topic = $_POST['topic'];
-				echo 'You selected the topic: ' .$topic;
 			}
 			else {
 				$topic = '';
