@@ -7,6 +7,8 @@ echo '<html lang="en">
 <!-- CSS FILES -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<!-- JS FILES -->
+<script src="assets/js/jquery-3.5.1.js"></script>
 </head>
 <body>
 <header id="header" class="fixed-top">
@@ -100,25 +102,24 @@ echo '<html lang="en">
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
+			<form action="" method="post">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
-	
-			<button class="button button-a button-rouded" name="politics">Politics</button>
-			<button class="button button-a button-rouded" name="sports">Sports</button>
-			<button class="button button-a button-rouded" name="oscars">Oscars</button>
-		</div>
+			
+			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
+			<button class="button button-a button-rouded" name="topic" value="Sexual Orientation">Sexual Orientation</button>
+			<button class="button button-a button-rouded" name="topic" value="Race/Ethnicity">Race/Ethnicity</button>
+			<button class="button button-a button-rouded" name="topic" value="Movies">Movies</button>
+			<button class="button button-a button-rouded" name="topic" value="Celebrities">Celebrities</button>
+			<button class="button button-a button-rouded" name="topic" value="Sports">Sports</button>
+			</form>';
+			
+		echo '</div>
 		</div>
 		</div>
       </div>
     </div>
   </div>
 </div>
-
-<form method="post">
-<label>Search</label>
-<input type="text" name="search">
-<input type="submit" value="Search">	
-</form>
-
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
   <div class="container">
@@ -132,68 +133,61 @@ echo '<html lang="en">
       </div>
     </div>
     <!-- start graphs section> -->
-
-// Check connection ';
-
-$servername = $_ENV["MYSQLHOST"];
-$port = $_ENV["MYSQLPORT"];
-$username = $_ENV["MYSQLUSER"];
-$password = $_ENV["MYSQLPASSWORD"];
-$dbname = $_ENV["MYSQLDATABASE"];
-$conn = new mysqli( $servername, $username, $password, $dbname, $port );
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-  echo"<p>FAILED: not connect to Tweets DB</p>";
-}
-else{
-	echo "<p>CONNECTED: to Tweets DB</p>";
-}
-
-$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-   //output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
-	  $count = $count + 1;
-    }
-  }
-
-else {
-  echo "0 results";
-}
-echo '
-<script>
-      function refresh_div(){
-		$.ajax({
-			type: "post",
-			url: "https://stopcyberbullying.com/queryDB.php",
-			success: function(data){
-				$("#dbqueryresults").html(data);
-			}
-		});
-	};
-	setInterval(function(){refresh_div();}, 50000)
-</script>
 	<div class="row">
       <div class="col-sm-12">
-        <div class="title-box text-center">
-          <h5 class="title-a"> Sample Data </h5>
-			<h4>Data entered into the database successfully</h4>
-			 <table border="5" bordercolor="#B8CCE2" width="100%">
+        <div class="title-box text-center">';
+			if(isset($_POST['topic'])) {
+				$topic = $_POST['topic'];
+			}
+			else {
+				$topic = '';
+			}
+          echo '<h6 class="title-a"> Some ' .$topic. ' Tweets </h6>';
+			//DB connection
+			$servername = $_ENV[ "MYSQLHOST" ];
+			$port = $_ENV[ "MYSQLPORT" ];
+			$username = $_ENV[ "MYSQLUSER" ];
+			$password = $_ENV[ "MYSQLPASSWORD" ];
+			$dbname = $_ENV[ "MYSQLDATABASE" ];
+
+			// Create connection
+			$conn = new mysqli( $servername, $username, $password, $dbname, $port );
+			// Check connection
+			if ( $conn->connect_error ) {
+			  die( "Connection failed: " . $conn->connect_error );
+			  echo "<p>FAILED: not connect to Tweets DB</p>";
+			} else {
+			  echo "";
+			}
+			
+			echo '<table border="5" bordercolor="#000000" width="100%">
 				<tr>
 					<th>Username</th>
 					<th>Text</th>
 					<th>Time Posted</th>
 					<th>Cyberbullying Category</th>
-				</tr>
-			<tbody id="dbqueryresults">
-			</tbody>
-			</table>';
+				</tr>';
 
-
-   echo'<div class="row">
+			// Create new mysql connection
+			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
+			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
+			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;";
+			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
+			while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
+			  echo '<tr>';
+			  echo '<td>' . $socialdata['username'] . '</td>';
+			  echo '<td>' . $socialdata['text'] . '</td>';
+			  echo '<td>' . $socialdata['time_posted'] . '</td>';
+			  echo '<td>' . $socialdata['cyberbullying_category'] . '</td>';
+			  echo '</tr>';
+			}
+//			echo '</tbody>';
+			echo '</table>';
+			echo '<div class="line-mf"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>
@@ -324,39 +318,39 @@ echo '
       <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Analisa Rojas</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Analisa is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Analisa is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
 	   <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Bill Gonzalez</h3> </div>
+         <div class="author-test"> <img src="assets/images/bill.jpg" alt="" class="smallimg"> <h3>Bill Gonzalez</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Bill is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Bill is pursuing a Master\'s of Science in Computer Science at UTSA with a Data Science Concentration. </p>
                   </div>
       </div>
 	   <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Javier </h3> </div>
+         <div class="author-test"> <img src="assets/images/javier.jpg" alt="" class="smallimg"> <h3>Javier De La Rosa</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Javier De Le Rosa is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Javier is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
 	  </div>
 	  <div class="row">
 	  <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Jenelle Millison</h3> </div>
+         <div class="author-test"> <img src="assets/images/jenelle.png" alt="" class="smallimg"> <h3>Jenelle Millison</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Jenelle is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Jenelle is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
 	  <div class="col-sm-4 col-lg-4">
          <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Shay Hill</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Shay is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Shay is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
 	  <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/cyberbully_keyboard.png" alt="" class="smallimg"> <h3>Xue Li</h3> </div>
+         <div class="author-test"> <img src="assets/images/daisy.jpg" alt="" class="smallimg"> <h3>Xue Li</h3> </div>
                   <div class="content-test">
-                    <p class="description lead"> Xue is a Computer Science student at UTSA. </p>
+                    <p class="description lead"> Xue is pursuing a Doctor of Philosophy in Computer Science at UTSA. </p>
                   </div>
       </div>
 	 </div>
@@ -381,68 +375,66 @@ echo '
               </div>
 			   <div>
 					';
-					if (!isset($_POST['submit']))
-					{
-	  				echo '
+if ( !isset( $_POST[ 'submit' ] ) ) {
+  echo '
                       <form method="post" role="form" >';
-                        echo '<div class="row">
+  echo '<div class="row">
                           <div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">';
-                              echo '<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Your First Name" required>';
-                            echo '</div>';
-                          echo '</div>';
-						  echo '<div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">
+  echo '<div class="form-group">';
+  echo '<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Your First Name" required>';
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 mb-3">';
+  echo '<div class="form-group">
                               <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Your Last Name" required>';
-                            echo '</div>';
-                          echo '</div>';
-                          echo '<div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 mb-3">';
+  echo '<div class="form-group">
                               <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>';
-                            echo '</div>';
-                          echo '</div>';
-						echo '<div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 mb-3">';
+  echo '<div class="form-group">
                               <input type="phone" class="form-control" name="phone" id="phone" placeholder="Your Phone Number" required>';
-                            echo '</div>';
-                          echo '</div>';
-						echo '<div class="col-md-12 mb-3">';
-                            echo '<div class="form-group">
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 mb-3">';
+  echo '<div class="form-group">
                               <input type="comments" class="form-control" name="comments" id="comments" placeholder="Any Comments" required>';
-                            echo '</div>';
-                          echo '</div>';
-						echo '<div class="col-md-12 text-center">';
-                            echo '<button type="submit" name="submit" value="submit" class="button button-a button-big button-rouded">Submit</button>';
-                          echo '</div>';
-                        echo '</div>';
-                      echo '</form>';
-					}
-					if(isset($_POST['submit']))
-					{
-						$firstname = addslashes($_POST['firstname']); //add slashes will make sure there's no special characters
-						$lastname = addslashes($_POST['lastname']);
-						$email = addslashes($_POST['email']);
-						addslashes($phone = $_POST['phone']);
-						addslashes($comments = $_POST['comments']);
-						echo '<h4>Data received:</h4>';
-						echo "<p>First Name: $firstname</p>";
-						echo "<p>Last Name: $lastname</p>";
-						echo "<p>Email: $email</p>";
-						echo "<p>Phone: $phone</p>";
-						echo "<p>Comments: $comments</p>";
-						// DB connection parameters
-						$servername = $_ENV["MYSQLHOST"];
-						$port = $_ENV["MYSQLPORT"];
-						$username = $_ENV["MYSQLUSER"];
-						$password = $_ENV["MYSQLPASSWORD"];
-						$dbname = $_ENV["MYSQLDATABASE"];
-						// Create new mysql connection
-						$dblink=new mysqli($servername, $username, $password, $dbname, $port); //make the connection to the db
-						$sql="Insert into `contact_data` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
-						$dblink->query($sql) or die("<p>Something went wrong with: $sql<br>".$dblink->error); //execute the above query or call the error class with dblink
-						echo "<h4>Thank you for your feedback!</h4>";
-					}
-				echo'
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="col-md-12 text-center">';
+  echo '<button type="submit" name="submit" value="submit" class="button button-a button-big button-rouded">Submit</button>';
+  echo '</div>';
+  echo '</div>';
+  echo '</form>';
+}
+if ( isset( $_POST[ 'submit' ] ) ) {
+  $firstname = addslashes( $_POST[ 'firstname' ] ); //add slashes will make sure there's no special characters
+  $lastname = addslashes( $_POST[ 'lastname' ] );
+  $email = addslashes( $_POST[ 'email' ] );
+  addslashes( $phone = $_POST[ 'phone' ] );
+  addslashes( $comments = $_POST[ 'comments' ] );
+  echo '<h4>Data received:</h4>';
+  echo "<p>First Name: $firstname</p>";
+  echo "<p>Last Name: $lastname</p>";
+  echo "<p>Email: $email</p>";
+  echo "<p>Phone: $phone</p>";
+  echo "<p>Comments: $comments</p>";
+  // DB connection parameters
+  $servername = $_ENV[ "MYSQLHOST" ];
+  $port = $_ENV[ "MYSQLPORT" ];
+  $username = $_ENV[ "MYSQLUSER" ];
+  $password = $_ENV[ "MYSQLPASSWORD" ];
+  $dbname = $_ENV[ "MYSQLDATABASE" ];
+  // Create new mysql connection
+  $dblink = new mysqli( $servername, $username, $password, $dbname, $port ); //make the connection to the db
+  $sql = "Insert into `contact_data` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
+  $dblink->query( $sql )or die( "<p>Something went wrong with: $sql<br>" . $dblink->error ); //execute the above query or call the error class with dblink
+  echo "<h4>Thank you for your feedback!</h4>";
+}
+echo '
               </div>
             </div>
           </div>
@@ -455,6 +447,8 @@ echo '
 </main>
 <!-- End #main --> 
 <!-- ======= Footer ======= -->
+<script src="assets/js/java.js"></script>
+<script src="assets/js/searchbar.js"></script>
 <footer>
   <div class="container">
     <div class="row">
@@ -468,28 +462,61 @@ echo '
   </div>
 </footer>
 <!-- End  Footer --> 
-<script src="assets/js/java.js"></script>
-<script src="assets/js/searchbar.js"></script>
 
-</body>
-</html>';
 
+</body>;
+</html>;
+';
 //DB connection
-$servername = $_ENV["MYSQLHOST"];
-$port = $_ENV["MYSQLPORT"];
-$username = $_ENV["MYSQLUSER"];
-$password = $_ENV["MYSQLPASSWORD"];
-$dbname = $_ENV["MYSQLDATABASE"];
+$servername = $_ENV[ "MYSQLHOST" ];
+$port = $_ENV[ "MYSQLPORT" ];
+$username = $_ENV[ "MYSQLUSER" ];
+$password = $_ENV[ "MYSQLPASSWORD" ];
+$dbname = $_ENV[ "MYSQLDATABASE" ];
 
-//$servername = $_ENV["HOST"];
-//$port = $_ENV["DBPORT"];
-//$username = $_ENV["USER"];
-//$password = $_ENV["PW"];
-//$dbname = $_ENV["DB"];
-
-
-// Create connection
-
-
-$conn->close();
+//// Create connection
+//$conn = new mysqli( $servername, $username, $password, $dbname, $port );
+//// Check connection
+//if ( $conn->connect_error ) {
+//  die( "Connection failed: " . $conn->connect_error );
+//  echo "<p>FAILED: not connect to Tweets DB</p>";
+//} else {
+//  echo "<p>CONNECTED: to Tweets DB</p>";
+//}
+//
+//$sql = "SELECT auto_id, topic, sub_topic, username, text, time_posted FROM Tweets LIMIT 10";
+//$result = $conn->query( $sql );
+//
+//if ( $result->num_rows > 0 ) {
+//  // output data of each row
+//	$count = 0;
+//    while($row = $result->fetch_assoc() and $count < 10) {
+//      echo "<p>id: " . $row["auto_id"]. " - Topic: " . $row["topic"]. " -> " . $row["sub_topic"] . "</p><br>";
+//	  $count = $count + 1;
+//    }
+//} else {
+//  echo "0 results";
+//}
 ?>
+
+<!--
+<html>
+<script>
+
+	
+	function refresh_div(){
+		$.ajax({
+			type: 'post',
+			url: 'https://stopcyberbullying.online/queryDB.php',
+			success: function(socialdata){
+				$('#dbtop10results').html(socialdata);
+			}
+		});
+	};
+	setInterval(function(){refresh_div();}, 1000);
+
+
+</script>
+</html>
+-->
+
