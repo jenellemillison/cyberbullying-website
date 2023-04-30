@@ -259,6 +259,36 @@ echo '<html lang="en">
     <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container position-relative">
+	  
+	  
+	 <div class="row">
+	  <div class="col-sm-6 col-lg-6">
+            <div class="counter-box counter-box pt-4 pt-md-0">
+              <div class="service-ico">
+                <span class="ico-circle"><i class="bi bi-emoji-frown-fill"></i></span>
+              </div>
+              <div class="counter-num">
+			    <br>
+                <h2 class="s-title">'. $bully. '</h2>
+                <span class="s-title">CYBERBULLYING</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-6">
+            <div class="counter-box pt-4 pt-md-0">
+              <div class="service-ico">
+                <span class="ico-circle"><i class="bi bi-emoji-smile-fill"></i></span>
+              </div>
+              <div class="counter-num">
+			     <br>
+                 <h2 class="s-title">'. $notBully .'</h2>
+                <span class="s-title">NOT CYBERBULLYING</span>
+              </div>
+            </div>
+          </div>
+		  
+	   </div>
+	  
         <div class="row">
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box counter-box pt-4 pt-md-0">
@@ -310,34 +340,7 @@ echo '<html lang="en">
 		  </div>
 		  
       </div>
-	  
-	  <div class="row">
-	  <div class="col-sm-6 col-lg-6">
-            <div class="counter-box counter-box pt-4 pt-md-0">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-emoji-frown-fill"></i></span>
-              </div>
-              <div class="counter-num">
-			    <br>
-                <h2 class="s-title">'. $bully. '</h2>
-                <span class="s-title">CYBERBULLYING</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-6">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-emoji-smile-fill"></i></span>
-              </div>
-              <div class="counter-num">
-			     <br>
-                 <h2 class="s-title">'. $notBully .'</h2>
-                <span class="s-title">NOT CYBERBULLYING</span>
-              </div>
-            </div>
-          </div>
-		  
-	   </div>
+	 
 	  
 	</div>
   </div>
