@@ -1,5 +1,5 @@
-<!doctype html>
 <?php
+session_start();
 echo '<html lang="en">
 <head>
 <meta charset="utf-8">
@@ -77,9 +77,9 @@ echo '<html lang="en">
             </div>
             <div class="col-md-6">
               <div class="about-me pt-4 pt-md-0">
-                <p class="lead"> Given the above facts about cyberbullying, the aim of this project is to inform the public about cyberbullying trends and provide insights on cyberbullying topics (abusive comments, inciting violence/physical harm, or comments on physical appearances, etc). </p>
-                <p class="lead"> This information could supplement the data and other insights found on sites such as stopbullying.gov and youth.gov. Not only does this information educate public social media users, it can also be leveraged to inform the administrators and developers for social media companies which topics on their platform, specifically Twitter, should be monitored more closely for these reportable offenses. </p>
-                <p class="lead"> This site takes Tweets and using Sentiment Analysis and Natural Language Processing classifies them as cyberbullying or not. First, visit the "Select Tweet Topic" section to pick a topic the Tweets center around. Then, look at the "Cyberbullying Analytics" section to see the cyberbullying analysis for the selected topic. Finally, if you have any questions or concerns, visit the "Meet the Developers" and "Contact" sections. </p>
+                <p class="lead"> Given the above facts about cyberbullying, the aim of this project is to inform the public about cyberbullying trends and provide insights on cyberbullying topics (gender, age, race, etc). </p>
+                <p class="lead"> This information could supplement the data and other insights found on sites such as stopbullying.gov and youth.gov. Not only does this information educate public social media users, it can also be leveraged to inform the administrators and developers for social media companies which topics on their platform, specifically Twitter and Instagram, should be monitored more closely for these reportable offenses. </p>
+                <p class="lead"> This site utilizes Tweets and Instagram posts. Using Sentiment Analysis and Natural Language Processing, we classify them as cyberbullying or not. First, visit the "Topic Selection" section to pick a topic the social media posts center around. Then, look at the "Cyberbullying Analytics" section to see the cyberbullying analysis for the selected topic. Finally, if you have any questions or concerns, visit the "Meet the Developers" and "Contact" sections. </p>
                 <p class="lead"> [1] All statistics are sourced from <a href=https://enough.org/stats_cyberbullying>Enough Is Enough</a> </p>
               </div>
             </div>
@@ -96,13 +96,13 @@ echo '<html lang="en">
   <div class="row">
     <div class="col-sm-12">
       <div class="title-box text-center">
-        <h3 class="title-a"> TODO: Implement Topic Selection </h3>
-        <p class="subtitle-a"> Will consist of a Search Bar and Drop Down List of subjects for Tweets. </p>
+        <h3 class="title-a">Topic Selection</h3>
+        <p class="subtitle-a"> Click "Select Topic" to select a subject for anaylsis of cyberbullying in social media posts. </p>
         <div class="line-mf"></div><br><br>
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rouded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
-			<form action="" method="post">
+			<form action="#topic" method="get">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
 			
 			<button class="button button-a button-rouded" name="topic" value="Politics">Politics</button>
@@ -126,8 +126,31 @@ echo '<html lang="en">
     <div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">
-          <h3 class="title-a"> TODO: Implement Analytics </h3>
-          <p class="subtitle-a"> Will consist of both Graphs and Counting Metrics. </p>
+          <h3 class="title-a"> Analytics </h3>';
+		  $perPage = 6;
+		  if(isset($_POST['next-posts'])) {
+			  $_SESSION['pageNum'] += 1;
+		  }
+		  else{
+			  $_SESSION['pageNum'] = 1;
+		  }
+		  if(isset($_GET['topic'])) {
+			  $topic = $_GET['topic'];
+		  }
+		  else if (!(isset($_GET['topic'])) and $_SESSION['pageNum'] == 1){
+		      $topic = '';
+		  }
+          else{
+			  $topic = '';
+		  }
+		  
+		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
+		  $top_limit = ($perPage * $_SESSION['pageNum']);
+          echo '<p class="subtitle-a">Some ' .$topic. ' Tweets</p>';
+		  echo '<form action="#analytics" method="post"> 
+			  <button class="button button-a" name="next-posts" value="next">See Different Posts</button>
+			  </form>';
+          echo '<p class="subtitle-a"> Will consist of both Graphs and Counting Metrics. </p>
           <div class="line-mf"></div>
         </div>
       </div>
@@ -136,13 +159,7 @@ echo '<html lang="en">
 	<div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">';
-			if(isset($_POST['topic'])) {
-				$topic = $_POST['topic'];
-			}
-			else {
-				$topic = '';
-			}
-          echo '<h6 class="title-a"> Some ' .$topic. ' Tweets </h6>';
+			
 			//DB connection
 			$servername = $_ENV[ "MYSQLHOST" ];
 			$port = $_ENV[ "MYSQLPORT" ];
@@ -155,151 +172,45 @@ echo '<html lang="en">
 			// Check connection
 			if ( $conn->connect_error ) {
 			  die( "Connection failed: " . $conn->connect_error );
-			  echo "<p>FAILED: not connect to Tweets DB</p>";
+			  echo "<p>FAILED: not connect to DB</p>";
 			} else {
 			  echo "";
 			}
-			
-			echo '<table border="5" bordercolor="#000000" width="100%">
-				<tr>
-					<th>Username</th>
-					<th>Text</th>
-					<th>Time Posted</th>
-					<th>Cyberbullying Category</th>
-				</tr>';
 
 			// Create new mysql connection
 			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
 			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
-			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 1;";
+			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $perPage . " OFFSET " . $bottom_limit . ";";
 			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
-		//	while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
-		//	  echo '<tr>';
-		//	  echo '<td>' . $socialdata['username'] . '</td>';
-		//	  echo '<td>' . $socialdata['text'] . '</td>';
-		//	  echo '<td>' . $socialdata['time_posted'] . '</td>';
-		//	  echo '<td>' . $socialdata['cyberbullying_category'] . '</td>';
-		//	  echo '</tr>';
-			//}
-//			echo '</tbody>';
-	//		echo '</table>';
 			echo '<div class="line-mf"></div>';
        echo' </div>';
       echo '</div>';
     echo'</div>';
-    echo'<div class="row">';
-      echo'<div class="col-md-4">';
-        echo'<div class="service-box">';
-         echo' <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
-          echo'<div class="service-content">';
-		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { 
-		 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
-          echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
-        echo'  </div> ';
-       echo' </div> ';
-      echo'</div> ';
-			
-      echo'<div class="col-md-4">
-        <div class="service-box">
-          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-card-checklist"></i></span> </div>
-          <div class="service-content">';
-		//while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) {
-          echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
-          echo'  <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-              provident vitae! Magni
-              tempora perferendis eum non provident. </p>';
-			  
-        echo'  </div>
-        </div>
-      </div> '; }
-     echo' <div class="col-md-4">
-        <div class="service-box">
-          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-bar-chart"></i></span> </div>
-          <div class="service-content">
-            <h2 class="s-title">Photography</h2>
-            <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-              provident vitae! Magni
-              tempora perferendis eum non provident. </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-box">
-          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-binoculars"></i></span> </div>
-          <div class="service-content">
-            <h2 class="s-title">Responsive Design</h2>
-            <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-              provident vitae! Magni
-              tempora perferendis eum non provident. </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-box">
-          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-brightness-high"></i></span> </div>
-          <div class="service-content">
-            <h2 class="s-title">Graphic Design</h2>
-            <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-              provident vitae! Magni
-              tempora perferendis eum non provident. </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-box">
-          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-calendar4-week"></i></span> </div>
-          <div class="service-content">
-            <h2 class="s-title">Marketing Services</h2>
-            <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-              provident vitae! Magni
-              tempora perferendis eum non provident. </p>
-          </div>
-        </div>
+	 $rowCount = 0;
+		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
+			 if($rowCount == 0 or $rowCount == 3){
+				 echo'<div class="row">';
+			 }
+			  echo'<div class="col-md-4">';
+				echo'<div class="service-box">';
+				 echo' <div class="service-ico">';
+				 echo '<span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
+				  echo'<div class="service-content">';
+				 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
+				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
+				echo'  </div> ';
+			   if($rowCount == 2 or $rowCount == 5){
+				 echo'</div>';
+			 	}
+			  echo'</div>';
+			  echo'</div>'; 
+			$rowCount+=1;
+		}
+		echo '</div>
+		</div>
       </div>
     </div>
   </div>
-</section>
-<!-- end graphs section--> 
-<!-- start counter section-->
-<div class="section-counter paralax-mf bg-image" >
-  <div class="overlay-mf"></div>
-  <div class="container position-relative">
-    <div class="row">
-      <div class="col-sm-3 col-lg-3">
-        <div class="counter-box counter-box pt-4 pt-md-0">
-          <div class="counter-ico"> <span class="ico-circle"><i class="bi bi-check"></i></span> </div>
-          <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="450" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">WORKS COMPLETED</span> </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-lg-3">
-        <div class="counter-box pt-4 pt-md-0">
-          <div class="counter-ico"> <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span> </div>
-          <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">YEARS OF EXPERIENCE</span> </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-lg-3">
-        <div class="counter-box pt-4 pt-md-0">
-          <div class="counter-ico"> <span class="ico-circle"><i class="bi bi-people"></i></span> </div>
-          <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="550" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">TOTAL CLIENTS</span> </div>
-        </div>
-      </div>
-      <div class="col-sm-3 col-lg-3">
-        <div class="counter-box pt-4 pt-md-0">
-          <div class="counter-ico"> <span class="ico-circle"><i class="bi bi-award"></i></span> </div>
-          <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="48" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">AWARD WON</span> </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- End Counter Section --> 
 <!-- ======= Meet the Developers ======= -->
 <section id="who" class="services-mf pt-5 route">
@@ -466,8 +377,8 @@ echo '
 <!-- End  Footer --> 
 
 
-</body>;
-</html>;
+</body>
+</html>
 ';
 //DB connection
 $servername = $_ENV[ "MYSQLHOST" ];
