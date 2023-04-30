@@ -186,21 +186,22 @@ echo '<html lang="en">
        echo' </div>';
       echo '</div>';
     echo'</div>';
-		
+	 echo '<div class="container">';
 		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
-			 
+			 echo'<div class="row">';
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
-				 echo' <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
+				 echo' <div class="service-ico">';
+				 echo '<span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>';
 				  echo'<div class="service-content">';
 				 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
 				  echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
 				echo'  </div> ';
 			   echo' </div> ';
-			   
+			  echo'</div>'; 
 		}
-
-        echo '</div>
+		echo '</div>
+        </div>
       </div>
     </div>
   </div>
