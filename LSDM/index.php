@@ -262,45 +262,45 @@ echo '<html lang="en">
         <div class="row">
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
+              <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-diagram-2"></i></span>
               </div>
               <div class="counter-num">
-                <p>'. $numEthnicity. '</p>
-                <span class="counter-text">ETHNICITY CYBERBULLYING</span>
+                <h2 class="s-title">'. $numEthnicity. '</h2>
+                <span class="s-title">ETHNICITY CYBERBULLYING</span>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
+              <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-calendar-check"></i></span>
               </div>
               <div class="counter-num">
-                <p>'. $numAge .'</p>
-                <span class="counter-text">AGE CYBERBULLYING</span>
+                 <h2 class="s-title">'. $numAge .'</h2>
+                <span class="s-title">AGE CYBERBULLYING</span>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
+              <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-gender-trans"></i></span>
               </div>
               <div class="counter-num">
-                <p>'. $numGender . '</p>
-                <span class="counter-text">GENDER CYBERBULLYING</span>
+                 <h2 class="s-title">'. $numGender . '</h2>
+                <span class="s-title">GENDER CYBERBULLYING</span>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
+              <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-bell"></i></span>
               </div>
               <div class="counter-num">
-                <p '. $numReligion . '></p>
-                <span class="counter-text">RELIGION CYBERBULLYING</span>
+                 <h2 class="s-title">'. $numReligion . '</h2>
+                <span class="s-title">RELIGION CYBERBULLYING</span>
               </div>
             </div>
 		  </div>
