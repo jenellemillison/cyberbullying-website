@@ -207,8 +207,28 @@ echo '<html lang="en">
       <div class="col-md-4">
         <div class="service-box">
           <div class="service-ico"> <span class="ico-circle"><i class="bi bi-briefcase"></i></span> </div>
-          <div class="service-content">
-            <h2 class="s-title">Web Design</h2>
+          <div class="service-content">';
+		  while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { 
+		 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
+          echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
+        echo'  </div> ';
+       echo' </div> ';
+      echo'</div> ';
+			
+      echo'<div class="col-md-4">
+        <div class="service-box">
+          <div class="service-ico"> <span class="ico-circle"><i class="bi bi-card-checklist"></i></span> </div>
+          <div class="service-content">';
+		//while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) {
+          echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
+          echo'  <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
+              provident vitae! Magni
+              tempora perferendis eum non provident. </p>';
+			  
+        echo'  </div>
+        </div>
+      </div> '; }
+            echo '<h2 class="s-title">Web Design</h2>
             <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
               provident vitae! Magni
               tempora perferendis eum non provident. </p>
