@@ -203,6 +203,7 @@ echo '<html lang="en">
 				 echo'</div>';
 			 	}
 			  echo'</div>'; 
+			$rowCount+=1;
 		}
 		echo '</div>
       </div>
