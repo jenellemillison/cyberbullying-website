@@ -136,6 +136,12 @@ echo '<html lang="en">
 	<div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">';
+			if(isset($_POST['topic'])) {
+				$topic = $_POST['topic'];
+			}
+			else {
+				$topic = '';
+			}
           echo '<h6 class="title-a"> Some ' .$topic. ' Tweets </h6>';
 			//DB connection
 			$servername = $_ENV[ "MYSQLHOST" ];
@@ -161,13 +167,6 @@ echo '<html lang="en">
 					<th>Time Posted</th>
 					<th>Cyberbullying Category</th>
 				</tr>';
-
-			if(isset($_POST['topic'])) {
-				$topic = $_POST['topic'];
-			}
-			else {
-				$topic = '';
-			}
 
 			// Create new mysql connection
 			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
