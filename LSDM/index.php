@@ -251,7 +251,7 @@ echo '<html lang="en">
 //  while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
 //  	$numNotBully = $numNotBullyData['COUNT(cyberbullying_category)'];
 //  }
-      '<!-- ======= Counter Section ======= -->
+//      '<!-- ======= Counter Section ======= -->
 //    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
 //      <div class="overlay-mf"></div>
 //      <div class="container position-relative">
@@ -304,7 +304,7 @@ echo '<html lang="en">
 //      </div>
 //    </div><!-- End Counter Section -->
   
-</section>
+'</section>
 <!-- End Counter Section --> 
 <!-- ======= Meet the Developers ======= -->
 <section id="who" class="services-mf pt-5 route">
