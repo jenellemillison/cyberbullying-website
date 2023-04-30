@@ -171,7 +171,7 @@ echo '<html lang="en">
 			// Create new mysql connection
 			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
 			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
-			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;";
+			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 1;";
 			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
 		//	while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { //grab all from array and give it as an associative array
 		//	  echo '<tr>';
@@ -194,9 +194,7 @@ echo '<html lang="en">
           echo'<div class="service-content">';
 		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC ) ) { 
 		 echo' <h2 class="s-title">' . $socialdata["username"] . '</h2>';
-          echo'  <p class="s-description text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-              provident vitae! Magni
-              tempora perferendis eum non provident. </p> ';
+          echo'  <p class="s-description text-center">' . $socialdata['text'] . '</p> ';
         echo'  </div> ';
        echo' </div> ';
       echo'</div> ';
