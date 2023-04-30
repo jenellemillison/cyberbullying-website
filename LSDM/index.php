@@ -284,7 +284,7 @@ echo '<html lang="en">
                 <span class="ico-circle"><i class="bi bi-people"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="'. $numGenderBully . '" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="'. $numGender . '" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">TOTAL CLIENTS</span>
               </div>
             </div>
@@ -295,7 +295,7 @@ echo '<html lang="en">
                 <span class="ico-circle"><i class="bi bi-award"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="'. $numAgeBully . '" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="'. $numAge . '" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">AWARD WON</span>
               </div>
             </div>
