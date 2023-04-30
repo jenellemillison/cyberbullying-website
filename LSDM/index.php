@@ -312,7 +312,7 @@ echo '<html lang="en">
       </div>
 	  
 	  <div class="row">
-	  <div class="col-sm-2 col-lg-2">
+	  <div class="col-sm-6 col-lg-6">
             <div class="counter-box counter-box pt-4 pt-md-0">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-emoji-frown-fill"></i></span>
@@ -324,7 +324,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-sm-2 col-lg-2">
+          <div class="col-sm-6 col-lg-6">
             <div class="counter-box pt-4 pt-md-0">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-emoji-smile-fill"></i></span>
