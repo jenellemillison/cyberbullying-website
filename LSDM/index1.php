@@ -202,8 +202,7 @@ echo '<html lang="en">
 			   if($rowCount == 0 or $rowCount == 4){
 				 echo'</div>';
 			 	}
-			  echo'</div>';
-			echo'</div>'; 
+			  echo'</div>'; 
 		}
 		echo '</div>
       </div>
