@@ -218,7 +218,7 @@ echo '<html lang="en">
 		</div>
       </div>
     </div>
-  </div>
+<div class="row">	
   <!-- ======= Calculate Counts ======= -->
   ';
   $numGenderBullyQuery = "SELECT COUNT(cyberbullying_category) from Tweets WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
@@ -304,6 +304,9 @@ echo '<html lang="en">
         </div>
       </div>
     </div><!-- End Counter Section -->
+	</div>
+  </div>
+
   
 </section>
 <!-- End Counter Section --> 
