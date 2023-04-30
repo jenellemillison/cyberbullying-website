@@ -140,6 +140,9 @@ echo '<html lang="en">
 		  else if ($_SESSION['pageNum'] == 1){
 		      $topic = '';
 		  }
+          else{
+			  $topic = $topic;
+		  }
 		  
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
