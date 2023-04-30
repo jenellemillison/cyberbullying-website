@@ -127,6 +127,7 @@ echo '<html lang="en">
       <div class="col-sm-12">
         <div class="title-box text-center">
           <h3 class="title-a"> Analytics </h3>';
+		  session_start();
 		  $perPage = 6;
 		  if(isset($_POST['topic'])) {
 				$topic = $_POST['topic'];
@@ -138,7 +139,7 @@ echo '<html lang="en">
 			  $_SESSION['pageNum'] += 1;
 		  }
 		  else{
-			  $_SESSION['pageNum'] = 0;
+			  $_SESSION['pageNum'] = 1;
 		  }
 		  $bottom_limit = (($_SESSION['pageNum'] - 1) * $perPage);
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
