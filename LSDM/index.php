@@ -345,7 +345,7 @@ echo '<html lang="en">
           </div>
           <div class="col-md-3">
             <div class="service-box">
-			<h2 class="s-title">AGE CYBERBULLYING POSTS</h2>
+			<h2 class="s-title">AGE <br>CYBERBULLYING POSTS</h2>
 			 <br>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-calendar-check"></i></span>
