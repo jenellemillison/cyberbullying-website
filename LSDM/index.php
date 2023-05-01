@@ -195,10 +195,10 @@ echo '<html lang="en">
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
 			      if($socialdata["cyberbullying_category"]!="not_cyberbullying"){
-			     	 echo '<h2 class="s-title" style="color:#FF0000">CYBERBULLYING BASED ON '. $socialdata["cyberbullying_category"] . '</h2>';
+			     	 echo '<h2 class="s-title" style="color:#C30011">CYBERBULLYING BASED ON '. $socialdata["cyberbullying_category"] . '</h2>';
 				  }
 				  else{
-					 echo '<h2 class="s-title" style="color:#00FF00">NOT CYBERBULLYING</h2>';
+					 echo '<h2 class="s-title" style="color:#355E3B">NOT CYBERBULLYING</h2>';
 				  }
 				  echo' <div class="service-ico">';
 				   if($socialdata["short_code"] == '') {
@@ -297,13 +297,14 @@ echo '<html lang="en">
 	 <div class="row">
 	  <div class="col-sm-6 col-lg-6">
             <div class="counter-box counter-box pt-4 pt-md-0">
+			<h2 class="s-title">'. $pctBully. '%</h2>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-emoji-frown-fill"></i></span>
               </div>
               <div class="counter-num">
 			    <br>
-                <h2 class="s-title">'. $pctBully. '%</h2>
-                <span class="s-title">'. $bully . ' CYBERBULLYING POSTS</span>
+                <h2 class="s-title">'. $bully. '</h2>
+                <span class="s-title">CYBERBULLYING POSTS</span>
               </div>
             </div>
           </div>
