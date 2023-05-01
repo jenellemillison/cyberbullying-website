@@ -244,11 +244,11 @@ echo '<html lang="en">
   while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
   	$numAge = $numAgeData['count'];
   }
-  $numBullyQuery = "SELECT SUM(count), cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\" GROUP BY topic;";
-  $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
-  	$bully = $numBullyData['SUM(count)'];
-  }
+//  $numBullyQuery = "SELECT SUM(count), cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
+//  $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+//  while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
+//  	$bully = $numBullyData['SUM(count)'];
+//  }
   $numNotBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
   $numNotBully = $dblink->query( $numNotBullyQuery )or die( "<p>Something went wrong with: $numNotBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
