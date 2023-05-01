@@ -1,15 +1,22 @@
 <?php
-session_start();
+session_start(); // start a session to maintain page count of how many times user clicks to see more posts
 echo '<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
 <!-- CSS FILES -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+
 <!-- JS FILES -->
 <script src="assets/js/jquery-3.5.1.js"></script>
+
+
+<!-- NAV BAR -->
 </head>
 <body>
 <header id="header" class="fixed-top">
@@ -27,6 +34,8 @@ echo '<html lang="en">
         </nav>
   </div>
 </header>
+
+
 <!-- ===== Hero Section ===== -->
 <div id="hero" class="hero route videoInsert">
   <section class="videoInsert">
@@ -42,6 +51,8 @@ echo '<html lang="en">
   </div>
 </div>
 <main id="main">
+
+
 <!-- ======= About Section ======= -->
 <section id="about" class="about-mf sect-pt4 route">
   <div class="container">
@@ -91,6 +102,8 @@ echo '<html lang="en">
   </div>
 </section>
 <!-- End About Section --> 
+
+
 <!-- ====== Topic Selection Section ====== -->
 <section id="topic" class="services-mf pt-5 route">
 <div class="container">
@@ -101,7 +114,9 @@ echo '<html lang="en">
         <p class="subtitle-a"> Click "Select Topic" to select a subject for anaylsis of cyberbullying in social media posts. </p>
         <div class="line-mf"></div><br>
 		 <div class="topic-dropdown">
-			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rounded">Select Topic</button>
+		  
+		  <!-- Button to activate dropdown and search bar for selecting a post topic -->
+		   <button onclick="dropdown()" class="dropbtn button button-a button-big button-rounded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
 			<form action="#topic" method="get">
 			<input type="search" id="topic-search" placeholder="Search for a Topic..." onkeyup="searchMatch()"/>
@@ -114,7 +129,7 @@ echo '<html lang="en">
 			<button class="button button-a button-rouded" name="topic" value="Sports">Sports</button>
 			</form>';
 			
-		echo '</div>
+		 echo '</div>
 		</div>
 		</div>
       </div>
@@ -122,6 +137,9 @@ echo '<html lang="en">
   </div>
 </div>
 </section>
+<!-- End Topic Section -->
+
+
 <!-- ======= Analytics Section ======= -->
 <section id="analytics" class="services-mf pt-5 route">
   <div class="container">
@@ -129,7 +147,10 @@ echo '<html lang="en">
       <div class="col-sm-12">
         <div class="title-box text-center">
           <h3 class="title-a"> Analytics </h3>';
-		  $perPage = 6;
+		  
+		  $perPage = 6; //count of how many posts to display
+          
+          /*calculate database displacement based on how many pages the user has clicked through*/
 		  if(isset($_POST['next-posts'])) {
 			  $_SESSION['pageNum'] += 1;
 		  }
@@ -139,15 +160,18 @@ echo '<html lang="en">
 		  if(isset($_GET['topic'])) {
 			  $topic = $_GET['topic'];
 		  }
+
+		  /*ensure topic is set to prevent any warnings*/
 		  else if (!(isset($_GET['topic'])) and $_SESSION['pageNum'] == 1){
 		      $topic = '';
 		  }
           else{
 			  $topic = '';
 		  }
-		  
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
+
+		  /*write a disclaimer to preface selected posts*/
           echo '<p class="subtitle-a">DISCLAIMER: The posts below are scraped from the internet and may contain graphic or harsh language. The developers to not condone or support this kind of language. The purpose for showing such posts is purely to educate the public about what types of cyberbullying exists online.<br></p>';
 		  echo '<div class="line-mf"></div><br>';
 		  echo '<form action="#analytics" method="post"> 
@@ -163,14 +187,14 @@ echo '<html lang="en">
       <div class="col-sm-12">
         <div class="title-box text-center">';
 			
-			//DB connection
+			/*DB connection information*/
 			$servername = $_ENV[ "MYSQLHOST" ];
 			$port = $_ENV[ "MYSQLPORT" ];
 			$username = $_ENV[ "MYSQLUSER" ];
 			$password = $_ENV[ "MYSQLPASSWORD" ];
 			$dbname = $_ENV[ "MYSQLDATABASE" ];
 
-			// Create connection
+			/* Create connection*/
 			$conn = new mysqli( $servername, $username, $password, $dbname, $port );
 			// Check connection
 			if ( $conn->connect_error ) {
@@ -181,12 +205,16 @@ echo '<html lang="en">
 			}
 
 			// Create new mysql connection
-			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
+			$dblink = new mysqli( $servername, $username, $password, $dbname, $port);
+
+			/*Select the appropriate rows from the social media posts database to show given the topic and how many times the user has clicked to see more posts*/
 			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $perPage . " OFFSET " . $bottom_limit . ";";
 			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
        echo' </div>';
       echo '</div>';
     echo'</div>';
+
+	/*Display posts in tile-like cards with a color and header indicating if they are cyberbullying or not*/
 	 $rowCount = 0;
 		while ( $socialdata = $top10queryresults->fetch_array( MYSQLI_ASSOC )) {
 			 if($rowCount == 0 or $rowCount == 3){
@@ -230,70 +258,72 @@ echo '<html lang="en">
 	
   <!-- ======= Calculate Counts ======= -->
   ';
-  if($topic == '')
-	  $numGenderBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"gender\";";
-  else
-	  $numGenderBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
-  $numGenderBully = $dblink->query( $numGenderBullyQuery )or die( "<p>Something went wrong with: $numGenderBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numGenderData = $numGenderBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numGender = $numGenderData['count'];
-	$pctGender = $numGenderData['cyberbullying_category_pct'];
-  }
+  /*Calculate the percentages and sums for cyberbullying statistics based on the posts from the database that were selected.
+    The information below executes the queries required for this and saves the data*/
+	  if($topic == '')
+		  $numGenderBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"gender\";";
+	  else
+		  $numGenderBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
+	  $numGenderBully = $dblink->query( $numGenderBullyQuery )or die( "<p>Something went wrong with: $numGenderBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+	  while ( $numGenderData = $numGenderBully->fetch_array( MYSQLI_ASSOC )) {
+		$numGender = $numGenderData['count'];
+		$pctGender = $numGenderData['cyberbullying_category_pct'];
+	  }
 
-  if($topic == '')
-	  $numReligionBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"religion\";";
-  else
-	  $numReligionBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"religion\";";
-  $numReligionBully = $dblink->query( $numReligionBullyQuery )or die( "<p>Something went wrong with: $numReligionBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numReligionData = $numReligionBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numReligion = $numReligionData['count'];
-	$pctReligion = $numReligionData['cyberbullying_category_pct'];
-  }
+	  if($topic == '')
+		  $numReligionBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"religion\";";
+	  else
+		  $numReligionBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"religion\";";
+	  $numReligionBully = $dblink->query( $numReligionBullyQuery )or die( "<p>Something went wrong with: $numReligionBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+	  while ( $numReligionData = $numReligionBully->fetch_array( MYSQLI_ASSOC )) {
+		$numReligion = $numReligionData['count'];
+		$pctReligion = $numReligionData['cyberbullying_category_pct'];
+	  }
 
-  if($topic == '')
-	  $numEthnicityBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"ethnicity\";";
-  else
-	  $numEthnicityBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"ethnicity\";";
-  $numEthnicityBully = $dblink->query( $numEthnicityBullyQuery )or die( "<p>Something went wrong with: $numEthnicityBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numEthnicityData = $numEthnicityBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numEthnicity = $numEthnicityData['count'];
-	$pctEthnicity = $numEthnicityData['cyberbullying_category_pct'];
-  }
+	  if($topic == '')
+		  $numEthnicityBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"ethnicity\";";
+	  else
+		  $numEthnicityBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"ethnicity\";";
+	  $numEthnicityBully = $dblink->query( $numEthnicityBullyQuery )or die( "<p>Something went wrong with: $numEthnicityBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+	  while ( $numEthnicityData = $numEthnicityBully->fetch_array( MYSQLI_ASSOC )) {
+		$numEthnicity = $numEthnicityData['count'];
+		$pctEthnicity = $numEthnicityData['cyberbullying_category_pct'];
+	  }
 
-  if($topic == '')
-	  $numAgeBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"age\";";
-  else
-	  $numAgeBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"age\";";
-  $numAgeBully = $dblink->query( $numAgeBullyQuery )or die( "<p>Something went wrong with: $numAgeBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
-  	$numAge = $numAgeData['count'];
-	$pctAge = $numAgeData['cyberbullying_category_pct'];
-  }
+	  if($topic == '')
+		  $numAgeBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"age\";";
+	  else
+		  $numAgeBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"age\";";
+	  $numAgeBully = $dblink->query( $numAgeBullyQuery )or die( "<p>Something went wrong with: $numAgeBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+	  while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
+		$numAge = $numAgeData['count'];
+		$pctAge = $numAgeData['cyberbullying_category_pct'];
+	  }
 
-  if($topic == '')
-	  $numBullyQuery = "SELECT SUM(count), ROUND(SUM(cyberbullying_category_pct),2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
-  else
-	  $numBullyQuery = "SELECT SUM(count), ROUND(SUM(cyberbullying_category_pct),2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
-  $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
-  	$bully = $numBullyData['SUM(count)'];
-	$pctBully = $numBullyData['cyberbullying_category_pct'];
-  }
-  if($topic == '')
-	  $numNotBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
-  else
-	  $numNotBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
-  $numNotBully = $dblink->query( $numNotBullyQuery )or die( "<p>Something went wrong with: $numNotBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
-  while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
-  	$notBully = $numNotBullyData['count'];
-	$pctNotBully = $numNotBullyData['cyberbullying_category_pct'];
-  }
+	  if($topic == '')
+		  $numBullyQuery = "SELECT SUM(count), ROUND(SUM(cyberbullying_category_pct),2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
+	  else
+		  $numBullyQuery = "SELECT SUM(count), ROUND(SUM(cyberbullying_category_pct),2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
+	  $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+	  while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
+		$bully = $numBullyData['SUM(count)'];
+		$pctBully = $numBullyData['cyberbullying_category_pct'];
+	  }
+	  if($topic == '')
+		  $numNotBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
+	  else
+		  $numNotBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
+	  $numNotBully = $dblink->query( $numNotBullyQuery )or die( "<p>Something went wrong with: $numNotBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
+	  while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
+		$notBully = $numNotBullyData['count'];
+		$pctNotBully = $numNotBullyData['cyberbullying_category_pct'];
+	  }
 
+	/*Display the cyberbullying statistics data which was previously calculated*/
       echo '<!-- ======= Counter Section ======= -->
     <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container">
-	  
 	  
 	 <div class="row">
 	  <div class="col-sm-6 col-lg-6">
@@ -392,8 +422,11 @@ echo '<html lang="en">
 	  
 	</div>
   </div>
-<!-- End Counter Section --> 
-<!-- ======= Meet the Developers ======= -->
+<!-- End Counter Section -->';
+
+
+
+echo '<!-- ======= Meet the Developers ======= -->
 <section id="who" class="services-mf pt-5 route">
 <div class="container">
   <div class="row">
@@ -404,9 +437,10 @@ echo '<html lang="en">
         <div class="line-mf"></div>
       </div>
     </div>
-  </div>
+  </div>';
   
-   <div class="overlay-mf"></div>
+ /*Pictures and cpations for each teammember on the project*/
+ echo'<div class="overlay-mf"></div>
   <div class="container position-relative">
     <div class="row">
       <div class="col-sm-4 col-lg-4">
@@ -452,6 +486,8 @@ echo '<html lang="en">
   </div>
 </section>
 <!-- End Meet the Developers Section --> 
+
+
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route">
   <div class="overlay-mf"></div>
@@ -467,68 +503,71 @@ echo '<html lang="en">
               <div class="more-info">
                 <p class="lead"> Whether you want to report a bug, ask a question, or share some other information with us, please reach out by filling in your information below. </p>
               </div>
-			   <div>
-					';
-if ( !isset( $_POST[ 'submit' ] ) ) {
-  echo '
-                      <form method="post" role="form" >';
-  echo '<div class="row">
-                          <div class="col-md-12 mb-3">';
-  echo '<div class="form-group">';
-  echo '<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Your First Name" required>';
-  echo '</div>';
-  echo '</div>';
-  echo '<div class="col-md-12 mb-3">';
-  echo '<div class="form-group">
-                              <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Your Last Name" required>';
-  echo '</div>';
-  echo '</div>';
-  echo '<div class="col-md-12 mb-3">';
-  echo '<div class="form-group">
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>';
-  echo '</div>';
-  echo '</div>';
-  echo '<div class="col-md-12 mb-3">';
-  echo '<div class="form-group">
-                              <input type="phone" class="form-control" name="phone" id="phone" placeholder="Your Phone Number" required>';
-  echo '</div>';
-  echo '</div>';
-  echo '<div class="col-md-12 mb-3">';
-  echo '<div class="form-group">
-                              <input type="comments" class="form-control" name="comments" id="comments" placeholder="Any Comments" required>';
-  echo '</div>';
-  echo '</div>';
-  echo '<div class="col-md-12 text-center">';
-  echo '<button type="submit" name="submit" value="submit" class="button button-a button-big button-rouded">Submit</button>';
-  echo '</div>';
-  echo '</div>';
-  echo '</form>';
-}
-if ( isset( $_POST[ 'submit' ] ) ) {
-  $firstname = addslashes( $_POST[ 'firstname' ] ); //add slashes will make sure there's no special characters
-  $lastname = addslashes( $_POST[ 'lastname' ] );
-  $email = addslashes( $_POST[ 'email' ] );
-  addslashes( $phone = $_POST[ 'phone' ] );
-  addslashes( $comments = $_POST[ 'comments' ] );
-  echo '<h4>Data received:</h4>';
-  echo "<p>First Name: $firstname</p>";
-  echo "<p>Last Name: $lastname</p>";
-  echo "<p>Email: $email</p>";
-  echo "<p>Phone: $phone</p>";
-  echo "<p>Comments: $comments</p>";
-  // DB connection parameters
-  $servername = $_ENV[ "MYSQLHOST" ];
-  $port = $_ENV[ "MYSQLPORT" ];
-  $username = $_ENV[ "MYSQLUSER" ];
-  $password = $_ENV[ "MYSQLPASSWORD" ];
-  $dbname = $_ENV[ "MYSQLDATABASE" ];
-  // Create new mysql connection
-  $dblink = new mysqli( $servername, $username, $password, $dbname, $port ); //make the connection to the db
-  $sql = "Insert into `contact_data` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
-  $dblink->query( $sql )or die( "<p>Something went wrong with: $sql<br>" . $dblink->error ); //execute the above query or call the error class with dblink
-  echo "<h4>Thank you for your feedback!</h4>";
-}
-echo '
+			   <div>';
+
+				/*Create a form to get user feedback*/
+				if ( !isset( $_POST[ 'submit' ] ) ) {
+				  echo '
+									  <form method="post" role="form" >';
+				  echo '<div class="row">
+										  <div class="col-md-12 mb-3">';
+				  echo '<div class="form-group">';
+				  echo '<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Your First Name" required>';
+				  echo '</div>';
+				  echo '</div>';
+				  echo '<div class="col-md-12 mb-3">';
+				  echo '<div class="form-group">
+											  <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Your Last Name" required>';
+				  echo '</div>';
+				  echo '</div>';
+				  echo '<div class="col-md-12 mb-3">';
+				  echo '<div class="form-group">
+											  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>';
+				  echo '</div>';
+				  echo '</div>';
+				  echo '<div class="col-md-12 mb-3">';
+				  echo '<div class="form-group">
+											  <input type="phone" class="form-control" name="phone" id="phone" placeholder="Your Phone Number" required>';
+				  echo '</div>';
+				  echo '</div>';
+				  echo '<div class="col-md-12 mb-3">';
+				  echo '<div class="form-group">
+											  <input type="comments" class="form-control" name="comments" id="comments" placeholder="Any Comments" required>';
+				  echo '</div>';
+				  echo '</div>';
+				  echo '<div class="col-md-12 text-center">';
+				  echo '<button type="submit" name="submit" value="submit" class="button button-a button-big button-rouded">Submit</button>';
+				  echo '</div>';
+				  echo '</div>';
+				  echo '</form>';
+				}
+
+				/*Form validation, input cleaning, and enter the user's input into a database*/
+				if ( isset( $_POST[ 'submit' ] ) ) {
+				  $firstname = addslashes( $_POST[ 'firstname' ] ); //add slashes will make sure there's no special characters
+				  $lastname = addslashes( $_POST[ 'lastname' ] );
+				  $email = addslashes( $_POST[ 'email' ] );
+				  addslashes( $phone = $_POST[ 'phone' ] );
+				  addslashes( $comments = $_POST[ 'comments' ] );
+				  echo '<h4>Data received:</h4>';
+				  echo "<p>First Name: $firstname</p>";
+				  echo "<p>Last Name: $lastname</p>";
+				  echo "<p>Email: $email</p>";
+				  echo "<p>Phone: $phone</p>";
+				  echo "<p>Comments: $comments</p>";
+				  // DB connection parameters
+				  $servername = $_ENV[ "MYSQLHOST" ];
+				  $port = $_ENV[ "MYSQLPORT" ];
+				  $username = $_ENV[ "MYSQLUSER" ];
+				  $password = $_ENV[ "MYSQLPASSWORD" ];
+				  $dbname = $_ENV[ "MYSQLDATABASE" ];
+				  // Create new mysql connection
+				  $dblink = new mysqli( $servername, $username, $password, $dbname, $port ); //make the connection to the db
+				  $sql = "Insert into `contact_data` (`first_name`,`last_name`,`email`,`phone`,`comments`) values('$firstname','$lastname','$email','$phone','$comments')"; //create the query
+				  $dblink->query( $sql )or die( "<p>Something went wrong with: $sql<br>" . $dblink->error ); //execute the above query or call the error class with dblink
+				  echo "<h4>Thank you for your feedback!</h4>";
+				}
+				echo '
               </div>
             </div>
           </div>
@@ -540,6 +579,8 @@ echo '
 <!-- End Contact Section -->
 </main>
 <!-- End #main --> 
+
+
 <!-- ======= Footer ======= -->
 <script src="assets/js/java.js"></script>
 <script src="assets/js/searchbar.js"></script>

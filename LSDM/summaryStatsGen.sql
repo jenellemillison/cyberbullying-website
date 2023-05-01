@@ -1,3 +1,6 @@
+# SQL script for generating the table which contains the summary statistic information on cyberbullying
+# This script will count the types of cyberbullying and calculate the percentage of the total posts each type makes up
+
 INSERT INTO railway.SummaryStats (cyberbullying_category, count, cyberbullying_category_pct, topic)
 SELECT 
   cyberbullying_category, 
