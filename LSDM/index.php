@@ -231,6 +231,7 @@ echo '<html lang="en">
   $numGenderBully = $dblink->query( $numGenderBullyQuery )or die( "<p>Something went wrong with: $numGenderBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numGenderData = $numGenderBully->fetch_array( MYSQLI_ASSOC )) {
   	$numGender = $numGenderData['count'];
+	$pctGender = $numGenderData['cyberbullying_category_pct'];
   }
 
   if($topic == '')
@@ -240,6 +241,7 @@ echo '<html lang="en">
   $numReligionBully = $dblink->query( $numReligionBullyQuery )or die( "<p>Something went wrong with: $numReligionBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numReligionData = $numReligionBully->fetch_array( MYSQLI_ASSOC )) {
   	$numReligion = $numReligionData['count'];
+	$pctReligion = $numReligionData['cyberbullying_category_pct'];
   }
 
   if($topic == '')
@@ -249,6 +251,7 @@ echo '<html lang="en">
   $numEthnicityBully = $dblink->query( $numEthnicityBullyQuery )or die( "<p>Something went wrong with: $numEthnicityBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numEthnicityData = $numEthnicityBully->fetch_array( MYSQLI_ASSOC )) {
   	$numEthnicity = $numEthnicityData['count'];
+	$pctEthnicity = $numEthnicityData['cyberbullying_category_pct'];
   }
 
   if($topic == '')
@@ -258,6 +261,7 @@ echo '<html lang="en">
   $numAgeBully = $dblink->query( $numAgeBullyQuery )or die( "<p>Something went wrong with: $numAgeBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
   	$numAge = $numAgeData['count'];
+	$pctAge = $numAgeData['cyberbullying_category_pct'];
   }
 
   if($topic == '')
@@ -267,6 +271,7 @@ echo '<html lang="en">
   $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
   	$bully = $numBullyData['SUM(count)'];
+	$pctBully = $numBullyData['SUM(cyberbullying_category_pct)'];
   }
   if($topic == '')
 	  $numNotBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
@@ -275,6 +280,7 @@ echo '<html lang="en">
   $numNotBully = $dblink->query( $numNotBullyQuery )or die( "<p>Something went wrong with: $numNotBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
   	$notBully = $numNotBullyData['count'];
+	$pctNotBully = $numNotBullyData['cyberbullying_category_pct'];
   }
 
       echo '<!-- ======= Counter Section ======= -->
@@ -291,8 +297,8 @@ echo '<html lang="en">
               </div>
               <div class="counter-num">
 			    <br>
-                <h2 class="s-title">'. $bully. '</h2>
-                <span class="s-title">CYBERBULLYING</span>
+                <h2 class="s-title">'. $pctBully. '%</h2>
+                <span class="s-title">'. $bully . 'CYBERBULLYING POSTS</span>
               </div>
             </div>
           </div>
@@ -303,8 +309,8 @@ echo '<html lang="en">
               </div>
               <div class="counter-num">
 			     <br>
-                 <h2 class="s-title">'. $notBully .'</h2>
-                <span class="s-title">NOT CYBERBULLYING</span>
+                 <h2 class="s-title">'. $pctNotBully .'%</h2>
+                <span class="s-title">' . $notBully . 'NOT CYBERBULLYING POSTS</span>
               </div>
             </div>
           </div>
@@ -319,8 +325,8 @@ echo '<html lang="en">
               </div>
               <div class="counter-num">
 			    <br>
-                <h2 class="s-title">'. $numEthnicity. '</h2>
-                <span class="s-title">ETHNICITY CYBERBULLYING</span>
+                <h2 class="s-title">'. $pctEthnicity. '%</h2>
+                <span class="s-title">' . $numEthnicity. 'ETHNICITY CYBERBULLYING POSTS</span>
               </div>
             </div>
           </div>
@@ -331,8 +337,8 @@ echo '<html lang="en">
               </div>
               <div class="counter-num">
 			     <br>
-                 <h2 class="s-title">'. $numAge .'</h2>
-                <span class="s-title">AGE CYBERBULLYING</span>
+                 <h2 class="s-title">'. $pctAge .'%</h2>
+                <span class="s-title">' . $numAge . 'AGE CYBERBULLYING POSTS</span>
               </div>
             </div>
           </div>
@@ -343,8 +349,8 @@ echo '<html lang="en">
               </div>
               <div class="counter-num">
 			     <br>
-                 <h2 class="s-title">'. $numGender . '</h2>
-                <span class="s-title">GENDER CYBERBULLYING</span>
+                 <h2 class="s-title">'. $pctGender . '%</h2>
+                <span class="s-title">' . $numGender . 'GENDER CYBERBULLYING POSTS</span>
               </div>
             </div>
           </div>
@@ -355,8 +361,8 @@ echo '<html lang="en">
               </div>
               <div class="counter-num">
 			  	 <br>
-                 <h2 class="s-title">'. $numReligion . '</h2>
-                <span class="s-title">RELIGION CYBERBULLYING</span>
+                 <h2 class="s-title">' . $pctReligion . '%</h2>
+                <span class="s-title">' . $numReligion . 'RELIGION CYBERBULLYING POSTS</span>
               </div>
             </div>
 		  </div>
