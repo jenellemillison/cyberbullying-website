@@ -225,9 +225,9 @@ echo '<html lang="en">
   <!-- ======= Calculate Counts ======= -->
   ';
   if($topic == '')
-	  $numGenderBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"gender\";";
+	  $numGenderBullyQuery = "SELECT count, TRUNCATE(cyberbullying_category_pct) from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"gender\";";
   else
-	  $numGenderBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
+	  $numGenderBullyQuery = "SELECT count, TRUNCATE(cyberbullying_category_pct) from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
   $numGenderBully = $dblink->query( $numGenderBullyQuery )or die( "<p>Something went wrong with: $numGenderBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numGenderData = $numGenderBully->fetch_array( MYSQLI_ASSOC )) {
   	$numGender = $numGenderData['count'];
