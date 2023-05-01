@@ -25,7 +25,7 @@ echo '<html lang="en">
           <ul>
             <li><a class="nav-link scrollto active" href="#hero">Home</a> </li>
             <li><a class="nav-link scrollto" href="#about">About</a> </li>
-            <li><a class="nav-link scrollto" href="#topic">Select Tweet Topic</a></li>
+            <li><a class="nav-link scrollto" href="#topic">Select Post Topic</a></li>
             <li><a class="nav-link scrollto" href="#analytics">Cyberbullying Analytics</a></li>
             <li><a class="nav-link scrollto" href="#who">Meet the Developers</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
