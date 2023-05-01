@@ -353,7 +353,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctAge .'%</h2>
-                <span class="s-description text-center">' . $numAge . ' posts</span>
+                <h4 class="s-description text-center"> or ' . $numAge . ' posts</h4>
               </div>
             </div>
           </div>
@@ -367,7 +367,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctGender . '%</h2>
-                <span class="s-description text-center">' . $numGender . ' posts</span>
+                <h4 class="s-description text-center"> or ' . $numGender . ' posts</h4>
               </div>
             </div>
           </div>
@@ -381,7 +381,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			  	 <br>
                  <h2 class="s-title">' . $pctReligion . '%</h2>
-                <span class="s-description text-center">' . $numReligion . ' posts</span>
+                <h4 class="s-description text-center"> or ' . $numReligion . ' posts</h4>
               </div>
             </div>
 		  </div>
