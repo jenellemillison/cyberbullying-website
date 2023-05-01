@@ -198,7 +198,7 @@ echo '<html lang="en">
 			     	 echo '<h2 class="s-title" style="color:#FF0000">CYBERBULLYING BASED ON '. $socialdata["cyberbullying_category"] . '</h2>';
 				  }
 				  else{
-					 echo '<h2 class="s-title" style="color:#00FF00>NOT CYBERBULLYING</h2>';
+					 echo '<h2 class="s-title" style="color:#00FF00">NOT CYBERBULLYING</h2>';
 				  }
 				  echo' <div class="service-ico">';
 				   if($socialdata["short_code"] == '') {
