@@ -292,7 +292,7 @@ echo '<html lang="en">
       echo '<!-- ======= Counter Section ======= -->
     <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
       <div class="overlay-mf"></div>
-      <div class="container position-relative">
+      <div class="container">
 	  
 	  
 	 <div class="row">
@@ -328,7 +328,7 @@ echo '<html lang="en">
 		  
 	   </div>
 	  
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="service-box">
 			<h2 class="s-title">ETHNICITY CYBERBULLYING POSTS</h2>
 			<br>
@@ -342,7 +342,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="service-box">
 			<h2 class="s-title">AGE CYBERBULLYING POSTS</h2>
 			 <br>
@@ -356,7 +356,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="service-box">
 			<h2 class="s-title">GENDER CYBERBULLYING POSTS</h2>
 			 <br>
@@ -370,7 +370,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <div class="service-box">
 			 <h2 class="s-title">RELIGION CYBERBULLYING POSTS</h2>
 			  <br>
