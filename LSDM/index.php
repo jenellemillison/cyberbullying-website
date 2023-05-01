@@ -362,7 +362,7 @@ echo '<html lang="en">
   <div class="container position-relative">
     <div class="row">
       <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/jenelle.png" alt="" class="smallimg"> <h3>Analisa Rojas</h3> </div>
+         <div class="author-test"> <img src="assets/images/analisa.png" alt="" class="smallimg"> <h3>Analisa Rojas</h3> </div>
                   <div class="content-test">
                     <p class="description lead"> Analisa is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
