@@ -298,30 +298,30 @@ echo '<html lang="en">
 	 <div class="row">
 	  <div class="col-sm-6 col-lg-6">
             <div class="service-box">
-			<h3 class="s-title">CYBERBULLYING POSTS</h3>
+			<h2 class="s-title">CYBERBULLYING POSTS</h2>
 			<br>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-emoji-frown-fill"></i></span>
               </div>
               <div class="counter-num">
 			    <br>
-				<h4 class="s-title">'. $pctBully. '% or '. $bully. ' posts</h4>
-				<span class="s-title">or</span>
-                <h4 class="s-title">'. $bully. '</h4>
+				<h2 class="s-title">'. $pctBully. '%</h2>
+                <h4 class="s-title"> or '. $bully. ' posts</h4>
                 
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-6">
-            <div class="counter-box pt-4 pt-md-0">
+            <div class="service-box">
+			<h2 class="s-title">NOT CYBERBULLYING POSTS</h2>
+			<br>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-emoji-smile-fill"></i></span>
               </div>
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctNotBully .'%</h2>
-				 <span class="s-title">or</span>
-                <span class="s-title">' . $notBully . ' NOT CYBERBULLYING POSTS</span>
+                <h4 class="s-title"> or ' . $notBully . ' posts</h4>
               </div>
             </div>
           </div>
