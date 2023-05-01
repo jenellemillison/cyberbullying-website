@@ -298,7 +298,8 @@ echo '<html lang="en">
 	 <div class="row">
 	  <div class="col-sm-6 col-lg-6">
             <div class="counter-box counter-box pt-4 pt-md-0">
-			<span class="s-title">CYBERBULLYING POSTS</span>
+			<h1 class="s-title">CYBERBULLYING POSTS</h1>
+			<br>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-emoji-frown-fill"></i></span>
               </div>
