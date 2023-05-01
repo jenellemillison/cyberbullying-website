@@ -297,7 +297,7 @@ echo '<html lang="en">
 	  
 	 <div class="row">
 	  <div class="col-sm-6 col-lg-6">
-            <div class="counter-box counter-box pt-4 pt-md-0">
+            <div class="service-box">
 			<h3 class="s-title">CYBERBULLYING POSTS</h3>
 			<br>
               <div class="service-ico">
@@ -305,7 +305,7 @@ echo '<html lang="en">
               </div>
               <div class="counter-num">
 			    <br>
-				<h4 class="s-title">'. $pctBully. '%</h4>
+				<h4 class="s-title">'. $pctBully. '% or '. $bully. ' posts</h4>
 				<span class="s-title">or</span>
                 <h4 class="s-title">'. $bully. '</h4>
                 
