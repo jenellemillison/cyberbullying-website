@@ -327,7 +327,8 @@ echo '<html lang="en">
           </div>
 		  
 	   </div>
-	  
+	   
+	  <div class="row">
           <div class="col-md-3">
             <div class="service-box">
 			<h2 class="s-title">ETHNICITY CYBERBULLYING POSTS</h2>
@@ -384,9 +385,10 @@ echo '<html lang="en">
               </div>
             </div>
 		  </div>
-		  
+	  
       </div>
-	 
+	
+	</div>
 	  
 	</div>
   </div>
