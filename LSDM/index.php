@@ -297,12 +297,14 @@ echo '<html lang="en">
 	 <div class="row">
 	  <div class="col-sm-6 col-lg-6">
             <div class="counter-box counter-box pt-4 pt-md-0">
-			<h2 class="s-title">'. $pctBully. '%</h2>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-emoji-frown-fill"></i></span>
               </div>
               <div class="counter-num">
 			    <br>
+				<h2 class="s-title">'. $pctBully. '%</h2>
+				<br>
+				<span class="s-title">or</span>
                 <h2 class="s-title">'. $bully. '</h2>
                 <span class="s-title">CYBERBULLYING POSTS</span>
               </div>
