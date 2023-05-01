@@ -194,7 +194,12 @@ echo '<html lang="en">
 			 }
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
-			     echo '<h2 class="s-title">'. $socialdata["cyberbullying_category"] . '</h2>';
+			      if($socialdata["cyberbullying_category"!="not_cyberbullying"]){
+			     	 echo '<h2 class="s-title" style="color:#FF0000">CYBERBULLYING BASED ON '. $socialdata["cyberbullying_category"] . '</h2>';
+				  }
+				  else{
+					 echo '<h2 class="s-title" style="color:#00FF00>NOT CYBERBULLYING</h2>';
+				  }
 				  echo' <div class="service-ico">';
 				   if($socialdata["short_code"] == '') {
 				 	 echo '<span class="ico-circle"><i class="bi bi-twitter"></i></span> </div>';
