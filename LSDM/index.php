@@ -194,7 +194,7 @@ echo '<html lang="en">
 			 }
 			  echo'<div class="col-md-4">';
 				echo'<div class="service-box">';
-			      if($socialdata["cyberbullying_category"!="not_cyberbullying"]){
+			      if($socialdata["cyberbullying_category"]!="not_cyberbullying"){
 			     	 echo '<h2 class="s-title" style="color:#FF0000">CYBERBULLYING BASED ON '. $socialdata["cyberbullying_category"] . '</h2>';
 				  }
 				  else{
