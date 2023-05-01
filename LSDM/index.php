@@ -148,8 +148,7 @@ echo '<html lang="en">
 		  
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
-		  echo '<p class="subtitle-a>DISCLAIMER: The posts below are scraped from the internet and may contain graphic or harsh language. The developers to not condone or support this kind of language. The purpose for showing such posts is purely to educate the public about what types of cyberbullying exists online.</p>';
-          echo '<p class="subtitle-a">Some ' .$topic. ' Sample Posts</p>';
+          echo '<p class="subtitle-a">DISCLAIMER: The posts below are scraped from the internet and may contain graphic or harsh language. The developers to not condone or support this kind of language. The purpose for showing such posts is purely to educate the public about what types of cyberbullying exists online.<br>Some ' .$topic. ' Sample Posts</p>';
 		  echo '<div class="line-mf"></div><br>';
 		  echo '<form action="#analytics" method="post"> 
 			  <button class="button button-big button-a" name="next-posts" value="next">See Different Posts</button>
