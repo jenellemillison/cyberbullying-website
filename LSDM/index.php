@@ -198,7 +198,7 @@ echo '<html lang="en">
 			     	 echo '<h2 class="s-title" style="color:#C30011">CYBERBULLYING BASED ON '. $socialdata["cyberbullying_category"] . '</h2>';
 				  }
 				  else{
-					 echo '<h2 class="s-title" style="color:#355E3B">NOT CYBERBULLYING</h2>';
+					 echo '<h2 class="s-title" style="color:#008000">NOT CYBERBULLYING</h2>';
 				  }
 				  echo' <div class="service-ico">';
 				   if($socialdata["short_code"] == '') {
@@ -303,7 +303,6 @@ echo '<html lang="en">
               <div class="counter-num">
 			    <br>
 				<h2 class="s-title">'. $pctBully. '%</h2>
-				<br>
 				<span class="s-title">or</span>
                 <h2 class="s-title">'. $bully. '</h2>
                 <span class="s-title">CYBERBULLYING POSTS</span>
