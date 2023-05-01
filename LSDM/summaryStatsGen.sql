@@ -63,3 +63,13 @@ FROM railway.Tweets
 WHERE topic = 'Sports'
 AND cyberbullying_category IS NOT NULL
 GROUP BY cyberbullying_category;
+
+INSERT INTO railway.SummaryStats (cyberbullying_category, count, cyberbullying_category_pct, topic)
+SELECT 
+  cyberbullying_category, 
+  COUNT(*) AS 'count',
+  COUNT(*) * 100.0 / (SELECT COUNT(*) FROM railway.Tweets WHERE cyberbullying_category IS NOT NULL) AS 'cyberbullying_category_pct', 
+  'All' AS topic
+FROM railway.Tweets
+WHERE cyberbullying_category IS NOT NULL
+GROUP BY cyberbullying_category;
