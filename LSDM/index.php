@@ -328,7 +328,7 @@ echo '<html lang="en">
 		  
 	   </div>
 	  
-          <div class="col-sm-3 col-lg-3">
+          <div class="col-md-3">
             <div class="service-box">
 			<h2 class="s-title">ETHNICITY CYBERBULLYING POSTS</h2>
 			<br>
@@ -342,7 +342,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-sm-3 col-lg-3">
+          <div class="col-md-3">
             <div class="service-box">
 			<h2 class="s-title">AGE CYBERBULLYING POSTS</h2>
 			 <br>
@@ -356,7 +356,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-sm-3 col-lg-3">
+          <div class="col-md-3">
             <div class="service-box">
 			<h2 class="s-title">GENDER CYBERBULLYING POSTS</h2>
 			 <br>
@@ -370,7 +370,7 @@ echo '<html lang="en">
               </div>
             </div>
           </div>
-          <div class="col-sm-3 col-lg-3">
+          <div class="col-md-3">
             <div class="service-box">
 			 <h2 class="s-title">RELIGION CYBERBULLYING POSTS</h2>
 			  <br>
