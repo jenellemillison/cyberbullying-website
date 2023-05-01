@@ -306,7 +306,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			    <br>
 				<h2 class="s-title">'. $pctBully. '%</h2>
-                <h4 class="s-title"> or '. $bully. ' posts</h4>
+                <h4 class="s-description text-center"> or '. $bully. ' posts</h4>
                 
               </div>
             </div>
@@ -321,63 +321,66 @@ echo '<html lang="en">
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctNotBully .'%</h2>
-                <h4 class="s-title"> or ' . $notBully . ' posts</h4>
+                <h4 class="s-description text-center"> or ' . $notBully . ' posts</h4>
               </div>
             </div>
           </div>
 		  
 	   </div>
 	  
-        <div class="row">
           <div class="col-sm-3 col-lg-3">
-            <div class="counter-box counter-box pt-4 pt-md-0">
+            <div class="service-box">
+			<h2 class="s-title">ETHNICITY CYBERBULLYING POSTS</h2>
+			<br>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-diagram-2"></i></span>
               </div>
               <div class="counter-num">
-			    <br>
-                <h2 class="s-title">'. $pctEthnicity. '%</h2>
-				<span class="s-title">or</span>
-                <span class="s-title">' . $numEthnicity. ' ETHNICITY CYBERBULLYING POSTS</span>
+			     <br>
+                 <h2 class="s-title">'. $pctEthnicity .'%</h2>
+                <h4 class="s-description text-center"> or ' . $numEthnicity . ' posts</h4>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0">
+            <div class="service-box">
+			<h2 class="s-title">AGE CYBERBULLYING POSTS</h2>
+			 <br>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-calendar-check"></i></span>
               </div>
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctAge .'%</h2>
-				 <span class="s-title">or</span>
-                <span class="s-title">' . $numAge . ' AGE CYBERBULLYING POSTS</span>
+                <span class="s-description text-center">' . $numAge . ' posts</span>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0">
+            <div class="service-box">
+			<h2 class="s-title">GENDER CYBERBULLYING POSTS</h2>
+			 <br>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-gender-trans"></i></span>
               </div>
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctGender . '%</h2>
-				 <span class="s-title">or</span>
-                <span class="s-title">' . $numGender . ' GENDER CYBERBULLYING POSTS</span>
+                <span class="s-description text-center">' . $numGender . ' posts</span>
               </div>
             </div>
           </div>
           <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0">
+            <div class="service-box">
+			 <h2 class="s-title">RELIGION CYBERBULLYING POSTS</h2>
+			  <br>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-bell"></i></span>
               </div>
               <div class="counter-num">
 			  	 <br>
                  <h2 class="s-title">' . $pctReligion . '%</h2>
-				 <span class="s-title">or</span>
-                <span class="s-title">' . $numReligion . ' RELIGION CYBERBULLYING POSTS</span>
+                <span class="s-description text-center">' . $numReligion . ' posts</span>
               </div>
             </div>
 		  </div>
