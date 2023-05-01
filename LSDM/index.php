@@ -200,6 +200,7 @@ echo '<html lang="en">
 				  else{
 					 echo '<h2 class="s-title" style="color:#008000">NOT CYBERBULLYING</h2>';
 				  }
+			      echo '<br>';
 				  echo' <div class="service-ico">';
 				   if($socialdata["short_code"] == '') {
 				 	 echo '<span class="ico-circle"><i class="bi bi-twitter"></i></span> </div>';
@@ -297,6 +298,7 @@ echo '<html lang="en">
 	 <div class="row">
 	  <div class="col-sm-6 col-lg-6">
             <div class="counter-box counter-box pt-4 pt-md-0">
+			<span class="s-title">CYBERBULLYING POSTS</span>
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-emoji-frown-fill"></i></span>
               </div>
@@ -305,7 +307,7 @@ echo '<html lang="en">
 				<h2 class="s-title">'. $pctBully. '%</h2>
 				<span class="s-title">or</span>
                 <h2 class="s-title">'. $bully. '</h2>
-                <span class="s-title">CYBERBULLYING POSTS</span>
+                
               </div>
             </div>
           </div>
@@ -317,6 +319,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctNotBully .'%</h2>
+				 <span class="s-title">or</span>
                 <span class="s-title">' . $notBully . ' NOT CYBERBULLYING POSTS</span>
               </div>
             </div>
@@ -333,6 +336,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			    <br>
                 <h2 class="s-title">'. $pctEthnicity. '%</h2>
+				<span class="s-title">or</span>
                 <span class="s-title">' . $numEthnicity. ' ETHNICITY CYBERBULLYING POSTS</span>
               </div>
             </div>
@@ -345,6 +349,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctAge .'%</h2>
+				 <span class="s-title">or</span>
                 <span class="s-title">' . $numAge . ' AGE CYBERBULLYING POSTS</span>
               </div>
             </div>
@@ -357,6 +362,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			     <br>
                  <h2 class="s-title">'. $pctGender . '%</h2>
+				 <span class="s-title">or</span>
                 <span class="s-title">' . $numGender . ' GENDER CYBERBULLYING POSTS</span>
               </div>
             </div>
@@ -369,6 +375,7 @@ echo '<html lang="en">
               <div class="counter-num">
 			  	 <br>
                  <h2 class="s-title">' . $pctReligion . '%</h2>
+				 <span class="s-title">or</span>
                 <span class="s-title">' . $numReligion . ' RELIGION CYBERBULLYING POSTS</span>
               </div>
             </div>
