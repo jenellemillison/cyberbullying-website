@@ -154,7 +154,7 @@ echo '<html lang="en">
 			  <button class="button button-big button-a" name="next-posts" value="next">See Different Posts</button>
 			  </form>';
 
-		echo '<h3>Some ' .$topic. ' Sample Posts</h3>'
+		echo '<h3>Some ' .$topic. ' Sample Posts</h3>';
         echo '</div>
       </div>
     </div>
