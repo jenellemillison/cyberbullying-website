@@ -410,8 +410,8 @@ echo '<html lang="en">
   <div class="container position-relative">
     <div class="row">
       <div class="col-sm-4 col-lg-4">
-         <div class="author-test"> <img src="assets/images/analisa.jpg" alt="" class="smallimg"> <h3>Analisa Rojas</h3> </div>
-                  <div class="content-test">
+         <div class="author-test text-center"> <img src="assets/images/analisa.jpg" alt="" class="smallimg"> <h3>Analisa Rojas</h3> </div>
+                  <div class="content-test text-center">
                     <p class="description lead"> Analisa is pursuing a Bachelor\'s of Science in Computer Science at UTSA. </p>
                   </div>
       </div>
