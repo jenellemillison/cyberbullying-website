@@ -99,7 +99,7 @@ echo '<html lang="en">
       <div class="title-box text-center">
         <h3 class="title-a">Topic Selection</h3>
         <p class="subtitle-a"> Click "Select Topic" to select a subject for anaylsis of cyberbullying in social media posts. </p>
-        <div class="line-mf"></div><br><br>
+        <div class="line-mf"></div><br>
 		 <div class="topic-dropdown">
 			 <button onclick="dropdown()" class="dropbtn button button-a button-big button-rounded">Select Topic</button>
 		<div id="topic-drop-search" class="topic-dropdown-content">
@@ -148,15 +148,17 @@ echo '<html lang="en">
 		  
 		  $bottom_limit = ($perPage * ($_SESSION['pageNum'] - 1));
 		  $top_limit = ($perPage * $_SESSION['pageNum']);
-          echo '<p class="subtitle-a">Some ' .$topic. ' Sample Tweets</p>';
+		  echo '<p class="subtitle-a>DISCLAIMER: The posts below are scraped from the internet and may contain graphic or harsh language. The developers to not condone or support this kind of language. The purpose for showing such posts is purely to educate the public about what types of cyberbullying exists online.</p>'
+          echo '<p class="subtitle-a">Some ' .$topic. ' Sample Posts</p>';
+		  echo '<div class="line-mf"></div><br>';
 		  echo '<form action="#analytics" method="post"> 
-			  <button class="button button-a" name="next-posts" value="next">See Different Posts</button>
+			  <button class="button button-big button-a" name="next-posts" value="next">See Different Posts</button>
 			  </form>';
 
         echo '</div>
       </div>
     </div>
-    <!-- start graphs section> -->
+    <!-- start post samples section> -->
 	<div class="row">
       <div class="col-sm-12">
         <div class="title-box text-center">';
@@ -180,7 +182,6 @@ echo '<html lang="en">
 
 			// Create new mysql connection
 			$dblink = new mysqli( $servername, $username, $password, $dbname, $port); //make the connection to the db
-			//echo "\"SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT 10;\"";
 			$top10sql = "SELECT * from Tweets WHERE topic LIKE \"%". $topic ."%\" ORDER BY auto_id DESC LIMIT " . $perPage . " OFFSET " . $bottom_limit . ";";
 			$top10queryresults = $dblink->query( $top10sql )or die( "<p>Something went wrong with: $top10sql<br>". $dblink->error ); //execute the above query or call the error class with dblink
        echo' </div>';
