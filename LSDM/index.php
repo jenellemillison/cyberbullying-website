@@ -225,9 +225,9 @@ echo '<html lang="en">
   <!-- ======= Calculate Counts ======= -->
   ';
   if($topic == '')
-	  $numGenderBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"gender\";";
+	  $numGenderBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"gender\";";
   else
-	  $numGenderBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
+	  $numGenderBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"gender\";";
   $numGenderBully = $dblink->query( $numGenderBullyQuery )or die( "<p>Something went wrong with: $numGenderBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numGenderData = $numGenderBully->fetch_array( MYSQLI_ASSOC )) {
   	$numGender = $numGenderData['count'];
@@ -245,9 +245,9 @@ echo '<html lang="en">
   }
 
   if($topic == '')
-	  $numEthnicityBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"ethnicity\";";
+	  $numEthnicityBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"ethnicity\";";
   else
-	  $numEthnicityBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"ethnicity\";";
+	  $numEthnicityBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"ethnicity\";";
   $numEthnicityBully = $dblink->query( $numEthnicityBullyQuery )or die( "<p>Something went wrong with: $numEthnicityBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numEthnicityData = $numEthnicityBully->fetch_array( MYSQLI_ASSOC )) {
   	$numEthnicity = $numEthnicityData['count'];
@@ -255,9 +255,9 @@ echo '<html lang="en">
   }
 
   if($topic == '')
-	  $numAgeBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"age\";";
+	  $numAgeBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"age\";";
   else
-	  $numAgeBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"age\";";
+	  $numAgeBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"age\";";
   $numAgeBully = $dblink->query( $numAgeBullyQuery )or die( "<p>Something went wrong with: $numAgeBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numAgeData = $numAgeBully->fetch_array( MYSQLI_ASSOC )) {
   	$numAge = $numAgeData['count'];
@@ -265,18 +265,18 @@ echo '<html lang="en">
   }
 
   if($topic == '')
-	  $numBullyQuery = "SELECT SUM(count), SUM(cyberbullying_category_pct) from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
+	  $numBullyQuery = "SELECT SUM(count), ROUND(SUM(cyberbullying_category_pct),2) as SUM(cyberbullying_category_pct) from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
   else
-	  $numBullyQuery = "SELECT SUM(count), SUM(cyberbullying_category_pct) from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
+	  $numBullyQuery = "SELECT SUM(count), ROUND(SUM(cyberbullying_category_pct),2) as SUM(cyberbullying_category_pct) from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category NOT LIKE \"not_cyberbullying\";";
   $numBully = $dblink->query( $numBullyQuery )or die( "<p>Something went wrong with: $numBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numBullyData = $numBully->fetch_array( MYSQLI_ASSOC )) {
   	$bully = $numBullyData['SUM(count)'];
 	$pctBully = $numBullyData['SUM(cyberbullying_category_pct)'];
   }
   if($topic == '')
-	  $numNotBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
+	  $numNotBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%All%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
   else
-	  $numNotBullyQuery = "SELECT count, cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
+	  $numNotBullyQuery = "SELECT count, ROUND(cyberbullying_category_pct, 2) as cyberbullying_category_pct from SummaryStats WHERE topic LIKE \"%". $topic ."%\" AND cyberbullying_category LIKE \"not_cyberbullying\";";
   $numNotBully = $dblink->query( $numNotBullyQuery )or die( "<p>Something went wrong with: $numNotBullyQuery<br>". $dblink->error ); //execute the above query or call the error class with dblink
   while ( $numNotBullyData = $numNotBully->fetch_array( MYSQLI_ASSOC )) {
   	$notBully = $numNotBullyData['count'];
